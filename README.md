@@ -1,4 +1,4 @@
-#TSPHP-common
+#TinsPHP-common
 
 This repository contains the interfaces used by [TinsPHP's compiler](https://github.com/tinsphp/tins "TinsPHP's compiler") to integrate the different components ([parser](https://github.com/tinsphp/tins-parser "Parser component"), [type inference engine](https://github.com/tinsphp/tins-inference-engine "type inference engine component"), [translator](https://github.com/tinsphp/tins-translators-tsphp "translator component"), [core](https://github.com/tinsphp/tins-core "core component") and [symbols](https://github.com/tinsphp/tins-symbols "symbols component")). 
 
