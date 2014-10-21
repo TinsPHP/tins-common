@@ -6,6 +6,7 @@
 
 package ch.tsphp.tinsphp.common.test;
 
+import ch.tsphp.tinsphp.common.DummyClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -14,6 +15,6 @@ public class DummyTest
 {
     @Test
     public void dummyTestInOrderThatBuildPasses(){
-        assertTrue(true);
+        assertTrue(new DummyClass().dummyMethod());
     }
 }
