@@ -8,7 +8,11 @@ package ch.tsphp.tinsphp.common;
 
 public class DummyClass
 {
-    public boolean dummyMethod(){
-        return true;
+    public boolean dummyMethod(boolean b){
+        if(b) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }

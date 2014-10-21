@@ -9,12 +9,18 @@ package ch.tsphp.tinsphp.common.test;
 import ch.tsphp.tinsphp.common.DummyClass;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class DummyTest
 {
     @Test
     public void dummyTestInOrderThatBuildPasses(){
-        assertTrue(new DummyClass().dummyMethod());
+        assertTrue(new DummyClass().dummyMethod(true));
+    }
+
+    @Test
+    public void dummyTestInOrderThatBuildPasses2(){
+        assertFalse(new DummyClass().dummyMethod(false));
     }
 }
