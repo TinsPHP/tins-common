@@ -10,9 +10,8 @@ public class DummyClass
 {
     public boolean dummyMethod(boolean b) {
         if (b) {
-            return b || !b;
-        } else {
-            return true;
+            return b;
         }
+        return true;
     }
 }
