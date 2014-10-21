@@ -15,12 +15,12 @@ import static org.junit.Assert.assertTrue;
 public class DummyTest
 {
     @Test
-    public void dummyTestInOrderThatBuildPasses(){
+    public void dummyTestInOrderThatBuildPasses() {
         assertTrue(new DummyClass().dummyMethod(true));
     }
 
     @Test
-    public void dummyTestInOrderThatBuildPasses2(){
+    public void dummyTestInOrderThatBuildPasses2() {
         assertFalse(new DummyClass().dummyMethod(false));
     }
 }
