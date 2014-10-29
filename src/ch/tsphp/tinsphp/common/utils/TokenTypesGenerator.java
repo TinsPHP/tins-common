@@ -129,7 +129,8 @@ public final class TokenTypesGenerator
             if (!line.startsWith("'")) {
                 String[] token = line.split("=");
                 if (token.length == 2) {
-                    writer.append("    public static int ").append(token[0]).append(" = ").append(token[1]).append(";")
+                    writer.append("    public static final int ")
+                            .append(token[0]).append(" = ").append(token[1]).append(";")
                             .append("\n");
                 }
             } else {

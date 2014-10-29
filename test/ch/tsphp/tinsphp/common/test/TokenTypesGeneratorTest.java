@@ -314,9 +314,9 @@ public class TokenTypesGeneratorTest
         assertThat(content, is(
                 "package test;\n"
                         + "public class TokenTypes{\n"
-                        + "    public static int A = 1;\n"
-                        + "    public static int B = 2;\n"
-                        + "    public static int C = 3;\n"
+                        + "    public static final int A = 1;\n"
+                        + "    public static final int B = 2;\n"
+                        + "    public static final int C = 3;\n"
                         + "}"));
     }
 
@@ -341,9 +341,9 @@ public class TokenTypesGeneratorTest
         assertThat(content, is(
                 "package test;\n"
                         + "public class TokenTypes{\n"
-                        + "    public static int A = 1;\n"
-                        + "    public static int B = 2;\n"
-                        + "    public static int C = 3;\n"
+                        + "    public static final int A = 1;\n"
+                        + "    public static final int B = 2;\n"
+                        + "    public static final int C = 3;\n"
                         + "}"));
     }
 
