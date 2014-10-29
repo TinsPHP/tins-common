@@ -44,7 +44,7 @@ public final class TokenTypesGenerator
         String header = getArgument(arguments,
                 "-h",
                 "option -h given but header was missing",
-                "package >> PleaseSpecify <<;\nclass TokenTypes{\n"
+                "package >> PleaseSpecify <<;\npublic class TokenTypes{\n"
         );
         header = header.replace("\\n","\n");
 
@@ -98,8 +98,7 @@ public final class TokenTypesGenerator
 
         try {
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(tokensFile), encoding));
-            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(javaFile),
-                    encoding));
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(javaFile), encoding));
 
             writer.write(header);
 

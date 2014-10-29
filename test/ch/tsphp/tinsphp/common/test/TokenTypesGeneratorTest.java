@@ -231,7 +231,7 @@ public class TokenTypesGeneratorTest
 
         byte[] encoded = Files.readAllBytes(Paths.get(classFile.getPath()));
         String content = new String(encoded, "UTF-8");
-        assertThat(content, is("package >> PleaseSpecify <<;\nclass TokenTypes{\n}"));
+        assertThat(content, is("package >> PleaseSpecify <<;\npublic class TokenTypes{\n}"));
     }
 
     @Test
@@ -248,10 +248,10 @@ public class TokenTypesGeneratorTest
 
         byte[] encoded = Files.readAllBytes(Paths.get(classFile.getPath()));
         String content = new String(encoded, "UTF-16");
-        assertThat(content, is(not("package >> PleaseSpecify <<;\nclass TokenTypes{\n}")));
+        assertThat(content, is(not("package >> PleaseSpecify <<;\npublic class TokenTypes{\n}")));
         encoded = Files.readAllBytes(Paths.get(classFile.getPath()));
         content = new String(encoded, "UTF-8");
-        assertThat(content, is("package >> PleaseSpecify <<;\nclass TokenTypes{\n}"));
+        assertThat(content, is("package >> PleaseSpecify <<;\npublic class TokenTypes{\n}"));
 
     }
 
@@ -304,7 +304,7 @@ public class TokenTypesGeneratorTest
         String[] args = new String[]{
                 "-t", tokensFile.getPath(),
                 "-j", classFile.getPath(),
-                "-h", "package test;\nclass TokenTypes{\n",
+                "-h", "package test;\npublic class TokenTypes{\n",
         };
 
         TokenTypesGenerator.main(args);
@@ -313,7 +313,7 @@ public class TokenTypesGeneratorTest
         String content = new String(encoded, "UTF-8");
         assertThat(content, is(
                 "package test;\n"
-                        + "class TokenTypes{\n"
+                        + "public class TokenTypes{\n"
                         + "    public static int A = 1;\n"
                         + "    public static int B = 2;\n"
                         + "    public static int C = 3;\n"
@@ -331,7 +331,7 @@ public class TokenTypesGeneratorTest
         String[] args = new String[]{
                 "-t", tokensFile.getPath(),
                 "-j", classFile.getPath(),
-                "-h", "package test;\nclass TokenTypes{\n",
+                "-h", "package test;\npublic class TokenTypes{\n",
         };
 
         TokenTypesGenerator.main(args);
@@ -340,7 +340,7 @@ public class TokenTypesGeneratorTest
         String content = new String(encoded, "UTF-8");
         assertThat(content, is(
                 "package test;\n"
-                        + "class TokenTypes{\n"
+                        + "public class TokenTypes{\n"
                         + "    public static int A = 1;\n"
                         + "    public static int B = 2;\n"
                         + "    public static int C = 3;\n"
