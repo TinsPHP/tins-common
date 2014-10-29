@@ -256,6 +256,44 @@ public class TokenTypesGeneratorTest
     }
 
     @Test
+    public void main_ReplacePseudoNewLineInHeader_GeneratesFileWithNewLines()
+            throws IOException {
+        File tokensFile = folder.newFile("foo.tokens");
+        File classFile = folder.newFile("class.java");
+        String[] args = new String[]{
+                "-t", tokensFile.getPath(),
+                "-j", classFile.getPath(),
+                "-h", "header\\n",
+                "-f", "footer"
+        };
+
+        TokenTypesGenerator.main(args);
+
+        byte[] encoded = Files.readAllBytes(Paths.get(classFile.getPath()));
+        String content = new String(encoded, "UTF-8");
+        assertThat(content, is("header\nfooter"));
+    }
+
+    @Test
+    public void main_ReplacePseudoNewLineInFooter_GeneratesFileWithNewLines()
+            throws IOException {
+        File tokensFile = folder.newFile("foo.tokens");
+        File classFile = folder.newFile("class.java");
+        String[] args = new String[]{
+                "-t", tokensFile.getPath(),
+                "-j", classFile.getPath(),
+                "-h", "header",
+                "-f", "\\nfooter"
+        };
+
+        TokenTypesGenerator.main(args);
+
+        byte[] encoded = Files.readAllBytes(Paths.get(classFile.getPath()));
+        String content = new String(encoded, "UTF-8");
+        assertThat(content, is("header\nfooter"));
+    }
+
+    @Test
     public void main_tokensFileWith3NamedTokens_GeneratesClassWith3StaticIntegers()
             throws IOException {
         File tokensFile = folder.newFile("foo.tokens");

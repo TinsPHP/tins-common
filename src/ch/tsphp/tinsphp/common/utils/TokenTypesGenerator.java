@@ -46,12 +46,14 @@ public final class TokenTypesGenerator
                 "option -h given but header was missing",
                 "package >> PleaseSpecify <<;\nclass TokenTypes{\n"
         );
+        header = header.replace("\\n","\n");
 
         String footer = getArgument(arguments,
                 "-f",
                 "option -f given but footer was missing",
                 "}"
         );
+        footer = footer.replace("\\n","\n");
 
         String encoding = getArgument(arguments,
                 "-e",
