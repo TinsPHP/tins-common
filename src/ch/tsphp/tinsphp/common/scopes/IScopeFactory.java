@@ -14,6 +14,9 @@ package ch.tsphp.tinsphp.common.scopes;
 
 import ch.tsphp.common.IScope;
 
+/**
+ * Factory which is able to build all scopes defined in this package.
+ */
 public interface IScopeFactory
 {
 

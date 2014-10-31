@@ -17,6 +17,9 @@ import ch.tsphp.common.symbols.modifiers.ICanBePrivate;
 import ch.tsphp.common.symbols.modifiers.ICanBeProtected;
 import ch.tsphp.common.symbols.modifiers.ICanBePublic;
 
+/**
+ * Represents a symbol which has modifiers and especially can be public, protected or private.
+ */
 public interface ISymbolWithAccessModifier extends ISymbolWithModifier, ICanBePublic, ICanBeProtected, ICanBePrivate
 {
 

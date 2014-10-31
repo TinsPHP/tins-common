@@ -14,7 +14,9 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ISymbol;
 
+/**
+ * Represents a use declaration.
+ */
 public interface IAliasSymbol extends ISymbol
 {
-
 }

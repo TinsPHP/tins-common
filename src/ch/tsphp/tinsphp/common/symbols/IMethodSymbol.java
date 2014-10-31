@@ -22,6 +22,9 @@ import ch.tsphp.common.symbols.modifiers.ICanHaveCastModifier;
 
 import java.util.List;
 
+/**
+ * Represents a method or function definition.
+ */
 public interface IMethodSymbol extends ISymbolWithAccessModifier, IScope,
         ICanBeStatic, ICanBeFinal, ICanBeAbstract, ICanHaveCastModifier, ICanBeFalseable, ICanBeNullable
 {

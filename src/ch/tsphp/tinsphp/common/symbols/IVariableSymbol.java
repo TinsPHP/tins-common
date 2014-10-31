@@ -17,6 +17,9 @@ import ch.tsphp.common.symbols.modifiers.ICanBeNullable;
 import ch.tsphp.common.symbols.modifiers.ICanBeStatic;
 import ch.tsphp.common.symbols.modifiers.ICanHaveCastModifier;
 
+/**
+ * Represents a variable and constant declaration.
+ */
 public interface IVariableSymbol extends ISymbolWithAccessModifier, ICanBeStatic, ICanHaveCastModifier,
         ICanBeFalseable, ICanBeNullable
 {

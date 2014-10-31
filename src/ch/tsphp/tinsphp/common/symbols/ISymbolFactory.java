@@ -15,6 +15,9 @@ package ch.tsphp.tinsphp.common.symbols;
 import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 
+/**
+ * Factory which is able to build all symbols defined in this package.
+ */
 public interface ISymbolFactory
 {
 
