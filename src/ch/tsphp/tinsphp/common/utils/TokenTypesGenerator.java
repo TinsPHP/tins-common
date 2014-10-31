@@ -126,7 +126,7 @@ public final class TokenTypesGenerator
     private static void writeTokenTypes(BufferedReader reader, BufferedWriter writer) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {
-            if (line.charAt(0) != '\'') {
+            if (line.length() > 0 && line.charAt(0) != '\'') {
                 String[] token = line.split("=");
                 if (token.length == 2) {
                     writer.append("    public static final int ")
