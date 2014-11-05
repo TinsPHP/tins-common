@@ -23,7 +23,7 @@ public interface ISymbolFactory
 
     //    void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 //
-//    INullTypeSymbol createNullTypeSymbol();
+    INullTypeSymbol createNullTypeSymbol();
 //
 //    IVoidTypeSymbol createVoidTypeSymbol();
 //

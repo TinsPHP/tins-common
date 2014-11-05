@@ -6,6 +6,8 @@
 
 package ch.tsphp.tinsphp.common;
 
+import ch.tsphp.tinsphp.common.symbols.INullTypeSymbol;
+
 /**
  * Represents the core of TinsPHP which defines the built-in primitive types, functions,
  * classes and interfaces as well as available operator overloading and implicit/explicit casts.
@@ -20,50 +22,8 @@ public interface ICore
 //
 //    Map<ITypeSymbol, Map<ITypeSymbol, ICastingMethod>> getExplicitCastings();
 //
-//    IVoidTypeSymbol getVoidTypeSymbol();
-//
-//    INullTypeSymbol getNullTypeSymbol();
-//
-//    IScalarTypeSymbol getBoolTypeSymbol();
-//
-//    IScalarTypeSymbol getBoolFalseableTypeSymbol();
-//
-//    IScalarTypeSymbol getBoolNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getBoolFalseableAndNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getIntTypeSymbol();
-//
-//    IScalarTypeSymbol getIntFalseableTypeSymbol();
-//
-//    IScalarTypeSymbol getIntNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getIntFalseableAndNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getFloatTypeSymbol();
-//
-//    IScalarTypeSymbol getFloatFalseableTypeSymbol();
-//
-//    IScalarTypeSymbol getFloatNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getFloatFalseableAndNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getStringTypeSymbol();
-//
-//    IScalarTypeSymbol getStringFalseableTypeSymbol();
-//
-//    IScalarTypeSymbol getStringNullableTypeSymbol();
-//
-//    IScalarTypeSymbol getStringFalseableAndNullableTypeSymbol();
-//
-//    IArrayTypeSymbol getArrayTypeSymbol();
-//
-//    IArrayTypeSymbol getArrayFalseableTypeSymbol();
-//
-//    IPseudoTypeSymbol getResourceTypeSymbol();
-//
-//    IPseudoTypeSymbol getResourceFalseableTypeSymbol();
-//
+    INullTypeSymbol getNullTypeSymbol();
+
 //    IPseudoTypeSymbol getMixedTypeSymbol();
 //
 //    IClassTypeSymbol getExceptionTypeSymbol();
