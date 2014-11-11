@@ -37,8 +37,7 @@ public interface ISymbolFactory
 //
     IAliasSymbol createAliasSymbol(ITSPHPAst useDefinition, String alias);
 
-    //
-//    IAliasTypeSymbol createAliasTypeSymbol(ITSPHPAst definitionAst, String name);
+    IAliasTypeSymbol createAliasTypeSymbol(ITSPHPAst definitionAst, String name);
 //
 //    IInterfaceTypeSymbol createInterfaceTypeSymbol(ITSPHPAst modifier, ITSPHPAst identifier, IScope currentScope);
 //
