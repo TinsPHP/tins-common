@@ -14,6 +14,11 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
+import ch.tsphp.common.exceptions.TSPHPException;
+import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousMethodSymbol;
+import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
 
 /**
  * Factory which is able to build all symbols defined in this package.
@@ -21,10 +26,11 @@ import ch.tsphp.common.ITSPHPAst;
 public interface ISymbolFactory
 {
 
-    //    void setMixedTypeSymbol(ITypeSymbol typeSymbol);
-//
+    void setMixedTypeSymbol(ITypeSymbol typeSymbol);
+
     INullTypeSymbol createNullTypeSymbol();
-//
+
+    //
 //    IVoidTypeSymbol createVoidTypeSymbol();
 //
 //    @SuppressWarnings("checkstyle:parameternumber")
@@ -48,12 +54,12 @@ public interface ISymbolFactory
 
     //
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
-//
+
     IVariableSymbol createVariableSymbol(ITSPHPAst typeModifier, ITSPHPAst variableId);
-//
-//    IErroneousTypeSymbol createErroneousTypeSymbol(ITSPHPAst ast, TSPHPException exception);
-//
-//    IErroneousMethodSymbol createErroneousMethodSymbol(ITSPHPAst ast, TSPHPException exception);
-//
-//    IVariableSymbol createErroneousVariableSymbol(ITSPHPAst ast, TSPHPException exception);
+
+    IErroneousTypeSymbol createErroneousTypeSymbol(ITSPHPAst ast, TSPHPException exception);
+
+    IErroneousMethodSymbol createErroneousMethodSymbol(ITSPHPAst ast, TSPHPException exception);
+
+    IErroneousVariableSymbol createErroneousVariableSymbol(ITSPHPAst ast, TSPHPException exception);
 }
