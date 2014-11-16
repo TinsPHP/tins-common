@@ -12,6 +12,7 @@
 
 package ch.tsphp.tinsphp.common.scopes;
 
+import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.symbols.ISymbol;
 import ch.tsphp.tinsphp.common.symbols.IAliasSymbol;
 
@@ -27,14 +28,14 @@ public interface INamespaceScope extends ICaseInsensitiveScope
 
     //boolean useDefinitionCheck(IAliasSymbol symbol);
 
-//    /**
-//     * Return the corresponding definition ast of the first definition found for the given {@code alias}
-// ignoring case.
-//     *
-//     * @param alias The name of the alias which shall be found
-//     * @return The definition ast or null if the alias wasn't found
-//     */
-//    ITSPHPAst getCaseInsensitiveFirstUseDefinitionAst(String alias);
+    /**
+     * Return the corresponding definition ast of the first definition found for the given {@code alias}
+     * ignoring case.
+     *
+     * @param alias The name of the alias which shall be found
+     * @return The definition ast or null if the alias wasn't found
+     */
+    ITSPHPAst getCaseInsensitiveFirstUseDefinitionAst(String alias);
 
     @Override
     /**

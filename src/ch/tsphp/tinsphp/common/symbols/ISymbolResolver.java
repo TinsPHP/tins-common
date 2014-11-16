@@ -102,6 +102,42 @@ public interface ISymbolResolver
     ISymbol resolveClassLikeIdentifier(ITSPHPAst identifier);
 
     /**
+     * Resolves an absolute identifier.
+     * <p/>
+     * This method shall be used as shortcut when invoking a next member in the chain and the current member has
+     * already verified that the given identifier is absolute.
+     *
+     * @param identifier The identifier which we are looking for. Can be a constant,
+     *                   a variable or a function
+     * @return The corresponding symbol if the identifier was found otherwise null.
+     */
+    ISymbol resolveAbsoluteIdentifier(ITSPHPAst identifier);
+
+    /**
+     * Resolves a relative identifier.
+     * <p/>
+     * This method shall be used as shortcut when invoking a next member in the chain and the current member has
+     * already verified that the given identifier is relative.
+     *
+     * @param identifier The identifier which we are looking for. Can be a constant,
+     *                   a variable or a function
+     * @return The corresponding symbol if the identifier was found otherwise null.
+     */
+    ISymbol resolveRelativeIdentifier(ITSPHPAst identifier);
+
+    /**
+     * Resolves a local identifier.
+     * <p/>
+     * This method shall be used as shortcut when invoking a next member in the chain and the current member has
+     * already verified that the given identifier is local.
+     *
+     * @param identifier The identifier which we are looking for. Can be a constant,
+     *                   a variable or a function
+     * @return The corresponding symbol if the identifier was found otherwise null.
+     */
+    ISymbol resolveLocalIdentifier(ITSPHPAst identifier);
+
+    /**
      * Defines the next resolver in the resolving-chain.
      */
     void setNextInChain(ISymbolResolver symbolResolver);

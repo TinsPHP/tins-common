@@ -16,9 +16,11 @@ import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousLazySymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
+import ch.tsphp.tinsphp.common.symbols.erroneous.ILazySymbolResolver;
 
 /**
  * Factory which is able to build all symbols defined in this package.
@@ -62,4 +64,7 @@ public interface ISymbolFactory
     IErroneousMethodSymbol createErroneousMethodSymbol(ITSPHPAst ast, TSPHPException exception);
 
     IErroneousVariableSymbol createErroneousVariableSymbol(ITSPHPAst ast, TSPHPException exception);
+
+    IErroneousLazySymbol createErroneousLazySymbol(
+            ILazySymbolResolver symbolResolver, ITSPHPAst ast, TSPHPException exception);
 }
