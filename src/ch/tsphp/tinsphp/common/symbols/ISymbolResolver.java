@@ -22,31 +22,30 @@ import ch.tsphp.common.symbols.ISymbol;
 public interface ISymbolResolver
 {
     /**
-     * Resolves the given identifier.
+     * Resolves the given identifier from its scope.
      *
      * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
-    ISymbol resolveIdentifier(ITSPHPAst identifier);
+    ISymbol resolveIdentifierFromItsScope(ITSPHPAst identifier);
 
     /**
-     * Resolves an identifier and falls back to a backup scope (usually the global default namespace scope) if
-     * the identifier was not found.
+     * Resolves an identifier from its scope and falls back to a backup scope (usually the global default namespace
+     * scope) if the identifier was not found.
      *
-     * @param identifier The identifier which we are looking for. Can be a constant, a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
-    ISymbol resolveIdentifierWithFallback(ITSPHPAst identifier);
+    ISymbol resolveIdentifierFromItsScopeWithFallback(ITSPHPAst identifier);
 
     /**
      * Resolves an identifier from the backup scope (usually the global default namespace scope).
      * <p/>
      * This method will be used by the first resolver in the resolving-chain. This way the
      * resolveIdentifierWithFallback method can easily be implemented by first invoking
-     * resolveIdentifier (traversing the resolving-chain) and look only in the backup scope if the identifier was not
-     * found this way.
+     * resolveIdentifier (traversing the resolving-chain) and then look only in the backup scope.
      *
-     * @param identifier The identifier which we are looking for. Can be a constant, a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveIdentifierFromFallback(ITSPHPAst identifier);
@@ -104,6 +103,9 @@ public interface ISymbolResolver
     /**
      * Resolves an absolute identifier.
      * <p/>
+     * The identifier is resolved from the namespace scope with the corresponding id. For instance,
+     * \E_ALL is resolved from the namespace \, \ch\tsphp\SomeClass is resolved from the namespace \ch\tsphp\
+     * <p/>
      * This method shall be used as shortcut when invoking a next member in the chain and the current member has
      * already verified that the given identifier is absolute.
      *
@@ -116,6 +118,10 @@ public interface ISymbolResolver
     /**
      * Resolves a relative identifier.
      * <p/>
+     * The identifier is resolved from the sub-namespace scope with the corresponding id. For instance,
+     * assuming the identifier is within the namespace \ch\, then the identifier tsphp\SomeClass is resolved from the
+     * namespace \ch\tsphp\
+     * <p/>
      * This method shall be used as shortcut when invoking a next member in the chain and the current member has
      * already verified that the given identifier is relative.
      *
@@ -126,7 +132,10 @@ public interface ISymbolResolver
     ISymbol resolveRelativeIdentifier(ITSPHPAst identifier);
 
     /**
-     * Resolves a local identifier.
+     * Resolves an identifier from its enclosing namespace scope.
+     * <p/>
+     * A local identifier does not include any namespace information. For instance: E_ALL, foo etc.
+     * Variables are not namespace local identifiers since they
      * <p/>
      * This method shall be used as shortcut when invoking a next member in the chain and the current member has
      * already verified that the given identifier is local.
@@ -135,7 +144,7 @@ public interface ISymbolResolver
      *                   a variable or a function
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
-    ISymbol resolveLocalIdentifier(ITSPHPAst identifier);
+    ISymbol resolveIdentifierFromItsNamespaceScope(ITSPHPAst identifier);
 
     /**
      * Defines the next resolver in the resolving-chain.

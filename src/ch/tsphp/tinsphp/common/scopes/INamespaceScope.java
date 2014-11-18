@@ -37,6 +37,15 @@ public interface INamespaceScope extends ICaseInsensitiveScope
      */
     ITSPHPAst getCaseInsensitiveFirstUseDefinitionAst(String alias);
 
+    /**
+     * Return the corresponding symbol of the first definition found for the given {@code alias}
+     * ignoring case.
+     *
+     * @param alias The name of the alias which shall be found
+     * @return The symbol or null if the alias wasn't found
+     */
+    ISymbol getCaseInsensitiveFirstUseSymbol(String alias);
+
     @Override
     /**
      *  Return only the use definition defined in this namespace scope.
