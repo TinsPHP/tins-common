@@ -26,8 +26,6 @@ public interface INamespaceScope extends ICaseInsensitiveScope
 {
     void defineUse(IAliasSymbol symbol);
 
-    //boolean useDefinitionCheck(IAliasSymbol symbol);
-
     /**
      * Return the corresponding definition ast of the first definition found for the given {@code alias}
      * ignoring case.

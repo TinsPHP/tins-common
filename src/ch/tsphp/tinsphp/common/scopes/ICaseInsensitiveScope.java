@@ -13,18 +13,15 @@
 package ch.tsphp.tinsphp.common.scopes;
 
 import ch.tsphp.common.IScope;
+import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.symbols.ISymbol;
 
 /**
- * Represents a scope which has case insensitive definition rules.
+ * Represents a scope which provides the possibility to resolve identifiers in a case insensitive manner.
  * <p/>
- * That means, symbols defined in this scope are not case sensitive when it comes down to check whether a different
- * symbol with the same identifier already exists.
- * <p/>
- * As an example, foo, Foo, fOo, FOO are all the same identifier in such a scope.
+ * As an example, foo, Foo, fOo, FOO would all be resolve when wants to resolve the identifier "foo".
  */
 public interface ICaseInsensitiveScope extends IScope
 {
-
-    boolean doubleDefinitionCheckCaseInsensitive(ISymbol symbol);
+    ISymbol resolveCaseInsensitive(ITSPHPAst identifier);
 }
