@@ -39,8 +39,7 @@ public interface ISymbolResolverController
      * </ul>
      * <p/>
      *
-     * @param identifier The identifier which we are looking for. Can be a constant,
-     *                   a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveConstantLikeIdentifier(ITSPHPAst identifier);
@@ -58,21 +57,30 @@ public interface ISymbolResolverController
      * </ul>
      * <p/>
      *
-     * @param identifier The identifier which we are looking for. Can be a constant,
-     *                   a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveClassLikeIdentifier(ITSPHPAst identifier);
 
     /**
-     * Resolves an identifier from its enclosing namespace scope.
+     * Resolves a local identifier from its enclosing namespace scope.
      * <p/>
      * A local identifier does not include any namespace information. For instance: E_ALL, foo etc.
-     * Variables are not namespace local identifiers since they are scope specific (might be global though).
+     * Variables should not be resolved by this method since they are not defined in their enclosing namespace scope but
+     * in their enclosing scope (might be a namespace scope though).
      *
-     * @param identifier The identifier which we are looking for. Can be a constant,
-     *                   a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveIdentifierFromItsNamespaceScope(ITSPHPAst identifier);
+
+
+    /**
+     * Resolves the given identifier from its scope.
+     *
+     * @param identifier The identifier which we are looking for.
+     * @return The corresponding symbol if the identifier was found otherwise null.
+     */
+    ISymbol resolveIdentifierFromItsScope(ITSPHPAst identifier);
+
 }
