@@ -7,6 +7,8 @@
 package ch.tsphp.tinsphp.common;
 
 import ch.tsphp.tinsphp.common.symbols.INullTypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.resolver.ISymbolResolver;
+import ch.tsphp.tinsphp.common.symbols.resolver.ITypeSymbolResolver;
 
 /**
  * Represents the core of TinsPHP which defines the built-in primitive types, functions,
@@ -23,6 +25,10 @@ public interface ICore
 //    Map<ITypeSymbol, Map<ITypeSymbol, ICastingMethod>> getExplicitCastings();
 //
     INullTypeSymbol getNullTypeSymbol();
+
+    ISymbolResolver getCoreSymbolResolver();
+
+    ITypeSymbolResolver getCoreTypeSymbolResolver();
 
 //    IPseudoTypeSymbol getMixedTypeSymbol();
 //

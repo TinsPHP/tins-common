@@ -22,6 +22,8 @@ import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.ILazySymbolResolver;
 
+import java.util.Map;
+
 /**
  * Factory which is able to build all symbols defined in this package.
  */
@@ -30,31 +32,33 @@ public interface ISymbolFactory
 
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 
+    ITypeSymbol getMixedTypeSymbol();
+
     INullTypeSymbol createNullTypeSymbol();
 
-    //
 //    IVoidTypeSymbol createVoidTypeSymbol();
-//
-//    @SuppressWarnings("checkstyle:parameternumber")
-//    IScalarTypeSymbol createScalarTypeSymbol(String name, int tokenType, Set<ITypeSymbol> parentTypeSymbol,
-//            int defaultValueTokenType, String defaultValue);
-//
-//    IArrayTypeSymbol createArrayTypeSymbol(String name, int tokenType, ITypeSymbol keyValue, ITypeSymbol valueType);
-//
-//    IPseudoTypeSymbol createPseudoTypeSymbol(String name);
-//
+
+    @SuppressWarnings("checkstyle:parameternumber")
+    IScalarTypeSymbol createScalarTypeSymbol(String name, int tokenType, ITypeSymbol parentTypeSymbol,
+            int defaultValueTokenType, String defaultValue);
+
+    IArrayTypeSymbol createArrayTypeSymbol(String name, int tokenType, ITypeSymbol keyValue, ITypeSymbol valueType);
+
+    IPseudoTypeSymbol createPseudoTypeSymbol(String name);
+
     IAliasSymbol createAliasSymbol(ITSPHPAst useDefinition, String alias);
 
     IAliasTypeSymbol createAliasTypeSymbol(ITSPHPAst definitionAst, String name);
+
+    //    IInterfaceTypeSymbol createInterfaceTypeSymbol(ITSPHPAst modifier, ITSPHPAst identifier, IScope currentScope);
 //
-//    IInterfaceTypeSymbol createInterfaceTypeSymbol(ITSPHPAst modifier, ITSPHPAst identifier, IScope currentScope);
-//
-//    IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
+    IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
+
+    IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);
 
     IMethodSymbol createMethodSymbol(ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier,
             IScope currentScope);
 
-    //
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
 
     IVariableSymbol createVariableSymbol(ITSPHPAst typeModifier, ITSPHPAst variableId);
