@@ -22,4 +22,6 @@ public interface ISymbolCheckController
     DoubleDefinitionCheckResultDto isNotDoubleUseDefinition(ITSPHPAst alias);
 
     AlreadyDefinedAsTypeResultDto isNotAlreadyDefinedAsType(ITSPHPAst alias);
+
+    VariableInitialisedResultDto isVariableInitialised(ITSPHPAst variableId);
 }
