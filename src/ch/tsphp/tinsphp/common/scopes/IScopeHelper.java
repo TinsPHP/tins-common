@@ -17,9 +17,6 @@ import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.symbols.ISymbol;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * Includes several helper methods which are used by different scopes.
  */
@@ -34,15 +31,7 @@ public interface IScopeHelper
 
     void define(IScope definitionScope, ISymbol symbol);
 
-    boolean checkIsNotDoubleDefinition(Map<String, List<ISymbol>> symbols, ISymbol symbol);
-
-    boolean checkIsNotDoubleDefinition(Map<String, List<ISymbol>> symbols, ISymbol symbol,
-            IAlreadyDefinedMethodCaller errorMethodCaller);
-
-    boolean checkIsNotDoubleDefinition(ISymbol firstDefinition, ISymbol symbolToCheck);
-
-    boolean checkIsNotDoubleDefinition(ISymbol firstDefinition, ISymbol symbolToCheck,
-            IAlreadyDefinedMethodCaller errorMethodCaller);
+    ISymbol resolve(IScope scope, ITSPHPAst ast);
 
     /**
      * Return the corresponding global namespace from the given globalNamespaceScopes for the given identifier.
@@ -70,8 +59,5 @@ public interface IScopeHelper
      * @return The corresponding namespace or null if the ast does not have an enclosing namespace
      */
     INamespaceScope getEnclosingNamespaceScope(ITSPHPAst ast);
-
-    ISymbol resolve(IScope scope, ITSPHPAst ast);
-
 
 }

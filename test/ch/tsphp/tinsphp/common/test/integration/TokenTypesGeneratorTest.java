@@ -4,7 +4,7 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.test;
+package ch.tsphp.tinsphp.common.test.integration;
 
 import ch.tsphp.tinsphp.common.utils.TokenTypesGenerator;
 import org.junit.Assert;
@@ -182,7 +182,7 @@ public class TokenTypesGeneratorTest
                 "-j", javaFile.getPath(),
                 "-h", "header",
                 "-f", "footer",
-                "-e", //missing enconding
+                "-e", //missing encoding
         };
 
         try {
