@@ -38,7 +38,7 @@ public interface ISymbolResolver
     ISymbol resolveIdentifierFromItsScopeCaseInsensitive(ITSPHPAst identifier);
 
     /**
-     * Resolves an identifier from the backup scope (usually the global default namespace scope).
+     * Resolves the given identifier from the backup scope (usually the global default namespace scope).
      *
      * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
@@ -46,27 +46,33 @@ public interface ISymbolResolver
     ISymbol resolveIdentifierFromFallback(ITSPHPAst identifier);
 
     /**
-     * Resolves an absolute identifier.
+     * Resolves the given absolute identifier.
      * <p/>
      * The identifier is resolved from the namespace scope with the corresponding id. For instance,
      * \E_ALL is resolved from the namespace \, \ch\tsphp\SomeClass is resolved from the namespace \ch\tsphp\
      *
-     * @param identifier The identifier which we are looking for. Can be a constant,
-     *                   a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveAbsoluteIdentifier(ITSPHPAst identifier);
 
     /**
-     * Resolves an identifier from its enclosing namespace scope.
+     * Resolves the given identifier from its enclosing namespace scope.
      * <p/>
      * A local identifier does not include any namespace information. For instance: E_ALL, foo etc.
      * Variables are not namespace local identifiers since they are scope specific (might be global though).
      *
-     * @param identifier The identifier which we are looking for. Can be a constant,
-     *                   a variable or a function
+     * @param identifier The identifier which we are looking for.
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveIdentifierFromItsNamespaceScope(ITSPHPAst identifier);
+
+    /**
+     * Resolves the given identifier from the super global scope.
+     *
+     * @param identifier The identifier which we are looking for.
+     * @return The corresponding symbol if the identifier was found otherwise null.
+     */
+    ISymbol resolveIdentifierFromSuperGlobalScope(ITSPHPAst identifier);
 }
 

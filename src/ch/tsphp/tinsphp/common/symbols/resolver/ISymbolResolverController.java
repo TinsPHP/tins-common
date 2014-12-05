@@ -63,6 +63,15 @@ public interface ISymbolResolverController
     ISymbol resolveClassLikeIdentifier(ITSPHPAst identifier);
 
     /**
+     * Resolves an identifier from its scope, if it was not found look from the fall back scope but only if the scope
+     * of the identifier is a namespace scope and if it was still not found then from the super global scope.
+     *
+     * @param identifier The identifier which we are looking for.
+     * @return The corresponding symbol if the identifier was found otherwise null.
+     */
+    ISymbol resolveVariableLikeIdentifier(ITSPHPAst identifier);
+
+    /**
      * Resolves a local identifier from its enclosing namespace scope.
      * <p/>
      * A local identifier does not include any namespace information. For instance: E_ALL, foo etc.
@@ -73,7 +82,6 @@ public interface ISymbolResolverController
      * @return The corresponding symbol if the identifier was found otherwise null.
      */
     ISymbol resolveIdentifierFromItsNamespaceScope(ITSPHPAst identifier);
-
 
     /**
      * Resolves the given identifier from its scope.

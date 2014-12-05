@@ -19,7 +19,7 @@ public interface ISymbolCheckController
 
     DoubleDefinitionCheckResultDto isNotDoubleDefinitionCaseInsensitive(ITSPHPAst identifier);
 
-    DoubleDefinitionCheckResultDto isNotDoubleUseDefinition(ITSPHPAst alias);
+    DoubleDefinitionCheckResultDto isNotUseDoubleDefinition(ITSPHPAst alias);
 
     AlreadyDefinedAsTypeResultDto isNotAlreadyDefinedAsType(ITSPHPAst alias);
 
