@@ -39,12 +39,17 @@ public interface ISymbolFactory
 //    IVoidTypeSymbol createVoidTypeSymbol();
 
     @SuppressWarnings("checkstyle:parameternumber")
-    IScalarTypeSymbol createScalarTypeSymbol(String name, int tokenType, ITypeSymbol parentTypeSymbol,
+    IScalarTypeSymbol createScalarTypeSymbol(String name, ITypeSymbol parentTypeSymbol,
             int defaultValueTokenType, String defaultValue);
 
-    IArrayTypeSymbol createArrayTypeSymbol(String name, int tokenType, ITypeSymbol keyValue, ITypeSymbol valueType);
+    IArrayTypeSymbol createArrayTypeSymbol(String name, ITypeSymbol keyValue, ITypeSymbol valueType);
 
+    /**
+     * Create and return a PseudoTypeSymbol with the given name and mixed as parent type symbol.
+     */
     IPseudoTypeSymbol createPseudoTypeSymbol(String name);
+
+    IPseudoTypeSymbol createPseudoTypeSymbol(String name, ITypeSymbol parentTypeSymbol);
 
     IAliasSymbol createAliasSymbol(ITSPHPAst useDefinition, String alias);
 
