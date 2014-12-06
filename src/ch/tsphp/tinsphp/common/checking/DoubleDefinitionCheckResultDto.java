@@ -4,7 +4,7 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.symbols.resolver;
+package ch.tsphp.tinsphp.common.checking;
 
 import ch.tsphp.common.symbols.ISymbol;
 

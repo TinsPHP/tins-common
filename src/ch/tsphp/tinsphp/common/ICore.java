@@ -7,7 +7,7 @@
 package ch.tsphp.tinsphp.common;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.tinsphp.common.symbols.resolver.ISymbolResolver;
+import ch.tsphp.tinsphp.common.resolving.ISymbolResolver;
 
 import java.util.Map;
 
@@ -21,10 +21,11 @@ public interface ICore
 //
 //    Map<Integer, List<IMethodSymbol>> getBinaryOperators();
 //
-//    Map<ITypeSymbol, Map<ITypeSymbol, ICastingMethod>> getImplicitCasting();
-//
-//    Map<ITypeSymbol, Map<ITypeSymbol, ICastingMethod>> getExplicitCastings();
-//
+    Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getImplicitConversions();
+
+    Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getExplicitConversions();
+
+    //
     Map<String, ITypeSymbol> getPrimitiveTypes();
 
     ISymbolResolver getCoreSymbolResolver();
