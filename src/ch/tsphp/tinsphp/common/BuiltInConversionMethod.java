@@ -11,7 +11,7 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 
 public class BuiltInConversionMethod implements IBuiltInConversionMethod
 {
-    private ITypeSymbol typeSymbol;
+    private final ITypeSymbol typeSymbol;
     private ITypeSymbol parentTypeWhichProvidesCast;
 
     public BuiltInConversionMethod(ITypeSymbol theTypeSymbol) {
@@ -20,8 +20,8 @@ public class BuiltInConversionMethod implements IBuiltInConversionMethod
 
     @Override
     public ITSPHPAst createConversionAst(ITSPHPAst ast) {
-        throw new UnsupportedOperationException("should not be called, it is a built-int conversion which is not " +
-                "defined in user code and hence needs to be created in the translation phase");
+        throw new UnsupportedOperationException("should not be called, it is a built-int conversion which is not "
+                + "defined in user code and hence needs to be created in the translation phase");
     }
 
     @Override
