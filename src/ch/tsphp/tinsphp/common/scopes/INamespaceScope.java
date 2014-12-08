@@ -5,7 +5,7 @@
  */
 
 /*
- * This class is based on the class INamespaceScope from the TSPHP project.
+ * This file is based on the file INamespaceScope from the TSPHP project.
  * TSPHP is also published under the Apache License 2.0
  * For more information see http://tsphp.ch/wiki/display/TSPHP/License
  */
