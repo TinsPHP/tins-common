@@ -6,7 +6,7 @@
 
 package ch.tsphp.tinsphp.common.inference;
 
-import ch.tsphp.tinsphp.common.inference.error.IInferenceErrorReporter;
+import ch.tsphp.tinsphp.common.issues.IInferenceIssueReporter;
 
 public interface IInferenceEngineInitialiser
 {
@@ -14,7 +14,7 @@ public interface IInferenceEngineInitialiser
 
     IReferencePhaseController getReferencePhaseController();
 
-    IInferenceErrorReporter getInferenceErrorReporter();
+    IInferenceIssueReporter getInferenceErrorReporter();
 
     /**
      * Resets components which use caches or something similar.
