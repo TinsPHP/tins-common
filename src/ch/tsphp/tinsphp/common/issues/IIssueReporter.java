@@ -15,9 +15,20 @@ import java.util.EnumSet;
  */
 public interface IIssueReporter
 {
+    /**
+     * Add the given issue logger as listener for issues.
+     * <p/>
+     * The issue reporter will pass all issues detected to the registered issue loggers.
+     */
     void registerIssueLogger(IIssueLogger logger);
 
-    boolean hasFound(EnumSet<EIssueSeverity> severity);
+    /**
+     * Indicate whether one or more issues where found with one of the given severity levels.
+     */
+    boolean hasFound(EnumSet<EIssueSeverity> severities);
 
+    /**
+     * Drop previous issues
+     */
     void reset();
 }
