@@ -10,7 +10,7 @@
  * For more information see http://tsphp.ch/wiki/display/TSPHP/License
  */
 
-package ch.tsphp.tinsphp.common.test.unit;
+package ch.tsphp.tinsphp.common.test.unit.utils;
 
 
 import ch.tsphp.tinsphp.common.utils.MapHelper;

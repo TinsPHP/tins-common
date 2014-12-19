@@ -17,6 +17,7 @@ import ch.tsphp.common.exceptions.UnexpectedTokenException;
 import org.antlr.runtime.RecognitionException;
 
 import java.util.Collection;
+import java.util.EnumSet;
 
 public final class IssueReporterHelper
 {
@@ -39,5 +40,18 @@ public final class IssueReporterHelper
                 logger.log(ex, EIssueSeverity.FatalError);
             }
         }
+    }
+
+    public static boolean hasFound(EnumSet<EIssueSeverity> issuesFound, EnumSet<EIssueSeverity> lookingForSeverities) {
+        boolean hasFound = false;
+        if (issuesFound.size() > 0) {
+            for (EIssueSeverity severity : lookingForSeverities) {
+                hasFound = issuesFound.contains(severity);
+                if (hasFound) {
+                    break;
+                }
+            }
+        }
+        return hasFound;
     }
 }

@@ -4,6 +4,12 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
+/*
+ * This class is based on the file IParser from the TSPHP project.
+ * TSPHP is also published under the Apache License 2.0
+ * For more information see http://tsphp.ch/wiki/display/TSPHP/License
+ */
+
 package ch.tsphp.tinsphp.common;
 
 import ch.tsphp.common.ParserUnitDto;
