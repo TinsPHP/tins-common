@@ -8,9 +8,14 @@ package ch.tsphp.tinsphp.common.issues;
 
 import java.util.EnumSet;
 
+/**
+ * Represents an issue reporter.
+ * <p/>
+ * The concrete implementation decides what severity an issue has.
+ */
 public interface IIssueReporter
 {
-    void registerErrorLogger(IIssueLogger logger);
+    void registerIssueLogger(IIssueLogger logger);
 
     boolean hasFound(EnumSet<EIssueSeverity> severity);
 

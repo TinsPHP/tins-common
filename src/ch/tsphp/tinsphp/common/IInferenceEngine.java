@@ -6,14 +6,14 @@
 
 package ch.tsphp.tinsphp.common;
 
-import ch.tsphp.common.IErrorReporter;
 import ch.tsphp.common.ITSPHPAst;
+import ch.tsphp.tinsphp.common.issues.IIssueReporter;
 import org.antlr.runtime.tree.TreeNodeStream;
 
 /**
  * Represents the inference engine of TinsPHP.
  */
-public interface IInferenceEngine extends IErrorReporter
+public interface IInferenceEngine extends IIssueReporter
 {
     void enrichWithDefinitions(ITSPHPAst ast, TreeNodeStream treeNodeStream);
 
@@ -23,7 +23,7 @@ public interface IInferenceEngine extends IErrorReporter
 
     /**
      * Reset the inference engine.
-     *
+     * <p/>
      * It will forget about previous definitions etc. and will drop previous exceptions
      */
     @Override
