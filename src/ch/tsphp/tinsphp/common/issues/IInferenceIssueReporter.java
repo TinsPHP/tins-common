@@ -37,11 +37,11 @@ public interface IInferenceIssueReporter extends IIssueReporter
 
     DefinitionException variableNotInitialised(ITSPHPAst definitionAst, ITSPHPAst variableId);
 
-    void partialReturnFromFunction(ITSPHPAst identifier);
-
-    void noReturnFromFunction(ITSPHPAst identifier);
-
     ReferenceException notDefined(ITSPHPAst identifier);
 
     ReferenceException unknownType(ITSPHPAst typeAst);
+
+    void partialReturnFromFunction(ITSPHPAst identifier);
+
+    void noReturnFromFunction(ITSPHPAst identifier);
 }
