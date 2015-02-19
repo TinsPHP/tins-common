@@ -6,7 +6,7 @@
 
 package ch.tsphp.tinsphp.common;
 
-public interface ITranslatorFactory
+public interface ITranslatorInitialiser
 {
     ITranslator build();
 }
