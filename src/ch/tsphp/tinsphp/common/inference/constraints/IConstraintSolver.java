@@ -4,13 +4,12 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.symbols;
+package ch.tsphp.tinsphp.common.inference.constraints;
 
-import ch.tsphp.common.symbols.ITypeSymbol;
 
-import java.util.Map;
+import ch.tsphp.common.IScope;
 
-public interface IUnionTypeSymbol extends ITypeSymbol
+public interface IConstraintSolver
 {
-    Map<String, ITypeSymbol> getTypeSymbols();
+    void solveConstraintsOfScope(IScope currentScope);
 }

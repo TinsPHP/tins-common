@@ -20,10 +20,4 @@ package ch.tsphp.tinsphp.common.scopes;
  */
 public interface IGlobalNamespaceScope extends ICaseInsensitiveScope
 {
-    //TODO rstoll TINS-179 reference phase - use
-    /**
-     * Return the ITypeSymbol which clashes with the given identifier (the right identifier of a use statement)
-     * or null if there is not any type name clash.
-     */
-    //ITypeSymbol getTypeSymbolWhichClashesWithUse(ITSPHPAst identifier);
 }
