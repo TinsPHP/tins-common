@@ -60,6 +60,8 @@ public interface ISymbolFactory
 //
     IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
 
+    IUnionTypeSymbol createUnionTypeSymbol();
+
     IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);
 
     IMethodSymbol createMethodSymbol(ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier,

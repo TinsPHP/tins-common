@@ -19,13 +19,14 @@ import ch.tsphp.common.symbols.modifiers.ICanBeFinal;
 import ch.tsphp.common.symbols.modifiers.ICanBeNullable;
 import ch.tsphp.common.symbols.modifiers.ICanBeStatic;
 import ch.tsphp.common.symbols.modifiers.ICanHaveCastModifier;
+import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
 
 import java.util.List;
 
 /**
  * Represents a method or function definition.
  */
-public interface IMethodSymbol extends ISymbolWithAccessModifier, IScope,
+public interface IMethodSymbol extends ISymbolWithAccessModifier, IScope, ITypeVariableCollection,
         ICanBeStatic, ICanBeFinal, ICanBeAbstract, ICanHaveCastModifier, ICanBeFalseable, ICanBeNullable
 {
 

@@ -15,6 +15,7 @@ package ch.tsphp.tinsphp.common.inference;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.ITSPHPErrorAst;
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import org.antlr.runtime.RecognitionException;
@@ -27,7 +28,7 @@ import java.util.List;
 public interface IReferencePhaseController
 {
 
-    IVariableSymbol resolveConstant(ITSPHPAst ast);
+    IVariableSymbol resolveConstant(ITSPHPAst identifier);
 
     //TODO rstoll TINS-223 reference phase - resolve this and self
 //    IVariableSymbol resolveThisSelf(ITSPHPAst $this);
@@ -36,6 +37,10 @@ public interface IReferencePhaseController
 //    IVariableSymbol resolveParent(ITSPHPAst $this);
 
     IVariableSymbol resolveVariable(ITSPHPAst variableId);
+
+    IMethodSymbol resolveFunction(ITSPHPAst identifier);
+
+    IMethodSymbol resolveOperator(ITSPHPAst operator);
 
     ITypeSymbol resolvePrimitiveType(ITSPHPAst typeASt, ITSPHPAst typeModifierAst);
 

@@ -6,8 +6,13 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbol;
 
-public interface IConstraintSolver
+import java.util.Map;
+
+public interface ITypeVariableCollection
 {
-    void solveConstraints(ITypeVariableCollection currentScope);
+    Map<String, ITypeVariableSymbol> getTypeVariables();
+
+    void addTypeVariable(ITypeVariableSymbol typeVariableSymbol);
 }
