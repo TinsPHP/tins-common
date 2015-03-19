@@ -16,6 +16,7 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.ITSPHPErrorAst;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+import ch.tsphp.tinsphp.common.symbols.IOverloadSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import org.antlr.runtime.RecognitionException;
@@ -40,7 +41,7 @@ public interface IReferencePhaseController
 
     IMethodSymbol resolveFunction(ITSPHPAst identifier);
 
-    IMethodSymbol resolveOperator(ITSPHPAst operator);
+    IOverloadSymbol resolveOperator(ITSPHPAst operator);
 
     ITypeSymbol resolvePrimitiveType(ITSPHPAst typeASt, ITSPHPAst typeModifierAst);
 

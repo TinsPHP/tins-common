@@ -23,6 +23,7 @@ import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.ILazySymbolResolver;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -64,8 +65,13 @@ public interface ISymbolFactory
 
     IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);
 
-    IMethodSymbol createMethodSymbol(ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier,
-            IScope currentScope);
+    IOverloadSymbol createOverloadSymbol();
+
+    IFunctionTypeSymbol createConstantFunctionTypeSymbol(
+            String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
+
+    IMethodSymbol createMethodSymbol(
+            ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
 
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
 
