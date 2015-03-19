@@ -61,6 +61,8 @@ public interface ISymbolFactory
 //
     IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
 
+    ITypeVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
+
     IUnionTypeSymbol createUnionTypeSymbol();
 
     IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);

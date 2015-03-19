@@ -15,6 +15,7 @@ package ch.tsphp.tinsphp.common.inference;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.ITSPHPErrorAst;
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IOverloadSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
@@ -57,6 +58,8 @@ public interface IReferencePhaseController
     ITypeSymbol resolveUseType(ITSPHPAst typeAst, ITSPHPAst alias);
 
     ITypeSymbol resolvePrimitiveLiteral(ITSPHPAst literal);
+
+    IUnionTypeSymbol createUnionTypeSymbol();
 
     IErroneousTypeSymbol createErroneousTypeSymbol(ITSPHPErrorAst typeAst);
 

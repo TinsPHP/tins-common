@@ -20,6 +20,7 @@ import java.util.List;
 
 public interface ITypeVariableSymbol extends ISymbol, IConstraint
 {
+    void addConstraint(IConstraint constraint);
 
     List<IConstraint> getConstraints();
 

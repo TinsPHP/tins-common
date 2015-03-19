@@ -20,8 +20,8 @@ import ch.tsphp.common.symbols.modifiers.ICanHaveCastModifier;
 /**
  * Represents a variable and constant declaration.
  */
-public interface IVariableSymbol extends ISymbolWithAccessModifier, ICanBeStatic, ICanHaveCastModifier,
-        ICanBeFalseable, ICanBeNullable
+public interface IVariableSymbol extends ISymbolWithAccessModifier, ITypeVariableSymbol,
+        ICanBeStatic, ICanHaveCastModifier, ICanBeFalseable, ICanBeNullable
 {
     TypeWithModifiersDto toTypeWithModifiersDto();
 }
