@@ -18,7 +18,7 @@ import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 
 import java.util.List;
 
-public interface ITypeVariableSymbol extends ISymbol
+public interface ITypeVariableSymbol extends ISymbol, IConstraint
 {
 
     List<IConstraint> getConstraints();
