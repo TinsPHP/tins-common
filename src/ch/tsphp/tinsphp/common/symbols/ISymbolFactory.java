@@ -65,7 +65,7 @@ public interface ISymbolFactory
 
     IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);
 
-    IOverloadSymbol createOverloadSymbol();
+    IOverloadSymbol createOverloadSymbol(String name);
 
     IFunctionTypeSymbol createConstantFunctionTypeSymbol(
             String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
