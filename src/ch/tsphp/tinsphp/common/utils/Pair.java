@@ -6,18 +6,20 @@
 
 package ch.tsphp.tinsphp.common.utils;
 
-public final class Pair<T1, T2>
+@SuppressWarnings("checkstyle:visibilitymodifier")
+public final class Pair<TFirst, TSecond>
 {
-    public final T1 first;
-    public final T2 second;
+    public final TFirst first;
+    public final TSecond second;
 
-    public static <T1, T2> Pair<T1, T2> pair(T1 operatorName, T2 operatorType) {
-        return new Pair<>(operatorName, operatorType);
-    }
 
-    public Pair(T1 firstItem, T2 secondItem) {
+    public Pair(TFirst firstItem, TSecond secondItem) {
         first = firstItem;
         second = secondItem;
+    }
+
+    public static <TFirst, TSecond> Pair<TFirst, TSecond> pair(TFirst operatorName, TSecond operatorType) {
+        return new Pair<>(operatorName, operatorType);
     }
 
 }
