@@ -44,7 +44,7 @@ public interface IReferencePhaseController
 
     IOverloadSymbol resolveOperator(ITSPHPAst operator);
 
-    ITypeSymbol resolvePrimitiveType(ITSPHPAst typeASt, ITSPHPAst typeModifierAst);
+    IUnionTypeSymbol resolvePrimitiveType(ITSPHPAst typeASt, ITSPHPAst typeModifierAst);
 
     /**
      * Try to resolve the type for the given typeAst and returns an
@@ -53,11 +53,11 @@ public interface IReferencePhaseController
      * @param typeAst The AST node which contains the type name. For instance, int, MyClass, \Exception etc.
      * @return The corresponding type or a {@link IErroneousTypeSymbol} if could not be found.
      */
-    ITypeSymbol resolveType(ITSPHPAst typeAst, ITSPHPAst typeModifierAst);
+    IUnionTypeSymbol resolveType(ITSPHPAst typeAst, ITSPHPAst typeModifierAst);
 
     ITypeSymbol resolveUseType(ITSPHPAst typeAst, ITSPHPAst alias);
 
-    ITypeSymbol resolvePrimitiveLiteral(ITSPHPAst literal);
+    IUnionTypeSymbol resolvePrimitiveLiteral(ITSPHPAst literal);
 
     IUnionTypeSymbol createUnionTypeSymbol();
 
