@@ -13,7 +13,6 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ISymbol;
-import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 
 import java.util.List;
@@ -23,8 +22,5 @@ public interface ITypeVariableSymbol extends ISymbol, IConstraint
     void addConstraint(IConstraint constraint);
 
     List<IConstraint> getConstraints();
-
-    @Override
-    IUnionTypeSymbol getType();
 
 }
