@@ -17,6 +17,7 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IConstraintSolver;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousLazySymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
@@ -33,6 +34,8 @@ public interface ISymbolFactory
 {
 
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
+
+    void setConstraintSolver(IConstraintSolver constraintSolver);
 
     ITypeSymbol getMixedTypeSymbol();
 
