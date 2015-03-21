@@ -21,7 +21,15 @@ public interface IFunctionTypeSymbol extends ITypeSymbol, IConstraint
 
     List<List<IConstraint>> getParametersConstraints();
 
-    Map<String, List<IConstraint>> getFunctionConstraints();
+    Map<String, ITypeVariableSymbol> getTypeVariables();
 
-    ITypeSymbol apply(List<IUnionTypeSymbol> arguments);
+    /**
+     * Returns the return type for the given arguments if it is already known without computing it if it is not known.
+     * <p/>
+     * Hence, a constant function will return always a result (regardless of the arguments) where a polymorphic
+     * function will only return a type if it was already cached before.
+     */
+    ITypeSymbol getCachedApply(List<IUnionTypeSymbol> arguments);
+
+    void cacheApply(List<IUnionTypeSymbol> arguments, ITypeSymbol returnTypeSymbol);
 }

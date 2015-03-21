@@ -72,6 +72,9 @@ public interface ISymbolFactory
     IFunctionTypeSymbol createConstantFunctionTypeSymbol(
             String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
 
+    IFunctionTypeSymbol createPolymorphicFunctionTypeSymbol(
+            String name, List<String> parameterIds, Map<String, ITypeVariableSymbol> functionTypeVariables);
+
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
 
