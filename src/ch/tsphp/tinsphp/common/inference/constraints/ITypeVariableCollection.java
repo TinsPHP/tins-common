@@ -8,11 +8,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbol;
 
-import java.util.Map;
-
-public interface ITypeVariableCollection
+public interface ITypeVariableCollection extends IReadOnlyTypeVariableCollection
 {
-    Map<String, ITypeVariableSymbol> getTypeVariables();
-
     void addTypeVariable(ITypeVariableSymbol typeVariableSymbol);
 }

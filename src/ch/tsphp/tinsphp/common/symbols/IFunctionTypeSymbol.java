@@ -12,24 +12,12 @@ import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 
 import java.util.List;
-import java.util.Map;
 
 public interface IFunctionTypeSymbol extends ITypeSymbol, IConstraint
 {
-
     void addParameterConstraint(String parameterId, IConstraint constraint);
 
     List<List<IConstraint>> getParametersConstraints();
 
-    Map<String, ITypeVariableSymbol> getTypeVariables();
-
-    /**
-     * Returns the return type for the given arguments if it is already known without computing it if it is not known.
-     * <p/>
-     * Hence, a constant function will return always a result (regardless of the arguments) where a polymorphic
-     * function will only return a type if it was already cached before.
-     */
-    ITypeSymbol getCachedApply(List<IUnionTypeSymbol> arguments);
-
-    void cacheApply(List<IUnionTypeSymbol> arguments, ITypeSymbol returnTypeSymbol);
+    ITypeSymbol apply(List<IUnionTypeSymbol> arguments);
 }
