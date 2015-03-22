@@ -27,4 +27,8 @@ public interface ITypeVariableSymbol extends ISymbol, IConstraint
     @Override
     IUnionTypeSymbol getType();
 
+    void setIsByRef();
+
+    boolean isByValue();
+
 }
