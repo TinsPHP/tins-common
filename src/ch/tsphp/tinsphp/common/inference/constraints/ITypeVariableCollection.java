@@ -11,4 +11,6 @@ import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbol;
 public interface ITypeVariableCollection extends IReadOnlyTypeVariableCollection
 {
     void addTypeVariable(ITypeVariableSymbol typeVariableSymbol);
+
+    void addTypeVariableWhichNeedToBeSealed(ITypeVariableSymbol typeVariableSymbol);
 }

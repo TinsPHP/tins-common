@@ -9,5 +9,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 public interface IConstraintSolver
 {
+    void solveAndRemoveConstraints(IReadOnlyTypeVariableCollection currentScope);
+
     void solveConstraints(IReadOnlyTypeVariableCollection currentScope);
 }

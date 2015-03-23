@@ -8,7 +8,6 @@ package ch.tsphp.tinsphp.common.inference;
 
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
-import ch.tsphp.tinsphp.common.scopes.IGlobalNamespaceScope;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 
 public interface IInferencePhaseController
@@ -18,10 +17,7 @@ public interface IInferencePhaseController
 
     void createRefConstraint(ITypeVariableCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
 
-    void createIntersectionConstraint(
-            ITypeVariableCollection collection, ITSPHPAst operator, ITSPHPAst lhs, ITSPHPAst rhs);
-
-    void addTypeVariableCollection(IGlobalNamespaceScope scope);
+    void createIntersectionConstraint(ITypeVariableCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
 
     void addTypeVariableCollection(IMethodSymbol scope);
 
