@@ -8,16 +8,19 @@ package ch.tsphp.tinsphp.common.symbols;
 
 
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 
 import java.util.List;
 
 public interface IFunctionTypeSymbol extends ITypeSymbol, IConstraint
 {
-    void addParameterConstraint(String parameterId, IConstraint constraint);
+    void addInputConstraint(String parameterId, IConstraint constraint);
 
-    List<List<IConstraint>> getParametersConstraints();
+    void addOutputConstraint(String parameterId, IConstraint constraint);
 
-    ITypeSymbol apply(List<IUnionTypeSymbol> arguments);
+    List<List<IConstraint>> getInputConstraints();
+
+    List<List<IConstraint>> getOutputConstraints();
+
+    ITypeSymbol apply(List<ITypeVariableSymbol> arguments);
 }

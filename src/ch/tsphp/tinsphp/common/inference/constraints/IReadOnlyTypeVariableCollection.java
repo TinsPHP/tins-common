@@ -7,13 +7,14 @@
 package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbol;
+import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbolWithRef;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.Deque;
 
 public interface IReadOnlyTypeVariableCollection
 {
-    Map<String, ITypeVariableSymbol> getTypeVariables();
+    Deque<ITypeVariableSymbol> getTypeVariables();
 
-    Collection<ITypeVariableSymbol> getTypeVariablesWhichNeedToBeSealed();
+    Collection<ITypeVariableSymbolWithRef> getTypeVariablesWithRef();
 }

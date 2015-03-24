@@ -13,6 +13,8 @@ import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 public interface IInferencePhaseController
 {
 
+    void createRefVariable(ITypeVariableCollection collection, ITSPHPAst variableId);
+
     void createTypeConstraint(ITSPHPAst literal);
 
     void createRefConstraint(ITypeVariableCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);

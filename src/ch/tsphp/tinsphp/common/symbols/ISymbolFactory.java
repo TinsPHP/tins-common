@@ -24,6 +24,7 @@ import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.ILazySymbolResolver;
 
+import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 
@@ -66,6 +67,8 @@ public interface ISymbolFactory
 
     ITypeVariableSymbol createMinimalTypeVariableSymbol(String name);
 
+    ITypeVariableSymbolWithRef createMinimalTypeVariableSymbolWithRef(String name);
+
     ITypeVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
 
     IUnionTypeSymbol createUnionTypeSymbol();
@@ -77,8 +80,17 @@ public interface ISymbolFactory
     IFunctionTypeSymbol createConstantFunctionTypeSymbol(
             String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
 
-    IFunctionTypeSymbol createPolymorphicFunctionTypeSymbol(
-            String name, List<String> parameterIds, Map<String, ITypeVariableSymbol> functionTypeVariables);
+    IFunctionTypeSymbol createIdentityFunctionTypeSymbol(String name, String parameterIds);
+
+    IFunctionTypeSymbol createAssignFunctionTypeSymbol(
+            String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
+
+    IPolymorphicFunctionTypeSymbol createPolymorphicFunctionTypeSymbol(
+            String name,
+            List<ITypeVariableSymbolWithRef> parameterTypeVariables,
+            ITypeVariableSymbolWithRef returnTypeVariable,
+            Deque<ITypeVariableSymbol> functionTypeVariables
+    );
 
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);

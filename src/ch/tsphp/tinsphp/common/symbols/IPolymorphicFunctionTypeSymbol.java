@@ -4,10 +4,10 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.inference.constraints;
+package ch.tsphp.tinsphp.common.symbols;
 
+import ch.tsphp.tinsphp.common.inference.constraints.IReadOnlyTypeVariableCollection;
 
-public interface IConstraintSolver
+public interface IPolymorphicFunctionTypeSymbol extends IFunctionTypeSymbol, IReadOnlyTypeVariableCollection
 {
-    void solveConstraints(IReadOnlyTypeVariableCollection currentScope);
 }

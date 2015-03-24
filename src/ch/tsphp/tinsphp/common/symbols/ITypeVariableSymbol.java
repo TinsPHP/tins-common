@@ -16,13 +16,11 @@ import ch.tsphp.common.symbols.ISymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 
-import java.util.List;
-
 public interface ITypeVariableSymbol extends ISymbol, IConstraint
 {
-    void addConstraint(IConstraint constraint);
+    void setConstraint(IConstraint constraint);
 
-    List<IConstraint> getConstraints();
+    IConstraint getConstraint();
 
     @Override
     IUnionTypeSymbol getType();
