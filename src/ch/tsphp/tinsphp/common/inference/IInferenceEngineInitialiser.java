@@ -14,6 +14,8 @@ public interface IInferenceEngineInitialiser
 
     IReferencePhaseController getReferencePhaseController();
 
+    IInferencePhaseController getInferencePhaseController();
+
     IInferenceIssueReporter getInferenceErrorReporter();
 
     /**
