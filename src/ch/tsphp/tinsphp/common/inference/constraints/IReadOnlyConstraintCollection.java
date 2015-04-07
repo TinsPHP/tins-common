@@ -13,4 +13,6 @@ public interface IReadOnlyConstraintCollection
     List<IIntersectionConstraint> getLowerBoundConstraints();
 
     List<IIntersectionConstraint> getUpperBoundConstraints();
+
+    List<IBinding> getBindings();
 }

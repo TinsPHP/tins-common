@@ -13,15 +13,13 @@ import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 public interface IInferencePhaseController
 {
 
-    void createRefVariable(IConstraintCollection collection, ITSPHPAst variableId);
-
     void createTypeConstraint(ITSPHPAst literal);
 
     void createRefConstraint(IConstraintCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
 
     void createIntersectionConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
 
-    void addTypeVariableCollection(IMethodSymbol scope);
+    void addMethodSymbol(IMethodSymbol scope);
 
     void solveAllConstraints();
 }

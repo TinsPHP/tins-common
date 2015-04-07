@@ -13,9 +13,8 @@
 package ch.tsphp.tinsphp.common.symbols.erroneous;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IScalarTypeSymbol;
 
-public interface IErroneousTypeSymbol extends IErroneousSymbol, ITypeSymbol, IScalarTypeSymbol, IUnionTypeSymbol
+public interface IErroneousTypeSymbol extends IErroneousSymbol, ITypeSymbol, IScalarTypeSymbol
 {
 }

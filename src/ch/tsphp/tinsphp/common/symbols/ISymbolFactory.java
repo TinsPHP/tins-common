@@ -70,8 +70,7 @@ public interface ISymbolFactory
 
     ITypeVariableSymbolWithRef createMinimalTypeVariableSymbolWithRef(String name);
 
-    IVariable createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
-
+    ITypeVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
 
     IUnionTypeSymbol createUnionTypeSymbol();
 

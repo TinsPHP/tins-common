@@ -10,11 +10,11 @@ import java.util.Map;
 
 public interface IBinding
 {
-    Map<String, String> getVariable2TypeVariable();
+    Map<String, TypeVariableConstraint> getVariable2TypeVariable();
 
     ITypeVariableCollection getTypeVariables();
 
     int getTypeVariableCounter();
 
-    String getNextTypeVariable();
+    TypeVariableConstraint getNextTypeVariable();
 }

@@ -15,4 +15,5 @@ public interface IVariable
     String getAbsoluteName();
 
     ITypeSymbol getType();
+
 }
