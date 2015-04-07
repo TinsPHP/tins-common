@@ -4,10 +4,12 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.symbols;
+package ch.tsphp.tinsphp.common.inference.constraints;
 
-import ch.tsphp.tinsphp.common.inference.constraints.IReadOnlyTypeVariableCollection;
+import ch.tsphp.common.symbols.ITypeSymbol;
 
-public interface IPolymorphicFunctionTypeSymbol extends IFunctionTypeSymbol, IReadOnlyTypeVariableCollection
+public class LowerBoundException extends BoundException
 {
+    public LowerBoundException(ITypeSymbol newLowerType, ITypeSymbol upperTypeSymbol) {
+    }
 }

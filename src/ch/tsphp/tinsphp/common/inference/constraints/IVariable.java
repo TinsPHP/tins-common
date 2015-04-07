@@ -6,10 +6,13 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+import ch.tsphp.common.symbols.ITypeSymbol;
 
-import java.util.List;
-
-public interface IConstraintSolver
+public interface IVariable
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    String getName();
+
+    String getAbsoluteName();
+
+    ITypeSymbol getType();
 }

@@ -13,6 +13,4 @@ public interface ITypeVariableSymbolWithRef extends ITypeVariableSymbol
     void addRefVariable(ITypeVariableSymbol variableSymbol);
 
     ITypeVariableSymbol getCurrentTypeVariable();
-
-    void seal();
 }

@@ -6,10 +6,15 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+import java.util.Map;
 
-import java.util.List;
-
-public interface IConstraintSolver
+public interface IBinding
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    Map<String, String> getVariable2TypeVariable();
+
+    ITypeVariableCollection getTypeVariables();
+
+    int getTypeVariableCounter();
+
+    String getNextTypeVariable();
 }

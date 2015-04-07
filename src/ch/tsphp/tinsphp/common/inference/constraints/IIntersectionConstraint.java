@@ -6,10 +6,15 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+import ch.tsphp.tinsphp.common.symbols.IFunctionTypeSymbol;
 
 import java.util.List;
 
-public interface IConstraintSolver
+public interface IIntersectionConstraint
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    IVariable getLeftHandSide();
+
+    List<IVariable> getArguments();
+
+    List<IFunctionTypeSymbol> getOverloads();
 }

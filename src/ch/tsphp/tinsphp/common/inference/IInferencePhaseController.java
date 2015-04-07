@@ -7,19 +7,19 @@
 package ch.tsphp.tinsphp.common.inference;
 
 import ch.tsphp.common.ITSPHPAst;
-import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
+import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 
 public interface IInferencePhaseController
 {
 
-    void createRefVariable(ITypeVariableCollection collection, ITSPHPAst variableId);
+    void createRefVariable(IConstraintCollection collection, ITSPHPAst variableId);
 
     void createTypeConstraint(ITSPHPAst literal);
 
-    void createRefConstraint(ITypeVariableCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
+    void createRefConstraint(IConstraintCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
 
-    void createIntersectionConstraint(ITypeVariableCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
+    void createIntersectionConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
 
     void addTypeVariableCollection(IMethodSymbol scope);
 

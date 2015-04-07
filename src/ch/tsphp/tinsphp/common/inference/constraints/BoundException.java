@@ -6,10 +6,6 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-
-import java.util.List;
-
-public interface IConstraintSolver
+public class BoundException extends RuntimeException
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
 }

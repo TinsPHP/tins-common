@@ -18,13 +18,14 @@ import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraintSolver;
+import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
+import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousLazySymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.ILazySymbolResolver;
 
-import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 
@@ -65,11 +66,12 @@ public interface ISymbolFactory
 //
     IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
 
-    ITypeVariableSymbol createMinimalTypeVariableSymbol(String name);
+    IVariable createMinimalTypeVariableSymbol(String name);
 
     ITypeVariableSymbolWithRef createMinimalTypeVariableSymbolWithRef(String name);
 
-    ITypeVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
+    IVariable createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
+
 
     IUnionTypeSymbol createUnionTypeSymbol();
 
@@ -77,20 +79,11 @@ public interface ISymbolFactory
 
     IOverloadSymbol createOverloadSymbol(String name);
 
-    IFunctionTypeSymbol createConstantFunctionTypeSymbol(
-            String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
-
-    IFunctionTypeSymbol createIdentityFunctionTypeSymbol(String name, String parameterIds);
-
-    IFunctionTypeSymbol createAssignFunctionTypeSymbol(
-            String name, List<String> parameterIds, ITypeSymbol returnTypeSymbol);
-
-    IPolymorphicFunctionTypeSymbol createPolymorphicFunctionTypeSymbol(
+    IFunctionTypeSymbol createFunctionTypeSymbol(
             String name,
-            List<ITypeVariableSymbolWithRef> parameterTypeVariables,
-            ITypeVariableSymbolWithRef returnTypeVariable,
-            Deque<ITypeVariableSymbol> functionTypeVariables
-    );
+            ITypeVariableCollection typeVariableCollection,
+            List<String> parameterTypeVariables,
+            String returnTypeVariable);
 
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);

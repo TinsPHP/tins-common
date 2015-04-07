@@ -14,4 +14,11 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 public interface IConstraint
 {
+    /**
+     * Returns a unique identifier in order that it can be stored and found in a HashMap.
+     * <p/>
+     * So far only types and type variables exist as constraints. Types will return the absolute name of the type where
+     * type variables return the name of the type variable with an @ as prefix (to avoid name clashes).
+     */
+    String getId();
 }

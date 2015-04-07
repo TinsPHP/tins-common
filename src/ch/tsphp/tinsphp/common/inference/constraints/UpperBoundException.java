@@ -6,10 +6,11 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+import ch.tsphp.common.symbols.ITypeSymbol;
 
-import java.util.List;
-
-public interface IConstraintSolver
+public class UpperBoundException extends BoundException
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    public UpperBoundException(ITypeSymbol newUpperType, ITypeSymbol lowerTypeSymbol) {
+
+    }
 }

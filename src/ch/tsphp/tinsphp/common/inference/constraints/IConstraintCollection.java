@@ -6,10 +6,9 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-
-import java.util.List;
-
-public interface IConstraintSolver
+public interface IConstraintCollection extends IReadOnlyConstraintCollection
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    void addLowerBoundConstraint(IIntersectionConstraint constraint);
+
+    void addUpperBoundConstraint(IIntersectionConstraint constraint);
 }

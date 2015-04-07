@@ -7,20 +7,19 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 
-import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
+import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
 
 import java.util.List;
 
-public interface IFunctionTypeSymbol extends ITypeSymbol, IConstraint
+public interface IFunctionTypeSymbol extends ISymbol
 {
-    void addInputConstraint(String parameterId, IConstraint constraint);
+    int getNumberOfNonOptionalParameters();
 
-    void addOutputConstraint(String parameterId, IConstraint constraint);
+    List<String> getParameterTypeVariables();
 
-    List<List<IConstraint>> getInputConstraints();
+    String getReturnTypeVariable();
 
-    List<List<IConstraint>> getOutputConstraints();
+    ITypeVariableCollection getTypeVariables();
 
-    ITypeSymbol apply(List<ITypeVariableSymbol> arguments);
 }

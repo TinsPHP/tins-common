@@ -6,19 +6,28 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbol;
-import ch.tsphp.tinsphp.common.symbols.ITypeVariableSymbolWithRef;
+import java.util.Collection;
+import java.util.Set;
 
-public interface ITypeVariableCollection extends IReadOnlyTypeVariableCollection
+public interface ITypeVariableCollection
 {
-    /**
-     * The given typeVariableSymbol will be added to type variables with constraints which need to be solved.
-     */
-    void addTypeVariable(ITypeVariableSymbol typeVariableSymbol);
+    void addLowerBound(String typeVariable, IConstraint newLowerBoundConstraint) throws LowerBoundException;
 
-    /**
-     * Same behaviour as addTypeVariable but an ITypeVariableSymbolWithRef will be sealed after the constraints of
-     * this collection are solved.
-     */
-    void addTypeVariableWithRef(ITypeVariableSymbolWithRef typeVariableSymbol);
+    void addUpperBound(String typeVariable, IConstraint newUpperBoundConstraint) throws UpperBoundException;
+
+    boolean hasLowerBounds(String typeVariable);
+
+    boolean hasUpperBounds(String typeVariable);
+
+    Collection<IConstraint> getLowerBounds(String typeVariable);
+
+    Collection<IConstraint> getUpperBounds(String typeVariable);
+
+    Set<String> getLowerBoundConstraintIds(String typeVariable);
+
+    Set<String> getUpperBoundConstraintIds(String typeVariable);
+
+    Set<String> getTypeVariablesWithLowerBounds();
+
+    Set<String> getTypeVariablesWithUpperBounds();
 }

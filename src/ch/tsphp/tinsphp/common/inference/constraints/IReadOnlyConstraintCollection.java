@@ -6,10 +6,11 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-
 import java.util.List;
 
-public interface IConstraintSolver
+public interface IReadOnlyConstraintCollection
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    List<IIntersectionConstraint> getLowerBoundConstraints();
+
+    List<IIntersectionConstraint> getUpperBoundConstraints();
 }

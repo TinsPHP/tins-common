@@ -13,20 +13,8 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ISymbol;
-import ch.tsphp.common.symbols.IUnionTypeSymbol;
-import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
+import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 
-public interface ITypeVariableSymbol extends ISymbol, IConstraint
+public interface ITypeVariableSymbol extends ISymbol, IVariable
 {
-    void setConstraint(IConstraint constraint);
-
-    IConstraint getConstraint();
-
-    @Override
-    IUnionTypeSymbol getType();
-
-    void setIsByRef();
-
-    boolean isByValue();
-
 }

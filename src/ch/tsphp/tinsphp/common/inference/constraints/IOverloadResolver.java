@@ -11,7 +11,11 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 public interface IOverloadResolver
 {
 
+    boolean isFirstSubTypeOfSecond(ITypeSymbol potentialSubType, ITypeSymbol typeSymbol);
+
     boolean isFirstSameOrSubTypeOfSecond(ITypeSymbol potentialSubType, ITypeSymbol typeSymbol);
+
+    boolean isFirstParentTypeOfSecond(ITypeSymbol potentialParentType, ITypeSymbol typeSymbol);
 
     boolean isFirstSameOrParentTypeOfSecond(ITypeSymbol potentialParentType, ITypeSymbol typeSymbol);
 

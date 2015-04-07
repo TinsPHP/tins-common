@@ -12,7 +12,7 @@
 
 package ch.tsphp.tinsphp.common.scopes;
 
-import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
+import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
 
 /**
  * A global namespace scope contains all corresponding namespaces.
@@ -20,6 +20,6 @@ import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
  * For instance, the global default namespace scope contains all default namespaces which are most probably defined
  * in several files.
  */
-public interface IGlobalNamespaceScope extends ICaseInsensitiveScope, ITypeVariableCollection
+public interface IGlobalNamespaceScope extends ICaseInsensitiveScope, IConstraintCollection
 {
 }
