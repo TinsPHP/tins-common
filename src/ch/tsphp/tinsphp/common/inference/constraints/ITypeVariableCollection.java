@@ -11,9 +11,9 @@ import java.util.Set;
 
 public interface ITypeVariableCollection
 {
-    void addLowerBound(String typeVariable, IConstraint newLowerBoundConstraint) throws LowerBoundException;
+    void addLowerBound(String typeVariable, IConstraint newLowerBoundConstraint);
 
-    void addUpperBound(String typeVariable, IConstraint newUpperBoundConstraint) throws UpperBoundException;
+    void addUpperBound(String typeVariable, IConstraint newUpperBoundConstraint);
 
     boolean hasLowerBounds(String typeVariable);
 
@@ -30,4 +30,6 @@ public interface ITypeVariableCollection
     Set<String> getTypeVariablesWithLowerBounds();
 
     Set<String> getTypeVariablesWithUpperBounds();
+
+
 }

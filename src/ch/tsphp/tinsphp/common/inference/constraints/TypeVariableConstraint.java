@@ -8,6 +8,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 public class TypeVariableConstraint implements IConstraint
 {
+    private boolean isNotConstant = true;
     private String typeVariable;
 
     public TypeVariableConstraint(String theTypeVariable) {
@@ -20,6 +21,14 @@ public class TypeVariableConstraint implements IConstraint
 
     public void setTypeVariable(String newTypeVariable) {
         typeVariable = newTypeVariable;
+    }
+
+    public boolean isNotConstant() {
+        return isNotConstant;
+    }
+
+    public void setIsConstant() {
+        isNotConstant = false;
     }
 
     @Override
