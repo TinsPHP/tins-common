@@ -66,9 +66,7 @@ public interface ISymbolFactory
 //
     IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
 
-    IVariable createMinimalTypeVariableSymbol(String name);
-
-    ITypeVariableSymbolWithRef createMinimalTypeVariableSymbolWithRef(String name);
+    IVariable createVariable(String name, String typeVariable);
 
     ITypeVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
 
@@ -81,8 +79,8 @@ public interface ISymbolFactory
     IFunctionTypeSymbol createFunctionTypeSymbol(
             String name,
             ITypeVariableCollection typeVariableCollection,
-            List<String> parameterTypeVariables,
-            String returnTypeVariable);
+            List<IVariable> parameters,
+            IVariable returnVariable);
 
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);

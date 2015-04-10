@@ -9,6 +9,7 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ISymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
+import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 
 import java.util.List;
 
@@ -16,9 +17,9 @@ public interface IFunctionTypeSymbol extends ISymbol
 {
     int getNumberOfNonOptionalParameters();
 
-    List<String> getParameterTypeVariables();
+    List<IVariable> getParameters();
 
-    String getReturnTypeVariable();
+    IVariable getReturnVariable();
 
     ITypeVariableCollection getTypeVariables();
 

@@ -16,4 +16,9 @@ public interface IVariable
 
     ITypeSymbol getType();
 
+    void setHasFixedType();
+
+    boolean hasFixedType();
+
+    String getTypeVariable();
 }
