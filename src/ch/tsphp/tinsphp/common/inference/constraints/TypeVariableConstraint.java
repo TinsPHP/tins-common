@@ -8,7 +8,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 public class TypeVariableConstraint implements IConstraint
 {
-    private boolean hasNotFixedType = true;
+    private boolean hasFixedType = false;
     private String typeVariable;
 
     public TypeVariableConstraint(String theTypeVariable) {
@@ -23,12 +23,12 @@ public class TypeVariableConstraint implements IConstraint
         typeVariable = newTypeVariable;
     }
 
-    public boolean hasNotFixedType() {
-        return hasNotFixedType;
+    public boolean hasFixedType() {
+        return hasFixedType;
     }
 
     public void setHasFixedType() {
-        hasNotFixedType = false;
+        hasFixedType = true;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TypeVariableConstraint implements IConstraint
 
     @Override
     public String toString() {
-        return typeVariable;
+        return typeVariable + (hasFixedType ? "#" : "");
     }
 
     @Override

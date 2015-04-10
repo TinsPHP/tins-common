@@ -22,5 +22,4 @@ public interface IFunctionTypeSymbol extends ISymbol
     IVariable getReturnVariable();
 
     ITypeVariableCollection getTypeVariables();
-
 }
