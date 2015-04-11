@@ -26,15 +26,12 @@ import java.util.List;
 /**
  * Represents a method or function definition.
  */
-public interface IMethodSymbol extends ISymbolWithAccessModifier, IScope, IConstraintCollection,
+public interface IMethodSymbol extends ISymbolWithAccessModifier, IScope, IConstraintCollection, IMinimalMethodSymbol,
         ICanBeStatic, ICanBeFinal, ICanBeAbstract, ICanHaveCastModifier, ICanBeFalseable, ICanBeNullable
 {
-
     void addParameter(IVariableSymbol variableSymbol);
 
     List<IVariableSymbol> getParameters();
 
     IMinimalVariableSymbol getReturnVariable();
-
-    TypeWithModifiersDto toTypeWithModifiersDto();
 }

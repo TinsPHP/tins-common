@@ -4,20 +4,17 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.symbols;
-
-
-import ch.tsphp.common.symbols.ISymbol;
-import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
-import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
+package ch.tsphp.tinsphp.common.inference.constraints;
 
 import java.util.List;
 
 /**
  * Represents an overload with parameters, return variable and belonging type variable definitions.
  */
-public interface IFunctionTypeSymbol extends ISymbol
+public interface IFunctionType
 {
+    String getName();
+
     int getNumberOfNonOptionalParameters();
 
     List<IVariable> getParameters();

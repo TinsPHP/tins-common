@@ -22,6 +22,9 @@ public interface IInferencePhaseController
 
     void createIntersectionConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
 
+    void createFunctionCallConstraint(
+            IConstraintCollection collection, ITSPHPAst functionCall, ITSPHPAst identifier, ITSPHPAst argumentList);
+
     void addMethodSymbol(IMethodSymbol scope);
 
     void solveAllConstraints();

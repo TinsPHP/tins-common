@@ -6,7 +6,6 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-import ch.tsphp.tinsphp.common.symbols.IFunctionTypeSymbol;
 
 import java.util.List;
 
@@ -16,5 +15,5 @@ public interface IIntersectionConstraint
 
     List<IVariable> getArguments();
 
-    List<IFunctionTypeSymbol> getOverloads();
+    List<IFunctionType> getOverloads();
 }

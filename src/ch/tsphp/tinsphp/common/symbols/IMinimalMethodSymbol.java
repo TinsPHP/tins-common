@@ -7,12 +7,13 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IFunctionType;
 
 import java.util.List;
 
-public interface IOverloadSymbol extends ISymbol
+public interface IMinimalMethodSymbol extends ISymbol
 {
-    void addOverload(IFunctionTypeSymbol overload);
+    void addOverload(IFunctionType overload);
 
-    List<IFunctionTypeSymbol> getOverloads();
+    List<IFunctionType> getOverloads();
 }

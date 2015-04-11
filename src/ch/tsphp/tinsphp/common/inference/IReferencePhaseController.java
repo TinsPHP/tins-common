@@ -16,9 +16,8 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.ITSPHPErrorAst;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
-import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMinimalVariableSymbol;
-import ch.tsphp.tinsphp.common.symbols.IOverloadSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import org.antlr.runtime.RecognitionException;
@@ -41,9 +40,9 @@ public interface IReferencePhaseController
 
     IVariableSymbol resolveVariable(ITSPHPAst variableId);
 
-    IMethodSymbol resolveFunction(ITSPHPAst identifier);
+    IMinimalMethodSymbol resolveFunction(ITSPHPAst identifier);
 
-    IOverloadSymbol resolveOperator(ITSPHPAst operator);
+    IMinimalMethodSymbol resolveOperator(ITSPHPAst operator);
 
     IMinimalVariableSymbol resolveReturn(ITSPHPAst returnAst);
 

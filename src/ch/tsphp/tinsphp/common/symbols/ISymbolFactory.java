@@ -17,7 +17,7 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
-import ch.tsphp.tinsphp.common.inference.constraints.IConstraintSolver;
+import ch.tsphp.tinsphp.common.inference.constraints.IFunctionType;
 import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableCollection;
 import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousLazySymbol;
@@ -36,8 +36,6 @@ public interface ISymbolFactory
 {
 
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
-
-    void setConstraintSolver(IConstraintSolver constraintSolver);
 
     ITypeSymbol getMixedTypeSymbol();
 
@@ -74,16 +72,16 @@ public interface ISymbolFactory
 
     IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);
 
-    IOverloadSymbol createOverloadSymbol(String name);
+    IMethodSymbol createMethodSymbol(
+            ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
 
-    IFunctionTypeSymbol createFunctionTypeSymbol(
+    IMinimalMethodSymbol createMinimalMethodSymbol(String name);
+
+    IFunctionType createFunctionType(
             String name,
             ITypeVariableCollection typeVariableCollection,
             List<IVariable> parameters,
             IVariable returnVariable);
-
-    IMethodSymbol createMethodSymbol(
-            ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
 
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
 

@@ -8,7 +8,7 @@ package ch.tsphp.tinsphp.common;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.resolving.ISymbolResolver;
-import ch.tsphp.tinsphp.common.symbols.IOverloadSymbol;
+import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
 
 import java.util.Map;
 
@@ -23,7 +23,7 @@ public interface ICore
 //    Map<Integer, List<IMethodSymbol>> getBinaryOperators();
 //
 
-    Map<Integer, IOverloadSymbol> getOperators();
+    Map<Integer, IMinimalMethodSymbol> getOperators();
 
     Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getImplicitConversions();
 
