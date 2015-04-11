@@ -6,6 +6,11 @@
 
 package ch.tsphp.tinsphp.common.issues;
 
+/**
+ * Provides the issue messages for a provide in a certain language.
+ * <p/>
+ * This interface is used to abstract internationalisation of the issue messages.
+ */
 public interface IIssueMessageProvider
 {
     String getDefinitionErrorMessage(String identifier, DefinitionIssueDto dto);

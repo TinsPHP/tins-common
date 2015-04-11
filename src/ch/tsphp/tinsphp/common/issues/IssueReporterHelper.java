@@ -19,6 +19,9 @@ import org.antlr.runtime.RecognitionException;
 import java.util.Collection;
 import java.util.EnumSet;
 
+/**
+ * Provides methods which can be used by the AST walkers and parsers.
+ */
 public final class IssueReporterHelper
 {
     private IssueReporterHelper() {

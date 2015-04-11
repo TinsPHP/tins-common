@@ -10,6 +10,9 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 
+/**
+ * Represents the interface between the TSPHPInferenceWalker (ANTLR generated) and the logic.
+ */
 public interface IInferencePhaseController
 {
 

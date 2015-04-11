@@ -11,20 +11,30 @@ package ch.tsphp.tinsphp.common.issues;
  */
 public enum EIssueSeverity
 {
-    // type inference or translation cannot proceed, e.g. double defined functions
+    /**
+     * type inference or translation cannot proceed, e.g. double defined functions.
+     */
     FatalError,
 
-    // e.g. a bug, translation can proceed but includes the same bug - for instance,
-    // passing a wrong type and no conversion exists
+    /**
+     * e.g. a bug, translation can proceed but includes the same bug - for instance,
+     * passing a wrong type and no conversion exists.
+     */
     Error,
 
-    // e.g. superfluous arguments are passed
+    /**
+     * e.g. superfluous arguments are passed.
+     */
     Warning,
 
-    // e.g. function does not return in all cases
+    /**
+     * e.g. function does not return in all cases.
+     */
     Notice,
 
-    // e.g. just some info, only for the user in order that one can set issues as information only and such
-    // information is usually only used
+    /**
+     * e.g. just some info, only for the user in order that one can set issues as information only and such
+     * information is usually only used.
+     */
     Info,
 }

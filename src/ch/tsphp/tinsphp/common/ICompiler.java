@@ -33,12 +33,12 @@ public interface ICompiler extends IIssueReporter
             throws IOException;
 
     /**
-     * Add the given file to the compilation units and use pathToFileInclFileName as identifier
+     * Add the given file to the compilation units and use pathToFileInclFileName as identifier.
      */
     void addFile(String pathToFileInclFileName) throws IOException;
 
     /**
-     * Add the given file to the compilation units and use pathToFileInclFileName as identifier
+     * Add the given file to the compilation units and use pathToFileInclFileName as identifier.
      */
     void addFile(String pathToFileInclFileName, String encoding) throws IOException;
 

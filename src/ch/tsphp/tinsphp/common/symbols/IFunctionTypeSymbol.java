@@ -13,6 +13,9 @@ import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 
 import java.util.List;
 
+/**
+ * Represents an overload with parameters, return variable and belonging type variable definitions.
+ */
 public interface IFunctionTypeSymbol extends ISymbol
 {
     int getNumberOfNonOptionalParameters();

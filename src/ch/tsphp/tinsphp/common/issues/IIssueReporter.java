@@ -34,7 +34,7 @@ public interface IIssueReporter
     boolean hasFound(EnumSet<EIssueSeverity> severities);
 
     /**
-     * Drop previous issues
+     * Drop previous issues.
      */
     void reset();
 }
