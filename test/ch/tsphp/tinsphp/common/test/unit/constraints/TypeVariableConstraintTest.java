@@ -46,6 +46,27 @@ public class TypeVariableConstraintTest
     }
 
     @Test
+    public void hasFixedType_Standard_ReturnsFalse() {
+        String typeVariable = "T";
+
+        TypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        boolean result = constraint.hasFixedType();
+
+        assertThat(result, is(false));
+    }
+
+    @Test
+    public void hasFixedType_SetHasFixedType_ReturnsTrue() {
+        String typeVariable = "T";
+
+        TypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        constraint.setHasFixedType();
+        boolean result = constraint.hasFixedType();
+
+        assertThat(result, is(true));
+    }
+
+    @Test
     public void toString_Standard_ReturnsTypeVariable() {
         String typeVariable = "T";
 
@@ -53,6 +74,17 @@ public class TypeVariableConstraintTest
         String result = constraint.toString();
 
         assertThat(result, is("T"));
+    }
+
+    @Test
+    public void toString_HasFixedType_ReturnsTypeVariable() {
+        String typeVariable = "T";
+
+        TypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        constraint.setHasFixedType();
+        String result = constraint.toString();
+
+        assertThat(result, is("T#"));
     }
 
     @Test
