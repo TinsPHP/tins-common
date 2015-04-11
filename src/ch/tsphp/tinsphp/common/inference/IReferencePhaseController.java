@@ -17,6 +17,7 @@ import ch.tsphp.common.ITSPHPErrorAst;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+import ch.tsphp.tinsphp.common.symbols.IMinimalVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.IOverloadSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
@@ -43,6 +44,8 @@ public interface IReferencePhaseController
     IMethodSymbol resolveFunction(ITSPHPAst identifier);
 
     IOverloadSymbol resolveOperator(ITSPHPAst operator);
+
+    IMinimalVariableSymbol resolveReturn(ITSPHPAst returnAst);
 
     ITypeSymbol resolvePrimitiveType(ITSPHPAst typeASt, ITSPHPAst typeModifierAst);
 

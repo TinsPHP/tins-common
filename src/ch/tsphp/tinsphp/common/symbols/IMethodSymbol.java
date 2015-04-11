@@ -34,5 +34,7 @@ public interface IMethodSymbol extends ISymbolWithAccessModifier, IScope, IConst
 
     List<IVariableSymbol> getParameters();
 
+    IMinimalVariableSymbol getReturnVariable();
+
     TypeWithModifiersDto toTypeWithModifiersDto();
 }
