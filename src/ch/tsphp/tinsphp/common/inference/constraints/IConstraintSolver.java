@@ -7,9 +7,14 @@
 package ch.tsphp.tinsphp.common.inference.constraints;
 
 
+import ch.tsphp.tinsphp.common.scopes.IGlobalNamespaceScope;
+import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+
 import java.util.List;
 
 public interface IConstraintSolver
 {
-    List<IBinding> solveConstraints(IReadOnlyConstraintCollection collection);
+    void solveConstraints(List<IMethodSymbol> methodSymbols);
+
+    void solveConstraints(IGlobalNamespaceScope globalDefaultNamespaceScope);
 }

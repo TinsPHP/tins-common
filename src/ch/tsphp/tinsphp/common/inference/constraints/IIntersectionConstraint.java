@@ -7,6 +7,8 @@
 package ch.tsphp.tinsphp.common.inference.constraints;
 
 
+import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
+
 import java.util.List;
 
 public interface IIntersectionConstraint
@@ -15,5 +17,5 @@ public interface IIntersectionConstraint
 
     List<IVariable> getArguments();
 
-    List<IFunctionType> getOverloads();
+    IMinimalMethodSymbol getMethodSymbol();
 }
