@@ -66,7 +66,7 @@ public interface ISymbolFactory
 
     IVariable createVariable(String name, String typeVariable);
 
-    ITypeVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
+    IMinimalVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
 
     IUnionTypeSymbol createUnionTypeSymbol();
 

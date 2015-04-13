@@ -6,11 +6,11 @@
 
 package ch.tsphp.tinsphp.common.symbols;
 
-public interface ITypeVariableSymbolWithRef extends ITypeVariableSymbol
+public interface IMinimalVariableSymbolWithRef extends IMinimalVariableSymbol
 {
-    void setOriginal(ITypeVariableSymbolWithRef variableDeclaration);
+    void setOriginal(IMinimalVariableSymbolWithRef variableDeclaration);
 
-    void addRefVariable(ITypeVariableSymbol variableSymbol);
+    void addRefVariable(IMinimalVariableSymbol variableSymbol);
 
-    ITypeVariableSymbol getCurrentTypeVariable();
+    IMinimalVariableSymbol getCurrentTypeVariable();
 }

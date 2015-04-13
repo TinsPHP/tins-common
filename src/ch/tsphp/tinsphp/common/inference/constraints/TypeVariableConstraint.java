@@ -8,7 +8,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 public class TypeVariableConstraint implements IConstraint
 {
-    private boolean hasFixedType = false;
+    private boolean hasFixedType;
     private String typeVariable;
 
     public TypeVariableConstraint(String theTypeVariable) {
