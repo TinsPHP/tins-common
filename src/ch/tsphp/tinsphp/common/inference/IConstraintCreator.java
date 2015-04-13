@@ -8,12 +8,11 @@ package ch.tsphp.tinsphp.common.inference;
 
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
-import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 
 /**
- * Represents the interface between the TSPHPInferenceWalker (ANTLR generated) and the logic.
+ * Provides methods which create constraints based on the given arguments.
  */
-public interface IInferencePhaseController
+public interface IConstraintCreator
 {
 
     void createTypeConstraint(ITSPHPAst literal);
@@ -24,8 +23,4 @@ public interface IInferencePhaseController
 
     void createFunctionCallConstraint(
             IConstraintCollection collection, ITSPHPAst functionCall, ITSPHPAst identifier, ITSPHPAst argumentList);
-
-    void addMethodSymbol(IMethodSymbol scope);
-
-    void solveAllConstraints();
 }

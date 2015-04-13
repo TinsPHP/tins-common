@@ -16,6 +16,8 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.ITSPHPErrorAst;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.common.symbols.IUnionTypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
+import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMinimalVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
@@ -26,6 +28,9 @@ import java.util.List;
 
 /**
  * Represents the interface between the TSPHPReferenceWalker (ANTLR generated) and the logic.
+ * <p/>
+ * It provides methods to resolve symbols, which check that symbols are ready to use as well as methods which create
+ * constraints for operations.
  */
 public interface IReferencePhaseController
 {
@@ -67,6 +72,7 @@ public interface IReferencePhaseController
 
     IErroneousTypeSymbol createErroneousTypeSymbol(ITSPHPAst typeAst, RecognitionException ex);
 
+
     boolean checkIsNotDoubleDefinition(ITSPHPAst identifier);
 
     boolean checkIsNotDoubleDefinitionCaseInsensitive(ITSPHPAst identifier);
@@ -76,6 +82,7 @@ public interface IReferencePhaseController
     boolean checkIsNotForwardReference(ITSPHPAst identifier);
 
     boolean checkIsVariableInitialised(ITSPHPAst variableId);
+
 
     void transferInitialisedSymbolsFromGlobalDefault(ITSPHPAst namespace);
 
@@ -91,4 +98,21 @@ public interface IReferencePhaseController
 
     void addImplicitReturnStatementIfRequired(
             boolean isReturning, boolean hasAtLeastOneReturnOrThrow, ITSPHPAst identifier, ITSPHPAst block);
+
+
+    void createTypeConstraint(ITSPHPAst literal);
+
+    void createRefConstraint(IConstraintCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
+
+    void createIntersectionConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
+
+    void createFunctionCallConstraint(
+            IConstraintCollection collection, ITSPHPAst functionCall, ITSPHPAst identifier, ITSPHPAst argumentList);
+
+
+    void addMethodSymbol(IMethodSymbol scope);
+
+    void solveMethodSymbolConstraints();
+
+    void solveGlobalDefaultNamespaceConstraints();
 }
