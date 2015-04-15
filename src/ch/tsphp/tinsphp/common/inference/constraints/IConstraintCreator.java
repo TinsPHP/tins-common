@@ -4,10 +4,9 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.inference;
+package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.common.ITSPHPAst;
-import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
 
 /**
  * Provides methods which create constraints based on the given arguments.

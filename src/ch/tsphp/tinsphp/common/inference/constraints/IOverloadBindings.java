@@ -7,10 +7,21 @@
 package ch.tsphp.tinsphp.common.inference.constraints;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
-public interface ITypeVariableCollection
+public interface IOverloadBindings
 {
+    Map<String, ITypeVariableConstraint> getVariable2TypeVariable();
+
+    boolean tryToFixateType(String variableId);
+
+    void resolveDependencies(String variableId, Set<String> dependenciesToIgnore);
+
+    void renameTypeVariable(ITypeVariableConstraint typeVariableConstraint, String newName);
+
+    TypeVariableConstraint getNextTypeVariable();
+
     void addLowerBound(String typeVariable, IConstraint newLowerBoundConstraint);
 
     void addUpperBound(String typeVariable, IConstraint newUpperBoundConstraint);
@@ -30,6 +41,4 @@ public interface ITypeVariableCollection
     Set<String> getTypeVariablesWithLowerBounds();
 
     Set<String> getTypeVariablesWithUpperBounds();
-
-
 }

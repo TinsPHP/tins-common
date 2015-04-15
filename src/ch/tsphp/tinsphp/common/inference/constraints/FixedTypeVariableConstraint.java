@@ -6,35 +6,36 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-public class TypeVariableConstraint implements ITypeVariableConstraint
+public class FixedTypeVariableConstraint implements ITypeVariableConstraint
 {
-    private String typeVariable;
+    private TypeVariableConstraint constraint;
 
-    public TypeVariableConstraint(String theTypeVariable) {
-        typeVariable = theTypeVariable;
+    public FixedTypeVariableConstraint(TypeVariableConstraint theTypeVariableConstraint) {
+        constraint = theTypeVariableConstraint;
     }
 
+    @Override
     public String getTypeVariable() {
-        return typeVariable;
+        return constraint.getTypeVariable();
     }
 
+    @Override
     public void setTypeVariable(String newTypeVariable) {
-        typeVariable = newTypeVariable;
+        constraint.setTypeVariable(newTypeVariable);
     }
 
     @Override
     public boolean hasFixedType() {
-        return false;
+        return true;
     }
 
     @Override
     public String getId() {
-        return "@" + typeVariable;
+        return constraint.getId();
     }
 
     @Override
     public String toString() {
-        return typeVariable;
+        return constraint.toString() + "#";
     }
 }
-

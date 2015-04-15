@@ -6,15 +6,11 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-import java.util.Map;
-
-public interface IBinding
+public interface ITypeVariableConstraint extends IConstraint
 {
-    Map<String, TypeVariableConstraint> getVariable2TypeVariable();
+    String getTypeVariable();
 
-    ITypeVariableCollection getTypeVariables();
+    void setTypeVariable(String newTypeVariable);
 
-    int getTypeVariableCounter();
-
-    TypeVariableConstraint getNextTypeVariable();
+    boolean hasFixedType();
 }

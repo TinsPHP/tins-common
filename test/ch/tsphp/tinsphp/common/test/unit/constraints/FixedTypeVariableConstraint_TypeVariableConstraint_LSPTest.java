@@ -6,6 +6,7 @@
 
 package ch.tsphp.tinsphp.common.test.unit.constraints;
 
+import ch.tsphp.tinsphp.common.inference.constraints.FixedTypeVariableConstraint;
 import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableConstraint;
 import ch.tsphp.tinsphp.common.inference.constraints.TypeVariableConstraint;
 import org.junit.Test;
@@ -13,61 +14,42 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class TypeVariableConstraintTest
+public class FixedTypeVariableConstraint_TypeVariableConstraint_LSPTest extends TypeVariableConstraintTest
 {
     @Test
-    public void getId_Standard_ReturnsTypeVariableWithPrefixAt() {
-        String typeVariable = "T";
-
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
-        String result = constraint.getId();
-
-        assertThat(result, is("@T"));
-    }
-
-    @Test
-    public void getTypeVariable_Standard_ReturnsOnePassedByConstructor() {
-        String typeVariable = "T";
-
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
-        String result = constraint.getTypeVariable();
-
-        assertThat(result, is("T"));
-    }
-
-    @Test
-    public void setAndGetTypeVariable_SetANewTypeVariable_ReturnsTheNewTypeVariable() {
-        String typeVariable = "T";
-
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
-        constraint.setTypeVariable("T1");
-        String result = constraint.getTypeVariable();
-
-        assertThat(result, is("T1"));
-    }
-
-    @Test
+    @Override
     public void hasFixedType_Standard_ReturnsFalse() {
+        //different behaviour, a fixed type variable has a fixed type
+
+        //start same as in TypeVariableConstraintTest
         String typeVariable = "T";
 
         ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
         boolean result = constraint.hasFixedType();
 
-        assertThat(result, is(false));
+        //end same as in TypeVariableConstraintTest
+//        assertThat(result, is(false));
+        assertThat(result, is(true));
     }
 
     @Test
     public void toString_Standard_ReturnsTypeVariable() {
+        //different behaviour, a fixed type variable additionally returns # as appendix
+
+        //start same as in TypeVariableConstraintTest
         String typeVariable = "T";
 
         ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
         String result = constraint.toString();
 
-        assertThat(result, is("T"));
+        //end same as in TypeVariableConstraintTest
+//        assertThat(result, is("T"));
+        assertThat(result, is("T#"));
     }
 
+    @Override
     protected ITypeVariableConstraint createTypeVariableConstraint(String typeVariable) {
-        return new TypeVariableConstraint(typeVariable);
+        return new FixedTypeVariableConstraint(new TypeVariableConstraint(typeVariable));
     }
 
 }

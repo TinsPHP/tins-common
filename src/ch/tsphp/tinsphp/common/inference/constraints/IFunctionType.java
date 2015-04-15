@@ -21,5 +21,5 @@ public interface IFunctionType
 
     IVariable getReturnVariable();
 
-    ITypeVariableCollection getTypeVariables();
+    IOverloadBindings getBindings();
 }
