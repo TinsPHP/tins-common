@@ -16,7 +16,6 @@ import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IFunctionType;
 import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
@@ -27,7 +26,6 @@ import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.ILazySymbolResolver;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Factory which is able to build all symbols defined in this package.
@@ -69,8 +67,6 @@ public interface ISymbolFactory
     IMinimalVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
 
     IUnionTypeSymbol createUnionTypeSymbol();
-
-    IUnionTypeSymbol createUnionTypeSymbol(Map<String, ITypeSymbol> types);
 
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
