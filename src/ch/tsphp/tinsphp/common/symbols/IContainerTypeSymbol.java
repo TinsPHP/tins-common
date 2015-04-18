@@ -10,7 +10,7 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 
 import java.util.Map;
 
-public interface IContainerTypeSymbol extends ITypeSymbol
+public interface IContainerTypeSymbol<TContainer extends IContainerTypeSymbol<? super TContainer>> extends ITypeSymbol
 {
     Map<String, ITypeSymbol> getTypeSymbols();
 
@@ -22,4 +22,11 @@ public interface IContainerTypeSymbol extends ITypeSymbol
      * represents the same type as before.
      */
     boolean addTypeSymbol(ITypeSymbol symbol);
+
+    /**
+     * Provides a copy of the concrete ContainerTypeSymbol.
+     * <p/>
+     * This method should be used instead of creating a new instance and add the old one (is less efficient).
+     */
+    TContainer copy();
 }

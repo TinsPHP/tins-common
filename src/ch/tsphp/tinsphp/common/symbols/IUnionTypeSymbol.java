@@ -10,7 +10,7 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 
 import java.util.Map;
 
-public interface IUnionTypeSymbol extends IContainerTypeSymbol
+public interface IUnionTypeSymbol extends IContainerTypeSymbol<IUnionTypeSymbol>
 {
     Map<String, ITypeSymbol> getTypeSymbols();
 
@@ -22,11 +22,4 @@ public interface IUnionTypeSymbol extends IContainerTypeSymbol
      */
     boolean addTypeSymbol(ITypeSymbol symbol);
 
-//    /**
-//     * Adds all types of the given union to this union and indicates whether this union has changed.
-//     * <p/>
-//     * A type might not be added if it already exists in the union or if a parent type of the given type already
-//     * exists in the union.
-//     */
-//    boolean merge(ch.tsphp.common.symbols.IUnionTypeSymbol unionTypeSymbol);
 }

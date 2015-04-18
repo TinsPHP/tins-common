@@ -8,7 +8,7 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
-public interface IIntersectionTypeSymbol extends IContainerTypeSymbol
+public interface IIntersectionTypeSymbol extends IContainerTypeSymbol<IIntersectionTypeSymbol>
 {
     /**
      * Adds the given type to this intersection type and indicates whether it has changed.

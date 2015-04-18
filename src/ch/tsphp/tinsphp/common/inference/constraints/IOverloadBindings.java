@@ -6,39 +6,59 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-import java.util.Collection;
-import java.util.Map;
+import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.IIntersectionTypeSymbol;
+import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
+
 import java.util.Set;
 
 public interface IOverloadBindings
 {
-    Map<String, ITypeVariableConstraint> getVariable2TypeVariable();
-
-    boolean tryToFixateType(String variableId);
-
-    void resolveDependencies(String variableId, Set<String> dependenciesToIgnore);
-
-    void renameTypeVariable(ITypeVariableConstraint typeVariableConstraint, String newName);
 
     TypeVariableConstraint getNextTypeVariable();
 
-    void addLowerBound(String typeVariable, IConstraint newLowerBoundConstraint);
+    void addVariable(String variableId, ITypeVariableConstraint constraint);
 
-    void addUpperBound(String typeVariable, IConstraint newUpperBoundConstraint);
+    boolean containsVariable(String variableId);
+
+    Set<String> getVariableIds();
+
+    ITypeVariableConstraint getTypeVariableConstraint(String variableId);
+
+    void renameTypeVariable(String typeVariable, String newTypeVariable);
+
+    void addLowerRefBound(String typeVariable, ITypeVariableConstraint refTypeVariableConstraint);
+
+    void addLowerTypeBound(String typeVariable, ITypeSymbol typeSymbol);
+
+    void addUpperTypeBound(String typeVariable, ITypeSymbol typeSymbol);
+
+    boolean hasLowerRefBounds(String typeVariable);
+
+    boolean hasUpperRefBounds(String typeVariable);
+
+    boolean hasLowerTypeBounds(String typeVariable);
+
+    boolean hasUpperTypeBounds(String typeVariable);
 
     boolean hasLowerBounds(String typeVariable);
 
     boolean hasUpperBounds(String typeVariable);
 
-    Collection<IConstraint> getLowerBounds(String typeVariable);
+    IUnionTypeSymbol getLowerTypeBounds(String typeVariable);
 
-    Collection<IConstraint> getUpperBounds(String typeVariable);
+    IIntersectionTypeSymbol getUpperTypeBounds(String typeVariable);
+
+    Set<String> getLowerRefBounds(String typeVariable);
+
+    Set<String> getUpperRefBounds(String typeVariable);
+
+    boolean tryToFixType(String variableId);
+
+    void resolveDependencies(String variableId, Set<String> dependenciesToIgnore);
 
     Set<String> getLowerBoundConstraintIds(String typeVariable);
 
     Set<String> getUpperBoundConstraintIds(String typeVariable);
 
-    Set<String> getTypeVariablesWithLowerBounds();
-
-    Set<String> getTypeVariablesWithUpperBounds();
 }

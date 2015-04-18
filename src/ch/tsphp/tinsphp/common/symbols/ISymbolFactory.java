@@ -68,6 +68,8 @@ public interface ISymbolFactory
 
     IUnionTypeSymbol createUnionTypeSymbol();
 
+    IIntersectionTypeSymbol createIntersectionTypeSymbol();
+
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
 
