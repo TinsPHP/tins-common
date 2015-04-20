@@ -13,6 +13,8 @@ public interface IOverloadResolver
 
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 
+    boolean areSame(ITypeSymbol firstType, ITypeSymbol secondType);
+
     boolean isFirstSameOrSubTypeOfSecond(ITypeSymbol potentialSubType, ITypeSymbol typeSymbol);
 
     boolean isFirstSameOrParentTypeOfSecond(ITypeSymbol potentialParentType, ITypeSymbol typeSymbol);

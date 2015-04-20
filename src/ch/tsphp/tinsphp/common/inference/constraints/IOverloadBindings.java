@@ -53,9 +53,15 @@ public interface IOverloadBindings
 
     Set<String> getUpperRefBounds(String typeVariable);
 
-    boolean tryToFixType(String variableId);
+    void fixType(String variableId);
 
-    void resolveDependencies(String variableId, Set<String> dependenciesToIgnore);
+    /**
+     * Is meant for function bindings and reduced the variable type variables to the ones which have a lower ref to a
+     * parameter which itself has not a fixed type.
+     *
+     * @param parameterTypeVariables The typeVariables of the parameters of the function
+     */
+    void tryToFix(Set<String> parameterTypeVariables);
 
     Set<String> getLowerBoundConstraintIds(String typeVariable);
 
