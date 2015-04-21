@@ -99,6 +99,7 @@ public interface IReferencePhaseController
     void addImplicitReturnStatementIfRequired(
             boolean isReturning, boolean hasAtLeastOneReturnOrThrow, ITSPHPAst identifier, ITSPHPAst block);
 
+    ITSPHPAst createNullLiteral();
 
     void createTypeConstraint(ITSPHPAst literal);
 
