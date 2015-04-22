@@ -4,9 +4,11 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common;
+package ch.tsphp.tinsphp.common.config;
 
-public interface ITranslatorInitialiser
+import ch.tsphp.tinsphp.common.ITranslator;
+
+public interface ITranslatorInitialiser extends IInitialiser
 {
     ITranslator build();
 }

@@ -7,7 +7,6 @@
 package ch.tsphp.tinsphp.common;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.tinsphp.common.resolving.ISymbolResolver;
 import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
 
 import java.util.Map;
@@ -18,24 +17,14 @@ import java.util.Map;
  */
 public interface ICore
 {
-    //    Map<Integer, List<IMethodSymbol>> getUnaryOperators();
-//
-//    Map<Integer, List<IMethodSymbol>> getBinaryOperators();
-//
-
     Map<Integer, IMinimalMethodSymbol> getOperators();
 
     Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getImplicitConversions();
 
     Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getExplicitConversions();
 
-    //
     Map<String, ITypeSymbol> getPrimitiveTypes();
 
-    ISymbolResolver getCoreSymbolResolver();
-
-//    IPseudoTypeSymbol getMixedTypeSymbol();
-//
 //    IClassTypeSymbol getExceptionTypeSymbol();
 //
 //    ICastingMethod getStandardCastingMethod(ITypeSymbol formalParameterType);
