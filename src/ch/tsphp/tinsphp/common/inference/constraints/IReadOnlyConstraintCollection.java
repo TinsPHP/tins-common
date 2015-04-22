@@ -10,9 +10,7 @@ import java.util.List;
 
 public interface IReadOnlyConstraintCollection
 {
-    List<IIntersectionConstraint> getLowerBoundConstraints();
-
-    List<IIntersectionConstraint> getUpperBoundConstraints();
+    List<IConstraint> getConstraints();
 
     List<IOverloadBindings> getBindings();
 }

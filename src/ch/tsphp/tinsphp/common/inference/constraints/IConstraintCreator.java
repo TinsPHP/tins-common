@@ -18,7 +18,7 @@ public interface IConstraintCreator
 
     void createRefConstraint(IConstraintCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
 
-    void createIntersectionConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
+    void createOperatorConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
 
     void createFunctionCallConstraint(
             IConstraintCollection collection, ITSPHPAst functionCall, ITSPHPAst identifier, ITSPHPAst argumentList);

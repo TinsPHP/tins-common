@@ -6,30 +6,20 @@
 
 package ch.tsphp.tinsphp.common.test.unit.constraints;
 
-import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableConstraint;
-import ch.tsphp.tinsphp.common.inference.constraints.TypeVariableConstraint;
+import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableReference;
+import ch.tsphp.tinsphp.common.inference.constraints.TypeVariableReference;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class TypeVariableConstraintTest
+public class TypeVariableReferenceTest
 {
-    @Test
-    public void getId_Standard_ReturnsTypeVariableWithPrefixAt() {
-        String typeVariable = "T";
-
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
-        String result = constraint.getId();
-
-        assertThat(result, is("@T"));
-    }
-
     @Test
     public void getTypeVariable_Standard_ReturnsOnePassedByConstructor() {
         String typeVariable = "T";
 
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        ITypeVariableReference constraint = createTypeVariableReference(typeVariable);
         String result = constraint.getTypeVariable();
 
         assertThat(result, is("T"));
@@ -39,7 +29,7 @@ public class TypeVariableConstraintTest
     public void setAndGetTypeVariable_SetANewTypeVariable_ReturnsTheNewTypeVariable() {
         String typeVariable = "T";
 
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        ITypeVariableReference constraint = createTypeVariableReference(typeVariable);
         constraint.setTypeVariable("T1");
         String result = constraint.getTypeVariable();
 
@@ -50,7 +40,7 @@ public class TypeVariableConstraintTest
     public void hasFixedType_Standard_ReturnsFalse() {
         String typeVariable = "T";
 
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        ITypeVariableReference constraint = createTypeVariableReference(typeVariable);
         boolean result = constraint.hasFixedType();
 
         assertThat(result, is(false));
@@ -60,14 +50,14 @@ public class TypeVariableConstraintTest
     public void toString_Standard_ReturnsTypeVariable() {
         String typeVariable = "T";
 
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        ITypeVariableReference constraint = createTypeVariableReference(typeVariable);
         String result = constraint.toString();
 
         assertThat(result, is("T"));
     }
 
-    protected ITypeVariableConstraint createTypeVariableConstraint(String typeVariable) {
-        return new TypeVariableConstraint(typeVariable);
+    protected ITypeVariableReference createTypeVariableReference(String typeVariable) {
+        return new TypeVariableReference(typeVariable);
     }
 
 }

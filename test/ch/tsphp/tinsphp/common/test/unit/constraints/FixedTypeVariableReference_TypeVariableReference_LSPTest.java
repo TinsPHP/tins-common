@@ -6,15 +6,15 @@
 
 package ch.tsphp.tinsphp.common.test.unit.constraints;
 
-import ch.tsphp.tinsphp.common.inference.constraints.FixedTypeVariableConstraint;
-import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableConstraint;
-import ch.tsphp.tinsphp.common.inference.constraints.TypeVariableConstraint;
+import ch.tsphp.tinsphp.common.inference.constraints.FixedTypeVariableReference;
+import ch.tsphp.tinsphp.common.inference.constraints.ITypeVariableReference;
+import ch.tsphp.tinsphp.common.inference.constraints.TypeVariableReference;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class FixedTypeVariableConstraint_TypeVariableConstraint_LSPTest extends TypeVariableConstraintTest
+public class FixedTypeVariableReference_TypeVariableReference_LSPTest extends TypeVariableReferenceTest
 {
     @Test
     @Override
@@ -24,7 +24,7 @@ public class FixedTypeVariableConstraint_TypeVariableConstraint_LSPTest extends 
         //start same as in TypeVariableConstraintTest
         String typeVariable = "T";
 
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        ITypeVariableReference constraint = createTypeVariableReference(typeVariable);
         boolean result = constraint.hasFixedType();
 
         //end same as in TypeVariableConstraintTest
@@ -39,7 +39,7 @@ public class FixedTypeVariableConstraint_TypeVariableConstraint_LSPTest extends 
         //start same as in TypeVariableConstraintTest
         String typeVariable = "T";
 
-        ITypeVariableConstraint constraint = createTypeVariableConstraint(typeVariable);
+        ITypeVariableReference constraint = createTypeVariableReference(typeVariable);
         String result = constraint.toString();
 
         //end same as in TypeVariableConstraintTest
@@ -48,8 +48,8 @@ public class FixedTypeVariableConstraint_TypeVariableConstraint_LSPTest extends 
     }
 
     @Override
-    protected ITypeVariableConstraint createTypeVariableConstraint(String typeVariable) {
-        return new FixedTypeVariableConstraint(new TypeVariableConstraint(typeVariable));
+    protected ITypeVariableReference createTypeVariableReference(String typeVariable) {
+        return new FixedTypeVariableReference(new TypeVariableReference(typeVariable));
     }
 
 }

@@ -6,16 +6,11 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
-
-import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
-
-import java.util.List;
-
-public interface IIntersectionConstraint
+public interface ITypeVariableReference
 {
-    IVariable getLeftHandSide();
+    String getTypeVariable();
 
-    List<IVariable> getArguments();
+    void setTypeVariable(String newTypeVariable);
 
-    IMinimalMethodSymbol getMethodSymbol();
+    boolean hasFixedType();
 }

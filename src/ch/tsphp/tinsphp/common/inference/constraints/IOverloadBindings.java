@@ -15,19 +15,19 @@ import java.util.Set;
 public interface IOverloadBindings
 {
 
-    TypeVariableConstraint getNextTypeVariable();
+    TypeVariableReference getNextTypeVariable();
 
-    void addVariable(String variableId, ITypeVariableConstraint constraint);
+    void addVariable(String variableId, ITypeVariableReference reference);
 
     boolean containsVariable(String variableId);
 
     Set<String> getVariableIds();
 
-    ITypeVariableConstraint getTypeVariableConstraint(String variableId);
+    ITypeVariableReference getTypeVariableReference(String variableId);
 
     void renameTypeVariable(String typeVariable, String newTypeVariable);
 
-    void addLowerRefBound(String typeVariable, ITypeVariableConstraint refTypeVariableConstraint);
+    void addLowerRefBound(String typeVariable, ITypeVariableReference reference);
 
     void addLowerTypeBound(String typeVariable, ITypeSymbol typeSymbol);
 
