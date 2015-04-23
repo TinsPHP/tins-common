@@ -16,6 +16,7 @@ import ch.tsphp.common.ILowerCaseStringMap;
 import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 
 /**
  * Includes several helper methods which are used by different scopes.
@@ -59,5 +60,10 @@ public interface IScopeHelper
      * @return The corresponding namespace or null if the ast does not have an enclosing namespace
      */
     INamespaceScope getEnclosingNamespaceScope(ITSPHPAst ast);
+
+    /**
+     * Returns the method symbol or null if the ast is not within a function/method.
+     */
+    IMethodSymbol getEnclosingMethod(ITSPHPAst ast);
 
 }
