@@ -6,19 +6,30 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
+import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
+
 import java.util.List;
-import java.util.Set;
 
-public class MethodDto
+public final class MethodDto
 {
-    public TypeDto returnType;
-    public String identifier;
-    public Set<TypeParameterDto> typeParameters;
-    public List<ParameterDto> parameters;
+    public final TypeDto returnType;
+    public final String identifier;
+    public final List<TypeParameterDto> typeParameters;
+    public final List<ParameterDto> parameters;
+    public final IOverloadBindings bindings;
 
 
-    public MethodDto(String theIdentifier) {
+    public MethodDto(
+            TypeDto theReturnType,
+            String theIdentifier,
+            List<TypeParameterDto> theTypeParameters,
+            List<ParameterDto> theParameters,
+            IOverloadBindings theBindings) {
+        returnType = theReturnType;
         identifier = theIdentifier;
+        typeParameters = theTypeParameters;
+        parameters = theParameters;
+        bindings = theBindings;
     }
 
 }

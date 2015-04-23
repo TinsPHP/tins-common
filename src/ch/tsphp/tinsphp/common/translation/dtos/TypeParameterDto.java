@@ -6,11 +6,11 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
-public class TypeParameterDto
+public final class TypeParameterDto
 {
-    public String lowerBound;
-    public String typeVariable;
-    public String upperBound;
+    public final String lowerBound;
+    public final String typeVariable;
+    public final String upperBound;
 
     public TypeParameterDto(String theLowerBound, String theTypeVariable, String theUpperBound) {
         lowerBound = theLowerBound;

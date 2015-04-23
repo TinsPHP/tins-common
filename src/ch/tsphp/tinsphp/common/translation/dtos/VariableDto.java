@@ -6,15 +6,13 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
-public final class ParameterDto
+public final class VariableDto
 {
     public final TypeDto type;
     public final String variableId;
-    public final String defaultValue;
 
-    public ParameterDto(TypeDto theType, String theVariableId, String theDefaultValue) {
+    public VariableDto(TypeDto theType, String theVariableId) {
         type = theType;
         variableId = theVariableId;
-        defaultValue = theDefaultValue;
     }
 }

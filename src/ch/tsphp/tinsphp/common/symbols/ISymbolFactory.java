@@ -62,10 +62,6 @@ public interface ISymbolFactory
 //
     IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
 
-    IVariable createVariable(String name, String typeVariable);
-
-    IMinimalVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
-
     IUnionTypeSymbol createUnionTypeSymbol();
 
     IIntersectionTypeSymbol createIntersectionTypeSymbol();
@@ -82,6 +78,12 @@ public interface ISymbolFactory
             IVariable returnVariable);
 
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
+
+    IVariable createVariable(String name, String typeVariable);
+
+    IMinimalVariableSymbol createMinimalVariableSymbol(ITSPHPAst identifier, String name, String typeVariable);
+
+    IMinimalVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
 
     IVariableSymbol createVariableSymbol(ITSPHPAst typeModifier, ITSPHPAst variableId);
 
