@@ -7,13 +7,15 @@
 package ch.tsphp.tinsphp.common.issues;
 
 /**
- * Provides the issue messages for a provide in a certain language.
+ * Provides the issue messages in a certain language.
  * <p/>
  * This interface is used to abstract internationalisation of the issue messages.
  */
 public interface IIssueMessageProvider
 {
-    String getDefinitionErrorMessage(String identifier, DefinitionIssueDto dto);
+    String getDefinitionIssueMessage(String identifier, DefinitionIssueDto dto);
 
-    String getReferenceErrorMessage(String identifier, ReferenceIssueDto dto);
+    String getReferenceIssueMessage(String identifier, ReferenceIssueDto dto);
+
+    String getWrongArgumentTypeIssueMessage(String identifier, WrongArgumentTypeIssueDto dto);
 }

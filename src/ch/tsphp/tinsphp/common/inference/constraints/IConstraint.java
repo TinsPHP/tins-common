@@ -7,12 +7,15 @@
 package ch.tsphp.tinsphp.common.inference.constraints;
 
 
+import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
 
 import java.util.List;
 
 public interface IConstraint
 {
+    ITSPHPAst getOperator();
+
     IVariable getLeftHandSide();
 
     List<IVariable> getArguments();

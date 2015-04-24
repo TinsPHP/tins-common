@@ -9,9 +9,17 @@ package ch.tsphp.tinsphp.common.test.unit.issues;
 import ch.tsphp.tinsphp.common.issues.AIssueMessageProvider;
 import ch.tsphp.tinsphp.common.issues.DefinitionIssueDto;
 import ch.tsphp.tinsphp.common.issues.ReferenceIssueDto;
+import ch.tsphp.tinsphp.common.issues.WrongArgumentTypeIssueDto;
+import ch.tsphp.tinsphp.common.translation.dtos.MethodDto;
+import ch.tsphp.tinsphp.common.translation.dtos.ParameterDto;
+import ch.tsphp.tinsphp.common.translation.dtos.TypeDto;
+import ch.tsphp.tinsphp.common.translation.dtos.TypeParameterDto;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
@@ -22,19 +30,26 @@ public class AIssueMessageProviderTest
 {
     private final String standardDefinitionMessage = "dummy definition message";
     private final String standardReferenceMessage = "dummy reference message";
+    private final String standardWrongArgumentTypeMessage = "dummy wrong argument message";
 
     private class ADummyMessageProvider extends AIssueMessageProvider
     {
         private final Map<String, String> definitionIssues;
         private final Map<String, String> referenceIssues;
+        private final Map<String, String> wrongArgumentTypeIssues;
 
         private int definitionCallCount = 0;
         private int referenceCallCount = 0;
+        private int wrongArgumentCallCount = 0;
 
 
-        public ADummyMessageProvider(Map<String, String> theDefinitionIssues, Map<String, String> theReferenceIssues) {
+        public ADummyMessageProvider(
+                Map<String, String> theDefinitionIssues,
+                Map<String, String> theReferenceIssues,
+                Map<String, String> theWrongArgumentTypeIssues) {
             definitionIssues = theDefinitionIssues;
             referenceIssues = theReferenceIssues;
+            wrongArgumentTypeIssues = theWrongArgumentTypeIssues;
         }
 
         @Override
@@ -56,18 +71,33 @@ public class AIssueMessageProviderTest
         }
 
         @Override
-        protected String getStandardDefinitionErrorMessage(String identifier, DefinitionIssueDto dto) {
+        protected Map<String, String> loadWrongArgumentTypeIssueMessages() {
+            if (wrongArgumentCallCount > 1) {
+                throw new RuntimeException();
+            }
+            ++wrongArgumentCallCount;
+            return wrongArgumentTypeIssues;
+        }
+
+        @Override
+        protected String getStandardDefinitionIssueMessage(String identifier, DefinitionIssueDto dto) {
             return standardDefinitionMessage;
         }
 
         @Override
-        protected String getStandardReferenceErrorMessage(String identifier, ReferenceIssueDto dto) {
+        protected String getStandardReferenceIssueMessage(String identifier, ReferenceIssueDto dto) {
             return standardReferenceMessage;
         }
+
+        @Override
+        protected String getStandardWrongArgumentTypeIssueMessage(String identifier, WrongArgumentTypeIssueDto dto) {
+            return standardWrongArgumentTypeMessage;
+        }
+
     }
 
     @Test
-    public void getDefinitionErrorMessage_IdentifierExists_ReplacesIdLineAndPos() {
+    public void getDefinitionIssueMessage_IdentifierExists_ReplacesIdLineAndPos() {
         Map<String, String> map = new HashMap<>();
         map.put("test", "id %id%, line %line%, pos %pos%, idN %idN%, lineN %lineN%, posN %posN%");
         String id = "id";
@@ -79,14 +109,14 @@ public class AIssueMessageProviderTest
         DefinitionIssueDto dto = new DefinitionIssueDto(id, line, pos, idN, lineN, posN);
 
         AIssueMessageProvider messageProvider = createMessageProviderWithDefinitions(map);
-        String result = messageProvider.getDefinitionErrorMessage("test", dto);
+        String result = messageProvider.getDefinitionIssueMessage("test", dto);
 
         assertThat(result, is("id , line " + line + ", pos " + pos
                 + ", idN " + idN + ", lineN " + lineN + ", posN " + posN));
     }
 
     @Test
-    public void getDefinitionErrorMessage_IdentifierDoesNotExist_ReturnsStandardDefinitionMessage() {
+    public void getDefinitionIssueMessage_IdentifierDoesNotExist_ReturnsStandardDefinitionMessage() {
         Map<String, String> map = new HashMap<>();
         String id = "id";
         int line = 12;
@@ -97,24 +127,24 @@ public class AIssueMessageProviderTest
         DefinitionIssueDto dto = new DefinitionIssueDto(id, line, pos, idN, lineN, posN);
 
         AIssueMessageProvider messageProvider = createMessageProviderWithDefinitions(map);
-        String result = messageProvider.getDefinitionErrorMessage("test", dto);
+        String result = messageProvider.getDefinitionIssueMessage("test", dto);
 
         assertThat(result, is(standardDefinitionMessage));
     }
 
     @Test
-    public void getDefinitionErrorMessage_CalledASecondTime_LoadMessagesOnlyOnce() {
+    public void getDefinitionIssueMessage_CalledASecondTime_LoadMessagesOnlyOnce() {
         //no assert necessary
 
         AIssueMessageProvider messageProvider = createMessageProviderWithDefinitions(new HashMap<String, String>());
-        messageProvider.getDefinitionErrorMessage("bla", mock(DefinitionIssueDto.class));
-        messageProvider.getDefinitionErrorMessage("bli", mock(DefinitionIssueDto.class));
+        messageProvider.getDefinitionIssueMessage("bla", mock(DefinitionIssueDto.class));
+        messageProvider.getDefinitionIssueMessage("bli", mock(DefinitionIssueDto.class));
 
         //should not throw an exception
     }
 
     @Test
-    public void getReferenceErrorMessage_IdentifierExists_ReplacesIdLineAndPos() {
+    public void getReferenceIssueMessage_IdentifierExists_ReplacesIdLineAndPos() {
         Map<String, String> map = new HashMap<>();
         map.put("test", "id %id%, line %line%, pos %pos%, idN %idN%, lineN %lineN%, posN %posN%");
         String id = "id";
@@ -122,48 +152,125 @@ public class AIssueMessageProviderTest
         int pos = 23;
         ReferenceIssueDto dto = new ReferenceIssueDto(id, line, pos);
 
-        AIssueMessageProvider messageProvider = createMessageProviderWithRefrence(map);
-        String result = messageProvider.getReferenceErrorMessage("test", dto);
+        AIssueMessageProvider messageProvider = createMessageProviderWithReference(map);
+        String result = messageProvider.getReferenceIssueMessage("test", dto);
 
         assertThat(result, is("id " + id + ", line " + line + ", pos " + pos
                 + ", idN %idN%, lineN %lineN%, posN %posN%"));
     }
 
     @Test
-    public void getReferenceErrorMessage_IdentifierDoesNotExist_ReturnsStandardDefinitionMessage() {
+    public void getReferenceIssueMessage_IdentifierDoesNotExist_ReturnsStandardDefinitionMessage() {
         Map<String, String> map = new HashMap<>();
         String id = "id";
         int line = 12;
         int pos = 23;
         ReferenceIssueDto dto = new ReferenceIssueDto(id, line, pos);
 
-        AIssueMessageProvider messageProvider = createMessageProviderWithRefrence(map);
-        String result = messageProvider.getReferenceErrorMessage("test", dto);
+        AIssueMessageProvider messageProvider = createMessageProviderWithReference(map);
+        String result = messageProvider.getReferenceIssueMessage("test", dto);
 
         assertThat(result, is(standardReferenceMessage));
     }
 
     @Test
-    public void getReferenceErrorMessage_CalledASecondTime_LoadMessagesOnlyOnce() {
+    public void getReferenceIssueMessage_CalledASecondTime_LoadMessagesOnlyOnce() {
         //no assert necessary
 
-        AIssueMessageProvider messageProvider = createMessageProviderWithRefrence(new HashMap<String, String>());
-        messageProvider.getReferenceErrorMessage("bla", mock(ReferenceIssueDto.class));
-        messageProvider.getReferenceErrorMessage("bli", mock(ReferenceIssueDto.class));
+        AIssueMessageProvider messageProvider = createMessageProviderWithReference(new HashMap<String, String>());
+        messageProvider.getReferenceIssueMessage("bla", mock(ReferenceIssueDto.class));
+        messageProvider.getReferenceIssueMessage("bli", mock(ReferenceIssueDto.class));
+
+        //should not throw an exception
+    }
+
+    @Test
+    public void getWrongArgumentTypeIssueMessage_IdentifierExists_ReplacesIdLinePosArgumentAndListOfOverloads() {
+        Map<String, String> map = new HashMap<>();
+        map.put("test", "id %id%, line %line%, pos %pos%, idN %idN%, lineN %lineN%, posN %posN%\n"
+                + "arguments\n%args%\noverloads:\n%overloads%");
+        String id = "id";
+        int line = 12;
+        int pos = 23;
+        ArrayList<MethodDto> overloads = new ArrayList<>();
+        List<TypeParameterDto> typeParameters = Arrays.asList(
+                new TypeParameterDto(null, "T1", null),
+                new TypeParameterDto("int", "T2", "num"));
+        List<ParameterDto> parameters = Arrays.asList(
+                new ParameterDto(new TypeDto(null, "T1", null), null, null),
+                new ParameterDto(new TypeDto(null, "int", null), null, null),
+                new ParameterDto(new TypeDto(null, "T2", null), null, null)
+        );
+        overloads.add(new MethodDto(null, null, typeParameters, parameters, null));
+        parameters = Arrays.asList(
+                new ParameterDto(new TypeDto(null, "string", null), null, null),
+                new ParameterDto(new TypeDto(null, "string", null), null, null),
+                new ParameterDto(new TypeDto(null, "string", null), null, null)
+        );
+        overloads.add(new MethodDto(null, null, null, parameters, null));
+        overloads.add(new MethodDto(null, null, null, new ArrayList<ParameterDto>(), null));
+
+        WrongArgumentTypeIssueDto dto = new WrongArgumentTypeIssueDto(
+                id, line, pos, new String[]{"int", "string", "float"}, overloads);
+
+        AIssueMessageProvider messageProvider = createMessageProviderWithWrongArgumentType(map);
+        String result = messageProvider.getWrongArgumentTypeIssueMessage("test", dto);
+
+        assertThat(result, is("id " + id + ", line " + line + ", pos " + pos
+                + ", idN %idN%, lineN %lineN%, posN %posN%\n"
+                + "arguments\n(int, string, float)\noverloads:\n"
+                + "[T1, int < T2 < num](T1, int, T2)\n"
+                + "(string, string, string)\n"
+                + "()"));
+    }
+
+    @Test
+    public void getWrongArgumentTypeMessage_IdentifierDoesNotExist_ReturnsStandardDefinitionMessage() {
+        Map<String, String> map = new HashMap<>();
+        String id = "id";
+        int line = 12;
+        int pos = 23;
+        WrongArgumentTypeIssueDto dto = new WrongArgumentTypeIssueDto(
+                id, line, pos, new String[]{}, new ArrayList<MethodDto>());
+
+        AIssueMessageProvider messageProvider = createMessageProviderWithWrongArgumentType(map);
+        String result = messageProvider.getWrongArgumentTypeIssueMessage("test", dto);
+
+        assertThat(result, is(standardWrongArgumentTypeMessage));
+    }
+
+    @Test
+    public void getWrongArgumentTypeIssueMessage_CalledASecondTime_LoadMessagesOnlyOnce() {
+        //no assert necessary
+
+        AIssueMessageProvider messageProvider = createMessageProviderWithWrongArgumentType(new HashMap<String,
+                String>());
+        messageProvider.getWrongArgumentTypeIssueMessage("bla", mock(WrongArgumentTypeIssueDto.class));
+        messageProvider.getWrongArgumentTypeIssueMessage("bli", mock(WrongArgumentTypeIssueDto.class));
 
         //should not throw an exception
     }
 
     private AIssueMessageProvider createMessageProviderWithDefinitions(Map<String, String> definitionIssueMessages) {
-        return createMessageProvider(definitionIssueMessages, new HashMap<String, String>());
+        return createMessageProvider(
+                definitionIssueMessages, new HashMap<String, String>(), new HashMap<String, String>());
     }
 
-    private AIssueMessageProvider createMessageProviderWithRefrence(Map<String, String> referenceIssueMessages) {
-        return createMessageProvider(new HashMap<String, String>(), referenceIssueMessages);
+    private AIssueMessageProvider createMessageProviderWithReference(Map<String, String> referenceIssueMessages) {
+        return createMessageProvider(
+                new HashMap<String, String>(), referenceIssueMessages, new HashMap<String, String>());
+    }
+
+    private AIssueMessageProvider createMessageProviderWithWrongArgumentType(
+            Map<String, String> wrongArgumentTypeIssueMessages) {
+        return createMessageProvider(
+                new HashMap<String, String>(), new HashMap<String, String>(), wrongArgumentTypeIssueMessages);
     }
 
     protected AIssueMessageProvider createMessageProvider(
-            Map<String, String> definitionIssues, Map<String, String> referenceIssues) {
-        return new ADummyMessageProvider(definitionIssues, referenceIssues);
+            Map<String, String> definitionIssues,
+            Map<String, String> referenceIssues,
+            Map<String, String> wrongArgumentTypeIssues) {
+        return new ADummyMessageProvider(definitionIssues, referenceIssues, wrongArgumentTypeIssues);
     }
 }
