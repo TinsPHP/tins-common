@@ -155,16 +155,33 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
             sb.append(", ");
             appendParameter(sb, iterator.next());
         }
-        sb.append(")");
+        sb.append(") -> ").append(methodDto.returnType.type);
     }
 
     private void appendTypeParameter(StringBuilder sb, TypeParameterDto typeParameter) {
-        if (typeParameter.lowerBound != null) {
-            sb.append(typeParameter.lowerBound).append(" < ");
+        if (typeParameter.lowerBounds != null) {
+            appendBound(sb, typeParameter.lowerBounds, " | ");
+            sb.append(" < ");
         }
         sb.append(typeParameter.typeVariable);
-        if (typeParameter.upperBound != null) {
-            sb.append(" < ").append(typeParameter.upperBound);
+        if (typeParameter.upperBounds != null) {
+            sb.append(" < ");
+            appendBound(sb, typeParameter.upperBounds, " & ");
+        }
+    }
+
+    protected void appendBound(StringBuilder sb, List<String> bounds, String separator) {
+        boolean hasMoreThanOne = bounds.size() > 1;
+        if (hasMoreThanOne) {
+            sb.append("(");
+        }
+        Iterator<String> iterator = bounds.iterator();
+        sb.append(iterator.next());
+        while (iterator.hasNext()) {
+            sb.append(separator).append(iterator.next());
+        }
+        if (hasMoreThanOne) {
+            sb.append(")");
         }
     }
 

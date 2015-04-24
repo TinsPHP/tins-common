@@ -17,11 +17,11 @@ import ch.tsphp.tinsphp.common.translation.dtos.TypeParameterDto;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -193,22 +193,22 @@ public class AIssueMessageProviderTest
         int line = 12;
         int pos = 23;
         ArrayList<MethodDto> overloads = new ArrayList<>();
-        List<TypeParameterDto> typeParameters = Arrays.asList(
-                new TypeParameterDto(null, "T1", null),
-                new TypeParameterDto("int", "T2", "num"));
-        List<ParameterDto> parameters = Arrays.asList(
+        List<TypeParameterDto> typeParameters = asList(
+                new TypeParameterDto(asList("T2", "int", "float"), "T1", null),
+                new TypeParameterDto(asList("int"), "T2", asList("IA", "IB")));
+        List<ParameterDto> parameters = asList(
                 new ParameterDto(new TypeDto(null, "T1", null), null, null),
                 new ParameterDto(new TypeDto(null, "int", null), null, null),
                 new ParameterDto(new TypeDto(null, "T2", null), null, null)
         );
-        overloads.add(new MethodDto(null, null, typeParameters, parameters, null));
-        parameters = Arrays.asList(
+        overloads.add(new MethodDto(new TypeDto(null, "T1", null), null, typeParameters, parameters, null));
+        parameters = asList(
                 new ParameterDto(new TypeDto(null, "string", null), null, null),
                 new ParameterDto(new TypeDto(null, "string", null), null, null),
                 new ParameterDto(new TypeDto(null, "string", null), null, null)
         );
-        overloads.add(new MethodDto(null, null, null, parameters, null));
-        overloads.add(new MethodDto(null, null, null, new ArrayList<ParameterDto>(), null));
+        overloads.add(new MethodDto(new TypeDto(null, "int", null), null, null, parameters, null));
+        overloads.add(new MethodDto(new TypeDto(null, "int", null), null, null, new ArrayList<ParameterDto>(), null));
 
         WrongArgumentTypeIssueDto dto = new WrongArgumentTypeIssueDto(
                 id, line, pos, new String[]{"int", "string", "float"}, overloads);
@@ -219,9 +219,9 @@ public class AIssueMessageProviderTest
         assertThat(result, is("id " + id + ", line " + line + ", pos " + pos
                 + ", idN %idN%, lineN %lineN%, posN %posN%\n"
                 + "arguments\n(int, string, float)\noverloads:\n"
-                + "[T1, int < T2 < num](T1, int, T2)\n"
-                + "(string, string, string)\n"
-                + "()"));
+                + "[(T2 | int | float) < T1, int < T2 < (IA & IB)](T1, int, T2) -> T1\n"
+                + "(string, string, string) -> int\n"
+                + "() -> int"));
     }
 
     @Test

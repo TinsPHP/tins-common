@@ -6,15 +6,15 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
-import java.util.Set;
+import java.util.List;
 
 public final class TypeDto
 {
-    public final Set<String> prefixModifiers;
+    public final List<String> prefixModifiers;
     public final String type;
-    public final Set<String> suffixModifiers;
+    public final List<String> suffixModifiers;
 
-    public TypeDto(Set<String> thePrefixModifiers, String theType, Set<String> theSuffixModifiers) {
+    public TypeDto(List<String> thePrefixModifiers, String theType, List<String> theSuffixModifiers) {
         prefixModifiers = thePrefixModifiers;
         type = theType;
         suffixModifiers = theSuffixModifiers;

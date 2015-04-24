@@ -6,15 +6,17 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
+import java.util.List;
+
 public final class TypeParameterDto
 {
-    public final String lowerBound;
+    public final List<String> lowerBounds;
     public final String typeVariable;
-    public final String upperBound;
+    public final List<String> upperBounds;
 
-    public TypeParameterDto(String theLowerBound, String theTypeVariable, String theUpperBound) {
-        lowerBound = theLowerBound;
+    public TypeParameterDto(List<String> theLowerBounds, String theTypeVariable, List<String> theUpperBounds) {
+        lowerBounds = theLowerBounds;
         typeVariable = theTypeVariable;
-        upperBound = theUpperBound;
+        upperBounds = theUpperBounds;
     }
 }
