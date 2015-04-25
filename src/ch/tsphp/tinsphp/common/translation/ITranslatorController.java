@@ -26,4 +26,6 @@ public interface ITranslatorController
     VariableDto createVariableDtoForConstant(IOverloadBindings bindings, ITSPHPAst constantId);
 
     VariableDto createVariableDto(IOverloadBindings bindings, ITSPHPAst variableId);
+
+    String getOverloadName(IOverloadBindings bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
 }

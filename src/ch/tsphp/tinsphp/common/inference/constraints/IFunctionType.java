@@ -16,16 +16,14 @@ public interface IFunctionType
     String getName();
 
     /**
-     * Returns the name as a translator component has rewritten it or the original name if it was not rewritten.
+     * Returns a suffix if the translator with the given id had to rewrite the function.
      * <p/>
      * It might be necessary that a translator rewrites the name of an overload (for instance if the target language
      * does not support overloading).
-     *
-     * @return
      */
-    String getRewrittenName(String translatorId);
+    String getSuffix(String translatorId);
 
-    void addRewrittenName(String translatorId, String newName);
+    void addSuffix(String translatorId, String newName);
 
     int getNumberOfNonOptionalParameters();
 
