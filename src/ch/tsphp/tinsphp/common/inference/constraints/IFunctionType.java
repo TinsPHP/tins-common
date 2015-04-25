@@ -29,7 +29,5 @@ public interface IFunctionType
 
     List<IVariable> getParameters();
 
-    IVariable getReturnVariable();
-
     IOverloadBindings getBindings();
 }

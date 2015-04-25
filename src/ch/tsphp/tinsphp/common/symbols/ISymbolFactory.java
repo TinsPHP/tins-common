@@ -74,14 +74,13 @@ public interface ISymbolFactory
     IFunctionType createFunctionType(
             String name,
             IOverloadBindings overloadBinding,
-            List<IVariable> parameters,
-            IVariable returnVariable);
+            List<IVariable> parameters);
 
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
 
-    IVariable createVariable(String name, String typeVariable);
+    IVariable createVariable(String name);
 
-    IMinimalVariableSymbol createMinimalVariableSymbol(ITSPHPAst identifier, String name, String typeVariable);
+    IMinimalVariableSymbol createMinimalVariableSymbol(ITSPHPAst identifier, String name);
 
     IMinimalVariableSymbol createExpressionVariableSymbol(ITSPHPAst exprAst);
 

@@ -15,10 +15,4 @@ public interface IVariable
     String getAbsoluteName();
 
     ITypeSymbol getType();
-
-    void setHasFixedType();
-
-    boolean hasFixedType();
-
-    String getTypeVariable();
 }

@@ -18,8 +18,8 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
+import ch.tsphp.tinsphp.common.symbols.IMinimalVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
-import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
 import org.antlr.runtime.RecognitionException;
 
@@ -34,7 +34,7 @@ import java.util.List;
 public interface IReferencePhaseController
 {
 
-    IVariableSymbol resolveConstant(ITSPHPAst identifier);
+    IMinimalVariableSymbol resolveConstant(ITSPHPAst identifier);
 
     //TODO rstoll TINS-223 reference phase - resolve this and self
 //    IVariableSymbol resolveThisSelf(ITSPHPAst $this);
@@ -42,7 +42,7 @@ public interface IReferencePhaseController
     //TODO rstoll TINS-225 reference phase - resolve parent
 //    IVariableSymbol resolveParent(ITSPHPAst $this);
 
-    IVariableSymbol resolveVariable(ITSPHPAst variableId);
+    IMinimalVariableSymbol resolveVariable(ITSPHPAst variableId);
 
     IMinimalMethodSymbol resolveFunction(ITSPHPAst identifier);
 
