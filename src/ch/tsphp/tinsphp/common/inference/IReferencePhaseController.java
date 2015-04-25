@@ -18,7 +18,6 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraintCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
-import ch.tsphp.tinsphp.common.symbols.IMinimalVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IVariableSymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousTypeSymbol;
@@ -48,8 +47,6 @@ public interface IReferencePhaseController
     IMinimalMethodSymbol resolveFunction(ITSPHPAst identifier);
 
     IMinimalMethodSymbol resolveOperator(ITSPHPAst operator);
-
-    IMinimalVariableSymbol resolveReturn(ITSPHPAst returnAst);
 
     ITypeSymbol resolvePrimitiveType(ITSPHPAst typeASt, ITSPHPAst typeModifierAst);
 
@@ -104,6 +101,8 @@ public interface IReferencePhaseController
     void createTypeConstraint(ITSPHPAst literal);
 
     void createRefConstraint(IConstraintCollection collection, ITSPHPAst identifier, ITSPHPAst rhs);
+
+    void createReturnConstraint(IConstraintCollection currentScope, ITSPHPAst returnAst, ITSPHPAst expression);
 
     void createOperatorConstraint(IConstraintCollection collection, ITSPHPAst operator, ITSPHPAst... arguments);
 

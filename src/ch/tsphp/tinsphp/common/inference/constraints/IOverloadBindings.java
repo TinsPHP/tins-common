@@ -21,11 +21,9 @@ public interface IOverloadBindings
 
     boolean containsVariable(String variableId);
 
-    Set<String> getVariableIds();
-
     ITypeVariableReference getTypeVariableReference(String variableId);
 
-    void renameTypeVariable(String typeVariable, String newTypeVariable);
+    Set<String> getVariableIds();
 
     void addLowerRefBound(String typeVariable, ITypeVariableReference reference);
 
@@ -53,18 +51,41 @@ public interface IOverloadBindings
 
     Set<String> getUpperRefBounds(String typeVariable);
 
+    Set<String> getLowerBoundConstraintIds(String typeVariable);
+
+    Set<String> getUpperBoundConstraintIds(String typeVariable);
+
+    /**
+     * Returns the overload which was taken for this expression node.
+     *
+     * @return
+     */
+    IFunctionType getAppliedOverload(String variableId);
+
+    /**
+     * Sets the overload which was taken for the given expression node.
+     * <p/>
+     * For instance, if the expression node represents the + operator then multiple overloads can be taken. To name
+     * just two of them:
+     * <p/>
+     * -  T x T -> T \ T < num
+     * -  bool x bool -> int
+     * <p/>
+     * Let's say the first overload was taken, in this case we store this information via this method in the
+     * binding
+     */
+    void setAppliedOverload(String variableId, IFunctionType overload);
+
     void fixType(String variableId);
 
     /**
-     * Is meant for function bindings and reduced the variable type variables to the ones which have a lower ref to a
-     * parameter which itself has not a fixed type.
+     * Is meant for function bindings and reduces the non-fixed (free) type variables to the ones which have a lower
+     * ref to a parameter which itself has not a fixed type.
      *
      * @param parameterTypeVariables The typeVariables of the parameters of the function
      */
     void tryToFix(Set<String> parameterTypeVariables);
 
-    Set<String> getLowerBoundConstraintIds(String typeVariable);
-
-    Set<String> getUpperBoundConstraintIds(String typeVariable);
+    void renameTypeVariable(String typeVariable, String newTypeVariable);
 
 }

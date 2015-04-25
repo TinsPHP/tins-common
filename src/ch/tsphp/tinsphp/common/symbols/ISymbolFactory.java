@@ -83,7 +83,7 @@ public interface ISymbolFactory
 
     IMinimalVariableSymbol createMinimalVariableSymbol(ITSPHPAst identifier, String name, String typeVariable);
 
-    IMinimalVariableSymbol createExpressionTypeVariableSymbol(ITSPHPAst exprAst);
+    IMinimalVariableSymbol createExpressionVariableSymbol(ITSPHPAst exprAst);
 
     IVariableSymbol createVariableSymbol(ITSPHPAst typeModifier, ITSPHPAst variableId);
 
