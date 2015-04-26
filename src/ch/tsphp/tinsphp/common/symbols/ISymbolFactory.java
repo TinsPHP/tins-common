@@ -37,8 +37,6 @@ public interface ISymbolFactory
 
     ITypeSymbol getMixedTypeSymbol();
 
-    INullTypeSymbol createNullTypeSymbol();
-
 //    IVoidTypeSymbol createVoidTypeSymbol();
 
     @SuppressWarnings("checkstyle:parameternumber")
@@ -59,7 +57,7 @@ public interface ISymbolFactory
     IAliasTypeSymbol createAliasTypeSymbol(ITSPHPAst definitionAst, String name);
 
     //    IInterfaceTypeSymbol createInterfaceTypeSymbol(ITSPHPAst modifier, ITSPHPAst identifier, IScope currentScope);
-//
+
     IClassTypeSymbol createClassTypeSymbol(ITSPHPAst classModifier, ITSPHPAst identifier, IScope currentScope);
 
     IUnionTypeSymbol createUnionTypeSymbol();
