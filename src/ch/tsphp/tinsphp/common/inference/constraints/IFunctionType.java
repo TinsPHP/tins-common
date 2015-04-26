@@ -9,11 +9,26 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 import java.util.List;
 
 /**
- * Represents an overload with parameters, return variable and belonging type variable definitions.
+ * Represents an overload with parameters and bindings including suffixes for translators.
  */
 public interface IFunctionType
 {
     String getName();
+
+    /**
+     * Marks that a function will not change anymore (its bindings respectively) and hence can calculate its
+     * signature and fix it as well.
+     */
+    void fix();
+
+    /**
+     * The signature of this function if it can be determined already otherwise null.
+     * <p/>
+     * A signature can be determined if the function was fixed.
+     *
+     * @return
+     */
+    String getSignature();
 
     /**
      * Returns a suffix if the translator with the given id had to rewrite the function.

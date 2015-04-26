@@ -28,4 +28,6 @@ public interface ITranslatorController
     VariableDto createVariableDto(IOverloadBindings bindings, ITSPHPAst variableId);
 
     String getOverloadName(IOverloadBindings bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
+
+    String getMigrationFunction(IOverloadBindings bindings, ITSPHPAst operator);
 }

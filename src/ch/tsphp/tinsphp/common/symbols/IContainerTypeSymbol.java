@@ -20,6 +20,8 @@ public interface IContainerTypeSymbol<TContainer extends IContainerTypeSymbol<? 
      * A type might not be added if it already exists in the container or if a constraint (such as a parent type of
      * the given type already exists in the container) fails. In such a case the method returns false because it
      * represents the same type as before.
+     *
+     * @return True if this container type symbol has changed due to the addition otherwise false.
      */
     boolean addTypeSymbol(ITypeSymbol symbol);
 
