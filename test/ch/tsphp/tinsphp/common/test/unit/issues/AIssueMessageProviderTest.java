@@ -202,6 +202,15 @@ public class AIssueMessageProviderTest
                 new ParameterDto(new TypeDto(null, "T2", null), null, null)
         );
         overloads.add(new MethodDto(new TypeDto(null, "T1", null), null, typeParameters, parameters, null));
+        typeParameters = asList(
+                new TypeParameterDto(null, "T1", null),
+                new TypeParameterDto(null, "T2", asList("int")));
+        parameters = asList(
+                new ParameterDto(new TypeDto(null, "T1", null), null, null),
+                new ParameterDto(new TypeDto(null, "T2", null), null, null),
+                new ParameterDto(new TypeDto(null, "string", null), null, null)
+        );
+        overloads.add(new MethodDto(new TypeDto(null, "int", null), null, typeParameters, parameters, null));
         parameters = asList(
                 new ParameterDto(new TypeDto(null, "string", null), null, null),
                 new ParameterDto(new TypeDto(null, "string", null), null, null),
@@ -219,7 +228,8 @@ public class AIssueMessageProviderTest
         assertThat(result, is("id " + id + ", line " + line + ", pos " + pos
                 + ", idN %idN%, lineN %lineN%, posN %posN%\n"
                 + "arguments\n(int, string, float)\noverloads:\n"
-                + "[(T2 | int | float) < T1, int < T2 < (IA & IB)](T1, int, T2) -> T1\n"
+                + "(T1, int, T2) -> T1 \\ (T2 | int | float) < T1, int < T2 < (IA & IB)\n"
+                + "(T1, T2, string) -> T1 \\ T2 < int\n"
                 + "(string, string, string) -> int\n"
                 + "() -> int"));
     }
