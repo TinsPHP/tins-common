@@ -111,14 +111,16 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
 
     protected String getArguments(String[] arguments) {
         StringBuilder sb = new StringBuilder();
-        sb.append("(");
-        for (int i = 0; i < arguments.length; ++i) {
-            if (i != 0) {
-                sb.append(", ");
+        if (arguments.length != 0) {
+            for (int i = 0; i < arguments.length; ++i) {
+                if (i != 0) {
+                    sb.append(" x ");
+                }
+                sb.append(arguments[i]);
             }
-            sb.append(arguments[i]);
+        } else {
+            sb.append("()");
         }
-        sb.append(")");
         return sb.toString();
     }
 
@@ -134,16 +136,18 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
     }
 
     private void appendOverload(StringBuilder sb, MethodDto methodDto) {
-        sb.append("(");
         Iterator<ParameterDto> iterator = methodDto.parameters.iterator();
         if (iterator.hasNext()) {
             appendParameter(sb, iterator.next());
         }
         while (iterator.hasNext()) {
-            sb.append(", ");
+            sb.append(" x ");
             appendParameter(sb, iterator.next());
         }
-        sb.append(") -> ").append(methodDto.returnType.type);
+        if (methodDto.parameters.size() == 0) {
+            sb.append("()");
+        }
+        sb.append(" -> ").append(methodDto.returnType.type);
         if (methodDto.typeParameters != null) {
             Iterator<TypeParameterDto> typeParamIterator = methodDto.typeParameters.iterator();
             boolean isFirstWithBounds = true;
