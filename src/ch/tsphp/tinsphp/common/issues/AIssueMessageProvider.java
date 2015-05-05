@@ -134,18 +134,6 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
     }
 
     private void appendOverload(StringBuilder sb, MethodDto methodDto) {
-        if (methodDto.typeParameters != null) {
-            sb.append("[");
-            Iterator<TypeParameterDto> iterator = methodDto.typeParameters.iterator();
-            TypeParameterDto typeParameter = iterator.next();
-            appendTypeParameter(sb, typeParameter);
-            while (iterator.hasNext()) {
-                sb.append(", ");
-                typeParameter = iterator.next();
-                appendTypeParameter(sb, typeParameter);
-            }
-            sb.append("]");
-        }
         sb.append("(");
         Iterator<ParameterDto> iterator = methodDto.parameters.iterator();
         if (iterator.hasNext()) {
@@ -156,6 +144,28 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
             appendParameter(sb, iterator.next());
         }
         sb.append(") -> ").append(methodDto.returnType.type);
+        if (methodDto.typeParameters != null) {
+            Iterator<TypeParameterDto> typeParamIterator = methodDto.typeParameters.iterator();
+            boolean isFirstWithBounds = true;
+            TypeParameterDto typeParameter = typeParamIterator.next();
+            if (typeParameter.lowerBounds != null || typeParameter.upperBounds != null) {
+                sb.append(" \\ ");
+                isFirstWithBounds = false;
+                appendTypeParameter(sb, typeParameter);
+            }
+            while (typeParamIterator.hasNext()) {
+                typeParameter = typeParamIterator.next();
+                if (typeParameter.lowerBounds != null || typeParameter.upperBounds != null) {
+                    if (!isFirstWithBounds) {
+                        sb.append(", ");
+                    } else {
+                        sb.append(" \\ ");
+                        isFirstWithBounds = false;
+                    }
+                    appendTypeParameter(sb, typeParameter);
+                }
+            }
+        }
     }
 
     private void appendTypeParameter(StringBuilder sb, TypeParameterDto typeParameter) {

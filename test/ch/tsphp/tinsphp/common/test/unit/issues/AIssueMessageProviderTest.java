@@ -229,7 +229,7 @@ public class AIssueMessageProviderTest
                 + ", idN %idN%, lineN %lineN%, posN %posN%\n"
                 + "arguments\n(int, string, float)\noverloads:\n"
                 + "(T1, int, T2) -> T1 \\ (T2 | int | float) < T1, int < T2 < (IA & IB)\n"
-                + "(T1, T2, string) -> T1 \\ T2 < int\n"
+                + "(T1, T2, string) -> int \\ T2 < int\n"
                 + "(string, string, string) -> int\n"
                 + "() -> int"));
     }
