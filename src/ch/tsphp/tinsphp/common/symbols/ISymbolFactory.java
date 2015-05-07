@@ -16,6 +16,7 @@ import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 import ch.tsphp.tinsphp.common.inference.constraints.IFunctionType;
 import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
@@ -92,4 +93,11 @@ public interface ISymbolFactory
 
     IErroneousLazySymbol createErroneousLazySymbol(
             ILazySymbolResolver symbolResolver, ITSPHPAst ast, TSPHPException exception);
+
+    IConstraint createConstraint(
+            ITSPHPAst operator, IVariable leftHandSide, List<IVariable> arguments, IMinimalMethodSymbol methodSymbol);
+
+    IOverloadBindings createOverloadBindings();
+
+    IOverloadBindings createOverloadBindings(IOverloadBindings overloadBindingsToCopy);
 }
