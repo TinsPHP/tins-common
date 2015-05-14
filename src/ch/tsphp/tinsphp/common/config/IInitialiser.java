@@ -6,6 +6,11 @@
 
 package ch.tsphp.tinsphp.common.config;
 
+/**
+ * An initialiser is responsible to initialise and reinitialise its corresponding component.
+ * <p/>
+ * Furthermore, it exposes the interfaces which can be used from the outside of this component
+ */
 public interface IInitialiser
 {
     /**

@@ -9,6 +9,9 @@ package ch.tsphp.tinsphp.common;
 import ch.tsphp.tinsphp.common.issues.IIssueReporter;
 import org.antlr.runtime.tree.TreeNodeStream;
 
+/**
+ * Represents a translator of TinsPHP and acts as facade to the outside world of the corresponding translator component.
+ */
 public interface ITranslator extends IIssueReporter
 {
     String translate(TreeNodeStream treeNodeStream);

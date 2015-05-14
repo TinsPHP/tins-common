@@ -15,6 +15,9 @@ package ch.tsphp.tinsphp.common.config;
 
 import ch.tsphp.tinsphp.common.ICompiler;
 
+/**
+ * Responsible to initialise the compiler component.
+ */
 public interface ICompilerInitialiser extends IInitialiser
 {
     ICompiler getCompiler();

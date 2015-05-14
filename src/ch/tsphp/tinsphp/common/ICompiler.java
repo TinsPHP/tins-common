@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
+/**
+ * Represents the compiler of TinsPHP and acts as facade to the outside world of the compiler component.
+ */
 public interface ICompiler extends IIssueReporter
 {
     void registerCompilerListener(ICompilerListener listener);

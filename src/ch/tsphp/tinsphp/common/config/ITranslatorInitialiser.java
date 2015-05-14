@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.config;
 
 import ch.tsphp.tinsphp.common.ITranslator;
 
+/**
+ * Responsible to initialise the translator component.
+ */
 public interface ITranslatorInitialiser extends IInitialiser
 {
     ITranslator build();

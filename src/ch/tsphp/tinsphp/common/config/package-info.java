@@ -4,14 +4,8 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
+/**
+ * Contains all interfaces related to the configuration of components.
+ */
 package ch.tsphp.tinsphp.common.config;
 
-import ch.tsphp.tinsphp.common.IParser;
-
-/**
- * Responsible to initialise the parser component.
- */
-public interface IParserInitialiser extends IInitialiser
-{
-    IParser getParser();
-}

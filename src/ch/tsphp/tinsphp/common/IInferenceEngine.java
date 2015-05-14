@@ -11,7 +11,7 @@ import ch.tsphp.tinsphp.common.issues.IIssueReporter;
 import org.antlr.runtime.tree.TreeNodeStream;
 
 /**
- * Represents the inference engine of TinsPHP.
+ * Represents the inference engine of TinsPHP and acts as facade to the outside world of the inference engine component.
  */
 public interface IInferenceEngine extends IIssueReporter
 {

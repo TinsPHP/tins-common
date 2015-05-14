@@ -9,6 +9,9 @@ package ch.tsphp.tinsphp.common.config;
 import ch.tsphp.tinsphp.common.ICore;
 import ch.tsphp.tinsphp.common.resolving.ISymbolResolver;
 
+/**
+ * Responsible to initialise the core component.
+ */
 public interface ICoreInitialiser extends IInitialiser
 {
     ICore getCore();

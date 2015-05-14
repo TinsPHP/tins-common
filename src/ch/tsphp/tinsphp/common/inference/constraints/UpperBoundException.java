@@ -11,8 +11,8 @@ import ch.tsphp.tinsphp.common.symbols.IIntersectionTypeSymbol;
 
 public class UpperBoundException extends BoundException
 {
-    private IIntersectionTypeSymbol upperTypeBound;
-    private ITypeSymbol newLowerType;
+    private final IIntersectionTypeSymbol upperTypeBound;
+    private final ITypeSymbol newLowerType;
 
     public UpperBoundException(
             String message, IIntersectionTypeSymbol theUpperTypeBound, ITypeSymbol theNewLowerType) {

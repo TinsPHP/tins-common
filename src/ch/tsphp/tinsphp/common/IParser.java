@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.EnumSet;
 
+/**
+ * Represents the parser of TinsPHP and acts as facade to the outside world of the parser component.
+ */
 public interface IParser extends IIssueReporter
 {
     /**

@@ -11,8 +11,8 @@ import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
 
 public class LowerBoundException extends BoundException
 {
-    private IUnionTypeSymbol lowerTypeBound;
-    private ITypeSymbol newUpperType;
+    private final IUnionTypeSymbol lowerTypeBound;
+    private final ITypeSymbol newUpperType;
 
     public LowerBoundException(
             String message, IUnionTypeSymbol theLowerTypeBound, ITypeSymbol theNewUpperType) {

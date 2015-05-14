@@ -9,6 +9,9 @@ package ch.tsphp.tinsphp.common.config;
 import ch.tsphp.tinsphp.common.IInferenceEngine;
 import ch.tsphp.tinsphp.common.scopes.IGlobalNamespaceScope;
 
+/**
+ * Responsible to initialise the inference engine component.
+ */
 public interface IInferenceEngineInitialiser extends IInitialiser
 {
 

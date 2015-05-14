@@ -12,6 +12,9 @@ import ch.tsphp.tinsphp.common.symbols.IModifierHelper;
 import ch.tsphp.tinsphp.common.symbols.ISymbolFactory;
 import ch.tsphp.tinsphp.common.utils.IOverloadResolver;
 
+/**
+ * Responsible to initialise the symbols component.
+ */
 public interface ISymbolsInitialiser extends IInitialiser
 {
     IScopeHelper getScopeHelper();
