@@ -193,6 +193,7 @@ public class AIssueMessageProviderTest
         int line = 12;
         int pos = 23;
         ArrayList<MethodDto> overloads = new ArrayList<>();
+
         List<TypeParameterDto> typeParameters = asList(
                 new TypeParameterDto(asList("T2", "int", "float"), "T1", null),
                 new TypeParameterDto(asList("int"), "T2", asList("IA", "IB")));
@@ -202,6 +203,7 @@ public class AIssueMessageProviderTest
                 new ParameterDto(new TypeDto(null, "T2", null), null, null)
         );
         overloads.add(new MethodDto(new TypeDto(null, "T1", null), null, typeParameters, parameters, null));
+
         typeParameters = asList(
                 new TypeParameterDto(null, "T1", null),
                 new TypeParameterDto(null, "T2", asList("int")));
@@ -211,12 +213,24 @@ public class AIssueMessageProviderTest
                 new ParameterDto(new TypeDto(null, "string", null), null, null)
         );
         overloads.add(new MethodDto(new TypeDto(null, "int", null), null, typeParameters, parameters, null));
+
+        typeParameters = asList(
+                new TypeParameterDto(null, "T1", asList("num")),
+                new TypeParameterDto(null, "T2", asList("int")));
+        parameters = asList(
+                new ParameterDto(new TypeDto(null, "T1", null), null, null),
+                new ParameterDto(new TypeDto(null, "T2", null), null, null),
+                new ParameterDto(new TypeDto(null, "string", null), null, null)
+        );
+        overloads.add(new MethodDto(new TypeDto(null, "int", null), null, typeParameters, parameters, null));
+
         parameters = asList(
                 new ParameterDto(new TypeDto(null, "string", null), null, null),
                 new ParameterDto(new TypeDto(null, "string", null), null, null),
                 new ParameterDto(new TypeDto(null, "string", null), null, null)
         );
         overloads.add(new MethodDto(new TypeDto(null, "int", null), null, null, parameters, null));
+
         overloads.add(new MethodDto(new TypeDto(null, "int", null), null, null, new ArrayList<ParameterDto>(), null));
 
         WrongArgumentTypeIssueDto dto = new WrongArgumentTypeIssueDto(
@@ -230,6 +244,7 @@ public class AIssueMessageProviderTest
                 + "arguments\nint x string x float\noverloads:\n"
                 + "T1 x int x T2 -> T1 \\ (T2 | int | float) < T1, int < T2 < (IA & IB)\n"
                 + "T1 x T2 x string -> int \\ T2 < int\n"
+                + "T1 x T2 x string -> int \\ T1 < num, T2 < int\n"
                 + "string x string x string -> int\n"
                 + "() -> int"));
     }
