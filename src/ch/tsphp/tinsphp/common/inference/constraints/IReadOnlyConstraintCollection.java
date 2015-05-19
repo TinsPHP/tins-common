@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface IReadOnlyConstraintCollection
 {
+    String getAbsoluteName();
+
     List<IConstraint> getConstraints();
 
     List<IOverloadBindings> getBindings();

@@ -19,9 +19,7 @@ public interface IInferenceEngine extends IIssueReporter
 
     void enrichWithReferences(ITSPHPAst ast, TreeNodeStream treeNodeStream);
 
-    void solveMethodSymbolConstraints();
-
-    void solveGlobalDefaultNamespaceConstraints();
+    void solveConstraints();
 
     /**
      * Reset the inference engine.

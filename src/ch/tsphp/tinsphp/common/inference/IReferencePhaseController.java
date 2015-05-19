@@ -112,7 +112,5 @@ public interface IReferencePhaseController
 
     void addMethodSymbol(IMethodSymbol scope);
 
-    void solveMethodSymbolConstraints();
-
-    void solveGlobalDefaultNamespaceConstraints();
+    void solveConstraints();
 }

@@ -14,7 +14,5 @@ import java.util.List;
 
 public interface IConstraintSolver
 {
-    void solveConstraints(List<IMethodSymbol> methodSymbols);
-
-    void solveConstraints(IGlobalNamespaceScope globalDefaultNamespaceScope);
+    void solveConstraints(List<IMethodSymbol> methodSymbols, IGlobalNamespaceScope globalDefaultNamespaceScope);
 }
