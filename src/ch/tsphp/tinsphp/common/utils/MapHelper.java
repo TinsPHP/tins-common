@@ -13,8 +13,10 @@
 package ch.tsphp.tinsphp.common.utils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Provides a helper method to add an object to a list inside a map.
@@ -34,11 +36,30 @@ public final class MapHelper
      * @param key   The key to be used
      * @param value The value to be put into the list of the corresponding key
      */
-    public static <TKey, TValue> void addToListMap(Map<TKey, List<TValue>> map, TKey key, TValue value) {
+    public static <TKey, TValue> void addToListInMap(Map<TKey, List<TValue>> map, TKey key, TValue value) {
         if (map.containsKey(key)) {
             map.get(key).add(value);
         } else {
             List<TValue> list = new ArrayList<>();
+            list.add(value);
+            map.put(key, list);
+        }
+    }
+
+    /**
+     * Add the given value to the set of the corresponding key.
+     * <p/>
+     * If there is not yet a set for the corresponding key then a new set for the key is created as well.
+     *
+     * @param map   The map containing the sets
+     * @param key   The key to be used
+     * @param value The value to be put into the set of the corresponding key
+     */
+    public static <TKey, TValue> void addToSetInMap(Map<TKey, Set<TValue>> map, TKey key, TValue value) {
+        if (map.containsKey(key)) {
+            map.get(key).add(value);
+        } else {
+            Set<TValue> list = new HashSet<>();
             list.add(value);
             map.put(key, list);
         }

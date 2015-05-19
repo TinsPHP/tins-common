@@ -18,36 +18,64 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.is;
 
 public class MapHelperTest
 {
 
     @Test
-    public void test() {
+    public void addToListMap() {
         Map<String, List<String>> map = new HashMap<>();
         assertThat(map.size(), is(0));
 
         List<String> list = new ArrayList<>();
         list.add("v");
-        MapHelper.addToListMap(map, "k", "v");
+        MapHelper.addToListInMap(map, "k", "v");
+        assertThat(map, hasEntry("k", list));
         assertThat(map.size(), is(1));
-        assertThat(map.get("k"), is(list));
 
         list.add("v2");
-        MapHelper.addToListMap(map, "k", "v2");
+        MapHelper.addToListInMap(map, "k", "v2");
+        assertThat(map, hasEntry("k", list));
         assertThat(map.size(), is(1));
-        assertThat(map.get("k"), is(list));
+
 
         List<String> list2 = new ArrayList<>();
         list2.add("a");
-        MapHelper.addToListMap(map, "x", "a");
+        MapHelper.addToListInMap(map, "x", "a");
+        assertThat(map, hasEntry("k", list));
+        assertThat(map, hasEntry("x", list2));
         assertThat(map.size(), is(2));
-        assertThat(map.get("k"), is(list));
-        assertThat(map.get("x"), is(list2));
+    }
+
+    @Test
+    public void addToSetInMap() {
+        Map<String, Set<String>> map = new HashMap<>();
+        assertThat(map.size(), is(0));
+
+        Set<String> set = new HashSet<>();
+        set.add("v");
+        MapHelper.addToSetInMap(map, "k", "v");
+        assertThat(map, hasEntry("k", set));
+        assertThat(map.size(), is(1));
+
+        set.add("v2");
+        MapHelper.addToSetInMap(map, "k", "v2");
+        assertThat(map, hasEntry("k", set));
+        assertThat(map.size(), is(1));
+
+        Set<String> set2 = new HashSet<>();
+        set2.add("a");
+        MapHelper.addToSetInMap(map, "x", "a");
+        assertThat(map, hasEntry("k", set));
+        assertThat(map, hasEntry("x", set2));
+        assertThat(map.size(), is(2));
     }
 }
