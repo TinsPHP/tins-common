@@ -8,9 +8,8 @@ package ch.tsphp.tinsphp.common.utils;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
-public interface IOverloadResolver
+public interface ITypeHelper
 {
-
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 
     boolean areSame(ITypeSymbol firstType, ITypeSymbol secondType);

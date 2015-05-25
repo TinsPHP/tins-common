@@ -8,12 +8,8 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
-import java.util.Map;
-
 public interface IUnionTypeSymbol extends IContainerTypeSymbol<IUnionTypeSymbol>
 {
-    Map<String, ITypeSymbol> getTypeSymbols();
-
     /**
      * Adds the given type to this union and indicates whether this union has changed.
      * <p/>
@@ -21,5 +17,4 @@ public interface IUnionTypeSymbol extends IContainerTypeSymbol<IUnionTypeSymbol>
      * exists in the union. In this case the method returns false because it represents the same type as before.
      */
     boolean addTypeSymbol(ITypeSymbol symbol);
-
 }

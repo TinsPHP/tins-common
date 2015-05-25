@@ -10,7 +10,7 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 
 import java.util.Map;
 
-public interface IContainerTypeSymbol<TContainer extends IContainerTypeSymbol<? super TContainer>> extends ITypeSymbol
+public interface IContainerTypeSymbol<TContainer extends IContainerTypeSymbol<TContainer>> extends ITypeSymbol
 {
     Map<String, ITypeSymbol> getTypeSymbols();
 
