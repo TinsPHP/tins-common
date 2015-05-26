@@ -25,11 +25,11 @@ public interface IOverloadBindings
 
     Set<String> getVariableIds();
 
-    void addLowerRefBound(String typeVariable, ITypeVariableReference reference);
+    boolean addLowerRefBound(String typeVariable, ITypeVariableReference reference);
 
-    void addLowerTypeBound(String typeVariable, ITypeSymbol typeSymbol);
+    boolean addLowerTypeBound(String typeVariable, ITypeSymbol typeSymbol);
 
-    void addUpperTypeBound(String typeVariable, ITypeSymbol typeSymbol);
+    boolean addUpperTypeBound(String typeVariable, ITypeSymbol typeSymbol);
 
     boolean hasLowerRefBounds(String typeVariable);
 

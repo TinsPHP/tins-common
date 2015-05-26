@@ -25,8 +25,6 @@ public interface IFunctionType
      * The signature of this function if it can be determined already otherwise null.
      * <p/>
      * A signature can be determined if the function was fixed.
-     *
-     * @return
      */
     String getSignature();
 

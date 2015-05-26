@@ -59,9 +59,9 @@ public final class MapHelper
         if (map.containsKey(key)) {
             map.get(key).add(value);
         } else {
-            Set<TValue> list = new HashSet<>();
-            list.add(value);
-            map.put(key, list);
+            Set<TValue> set = new HashSet<>();
+            set.add(value);
+            map.put(key, set);
         }
     }
 }

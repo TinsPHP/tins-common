@@ -65,6 +65,8 @@ public interface ISymbolFactory
 
     IIntersectionTypeSymbol createIntersectionTypeSymbol();
 
+    IConvertibleTypeSymbol createConvertibleTypeSymbol();
+
     IMethodSymbol createMethodSymbol(
             ITSPHPAst methodModifier, ITSPHPAst returnTypeModifier, ITSPHPAst identifier, IScope currentScope);
 

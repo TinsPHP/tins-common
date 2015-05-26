@@ -8,6 +8,7 @@ package ch.tsphp.tinsphp.common;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
+import ch.tsphp.tinsphp.common.utils.Pair;
 
 import java.util.Map;
 
@@ -19,9 +20,9 @@ public interface ICore
 {
     Map<Integer, IMinimalMethodSymbol> getOperators();
 
-    Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getImplicitConversions();
+    Map<String, Map<String, Pair<ITypeSymbol, IConversionMethod>>> getImplicitConversions();
 
-    Map<ITypeSymbol, Map<ITypeSymbol, IConversionMethod>> getExplicitConversions();
+    Map<String, Map<String, Pair<ITypeSymbol, IConversionMethod>>> getExplicitConversions();
 
     Map<String, ITypeSymbol> getPrimitiveTypes();
 

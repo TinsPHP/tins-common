@@ -7,9 +7,12 @@
 package ch.tsphp.tinsphp.common.utils;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.ICore;
 
 public interface ITypeHelper
 {
+    void setCore(ICore core);
+
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 
     boolean areSame(ITypeSymbol firstType, ITypeSymbol secondType);
