@@ -7,11 +7,11 @@
 package ch.tsphp.tinsphp.common.utils;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.tinsphp.common.ICore;
+import ch.tsphp.tinsphp.common.core.IConversionsProvider;
 
 public interface ITypeHelper
 {
-    void setCore(ICore core);
+    void setConversionProvider(IConversionsProvider conversionProvider);
 
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 
