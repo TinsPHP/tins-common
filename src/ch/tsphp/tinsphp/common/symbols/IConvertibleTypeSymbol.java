@@ -7,9 +7,16 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 
 public interface IConvertibleTypeSymbol extends ITypeSymbol
 {
+
+    /**
+     * This method can be used to bind the convertible type to another parametric polymorphic type where the given
+     * typeVariable represents the binding
+     */
+    void setOverloadBindings(IOverloadBindings bindings, String typeVariable);
 
     boolean addLowerTypeBound(ITypeSymbol typeSymbol);
 
@@ -18,7 +25,6 @@ public interface IConvertibleTypeSymbol extends ITypeSymbol
     boolean hasLowerTypeBounds();
 
     boolean hasUpperTypeBounds();
-
 
     IUnionTypeSymbol getLowerTypeBounds();
 
