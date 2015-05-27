@@ -242,9 +242,9 @@ public class AIssueMessageProviderTest
         assertThat(result, is("id " + id + ", line " + line + ", pos " + pos
                 + ", idN %idN%, lineN %lineN%, posN %posN%\n"
                 + "arguments\nint x string x float\noverloads:\n"
-                + "T1 x int x T2 -> T1 \\ (T2 | int | float) < T1, int < T2 < (IA & IB)\n"
-                + "T1 x T2 x string -> int \\ T2 < int\n"
-                + "T1 x T2 x string -> int \\ T1 < num, T2 < int\n"
+                + "T1 x int x T2 -> T1 \\ (T2 | int | float) <: T1, int <: T2 <: (IA & IB)\n"
+                + "T1 x T2 x string -> int \\ T2 <: int\n"
+                + "T1 x T2 x string -> int \\ T1 <: num, T2 <: int\n"
                 + "string x string x string -> int\n"
                 + "() -> int"));
     }

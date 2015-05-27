@@ -175,11 +175,11 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
     private void appendTypeParameter(StringBuilder sb, TypeParameterDto typeParameter) {
         if (typeParameter.lowerBounds != null) {
             appendBound(sb, typeParameter.lowerBounds, " | ");
-            sb.append(" < ");
+            sb.append(" <: ");
         }
         sb.append(typeParameter.typeVariable);
         if (typeParameter.upperBounds != null) {
-            sb.append(" < ");
+            sb.append(" <: ");
             appendBound(sb, typeParameter.upperBounds, " & ");
         }
     }
