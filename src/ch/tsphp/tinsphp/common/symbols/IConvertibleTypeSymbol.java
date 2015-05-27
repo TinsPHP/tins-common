@@ -18,6 +18,10 @@ public interface IConvertibleTypeSymbol extends ITypeSymbol
      */
     void setOverloadBindings(IOverloadBindings bindings, String typeVariable);
 
+    IOverloadBindings getOverloadBindings();
+
+    String getTypeVariable();
+
     boolean addLowerTypeBound(ITypeSymbol typeSymbol);
 
     boolean addUpperTypeBound(ITypeSymbol typeSymbol);
