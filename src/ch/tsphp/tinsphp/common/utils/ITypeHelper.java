@@ -11,7 +11,7 @@ import ch.tsphp.tinsphp.common.core.IConversionsProvider;
 
 public interface ITypeHelper
 {
-    void setConversionProvider(IConversionsProvider conversionProvider);
+    void setConversionsProvider(IConversionsProvider conversionProvider);
 
     void setMixedTypeSymbol(ITypeSymbol typeSymbol);
 
