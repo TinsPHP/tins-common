@@ -9,14 +9,8 @@ package ch.tsphp.tinsphp.common.symbols;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 
-public interface IConvertibleTypeSymbol extends ITypeSymbol
+public interface IConvertibleTypeSymbol extends ITypeSymbol, IParametricType
 {
-
-    /**
-     * This method can be used to bind the convertible type to another parametric polymorphic type where the given
-     * typeVariable represents the binding
-     */
-    void setOverloadBindings(IOverloadBindings bindings, String typeVariable);
 
     IOverloadBindings getOverloadBindings();
 
