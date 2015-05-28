@@ -9,5 +9,5 @@ package ch.tsphp.tinsphp.common.symbols;
 public interface IObservableTypeListener
 {
 
-    void hasChanged(IObservableTypeSymbol type, String oldAbsoluteName);
+    void nameOfObservableHasChanged(IObservableTypeSymbol type, String oldAbsoluteName);
 }
