@@ -17,7 +17,29 @@ public interface ITypeHelper
 
     boolean areSame(ITypeSymbol firstType, ITypeSymbol secondType);
 
+    /**
+     * Indicates whether the given potentialSubType is a subtype of the given typeSymbol considering implicit
+     * conversions (coercive subtyping).
+     */
     boolean isFirstSameOrSubTypeOfSecond(ITypeSymbol potentialSubType, ITypeSymbol typeSymbol);
 
+    /**
+     * Indicates whether the given potentialSubType is a subtype of the given typeSymbol and only considers implicit
+     * conversions (coercive subtyping) if desired.
+     */
+    boolean isFirstSameOrSubTypeOfSecond(
+            ITypeSymbol potentialSubType, ITypeSymbol typeSymbol, boolean shallConsiderImplicitConversions);
+
+    /**
+     * Indicates whether the given potentialSubType is a parent type of the given typeSymbol considering implicit
+     * conversions (coercive subtyping).
+     */
     boolean isFirstSameOrParentTypeOfSecond(ITypeSymbol potentialParentType, ITypeSymbol typeSymbol);
+
+    /**
+     * Indicates whether the given potentialSubType is a paren type of the given typeSymbol and only considers implicit
+     * conversions (coercive subtyping) if desired.
+     */
+    boolean isFirstSameOrParentTypeOfSecond(
+            ITypeSymbol potentialParentType, ITypeSymbol typeSymbol, boolean shallConsiderImplicitConversions);
 }
