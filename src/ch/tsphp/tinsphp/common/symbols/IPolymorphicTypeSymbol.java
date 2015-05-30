@@ -4,30 +4,23 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-/*
- * This file is based on the file IPseudoTypeSymbol from the TSPHP project.
- * TSPHP is also published under the Apache License 2.0
- * For more information see http://tsphp.ch/wiki/display/TSPHP/License
- */
-
 package ch.tsphp.tinsphp.common.symbols;
 
-import ch.tsphp.common.ITSPHPAst;
-import ch.tsphp.common.symbols.ISymbol;
-import ch.tsphp.common.symbols.ISymbolWithModifier;
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.common.symbols.modifiers.ICanBeAbstract;
-import ch.tsphp.tinsphp.common.scopes.ICaseInsensitiveScope;
 
-import java.util.Set;
+import java.util.Collection;
 
-public interface IPolymorphicTypeSymbol extends ITypeSymbol, ISymbolWithModifier, ICaseInsensitiveScope, ICanBeAbstract
+public interface IPolymorphicTypeSymbol extends ITypeSymbol
 {
+    /**
+     * Makes a copy of this polymorphic type and adds all containing parametric type symbols to the given collection.
+     * <p/>
+     * As an example, copying a union type symbol will return a copy of
+     *
+     * @param parametricTypeSymbols
+     * @return
+     */
+    IPolymorphicTypeSymbol copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);
 
-    ISymbol resolveWithFallbackToParent(ITSPHPAst ast);
-
-    void addParentTypeSymbol(IPolymorphicTypeSymbol aParent);
-
-    Set<ISymbol> getAbstractSymbols();
-
+    boolean isFixed();
 }

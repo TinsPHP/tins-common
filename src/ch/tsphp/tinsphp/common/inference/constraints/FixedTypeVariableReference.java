@@ -11,9 +11,9 @@ package ch.tsphp.tinsphp.common.inference.constraints;
  */
 public class FixedTypeVariableReference implements ITypeVariableReference
 {
-    private TypeVariableReference reference;
+    private ITypeVariableReference reference;
 
-    public FixedTypeVariableReference(TypeVariableReference theTypeVariableConstraint) {
+    public FixedTypeVariableReference(ITypeVariableReference theTypeVariableConstraint) {
         reference = theTypeVariableConstraint;
     }
 

@@ -15,7 +15,7 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.modifiers.ICanBeFinal;
 
-public interface IClassTypeSymbol extends IPolymorphicTypeSymbol, ICanBeFinal
+public interface IClassTypeSymbol extends IRecordTypeSymbol, ICanBeFinal
 {
 
     IMethodSymbol getConstruct();

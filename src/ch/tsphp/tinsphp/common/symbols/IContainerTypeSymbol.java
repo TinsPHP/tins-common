@@ -8,10 +8,10 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
+import java.util.Collection;
 import java.util.Map;
 
-public interface IContainerTypeSymbol<TContainer extends IContainerTypeSymbol<TContainer>>
-        extends ITypeSymbol, IObservableTypeSymbol, IObservableTypeListener
+public interface IContainerTypeSymbol extends IPolymorphicTypeSymbol, IObservableTypeSymbol, IObservableTypeListener
 {
     Map<String, ITypeSymbol> getTypeSymbols();
 
@@ -31,5 +31,6 @@ public interface IContainerTypeSymbol<TContainer extends IContainerTypeSymbol<TC
      * <p/>
      * This method should be used instead of creating a new instance and add the old one (is less efficient).
      */
-    TContainer copy();
+    @Override
+    IContainerTypeSymbol copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);
 }

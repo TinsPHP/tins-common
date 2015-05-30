@@ -7,12 +7,11 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
-import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 
-public interface IConvertibleTypeSymbol extends ITypeSymbol, IParametricType
+import java.util.Collection;
+
+public interface IConvertibleTypeSymbol extends ITypeSymbol, IParametricTypeSymbol
 {
-
-    IOverloadBindings getOverloadBindings();
 
     String getTypeVariable();
 
@@ -27,4 +26,7 @@ public interface IConvertibleTypeSymbol extends ITypeSymbol, IParametricType
     IUnionTypeSymbol getLowerTypeBounds();
 
     IIntersectionTypeSymbol getUpperTypeBounds();
+
+    @Override
+    IConvertibleTypeSymbol copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);
 }

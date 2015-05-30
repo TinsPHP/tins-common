@@ -8,7 +8,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IIntersectionTypeSymbol;
-import ch.tsphp.tinsphp.common.symbols.IParametricType;
+import ch.tsphp.tinsphp.common.symbols.IParametricTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
 
 import java.util.List;
@@ -17,7 +17,14 @@ import java.util.Set;
 public interface IOverloadBindings
 {
 
-    TypeVariableReference getNextTypeVariable();
+    /**
+     * Creates a temporary variable and returns its corresponding type variable.
+     */
+    ITypeVariableReference createTempVariable();
+
+    void removeTempVariables();
+
+    ITypeVariableReference getNextTypeVariable();
 
     void addVariable(String variableId, ITypeVariableReference reference);
 
@@ -90,5 +97,5 @@ public interface IOverloadBindings
 
     void renameTypeVariable(String typeVariable, String newTypeVariable);
 
-    void bind(IParametricType parametricType, List<String> typeVariables);
+    void bind(IParametricTypeSymbol parametricType, List<String> typeVariables);
 }

@@ -8,7 +8,9 @@ package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
-public interface IIntersectionTypeSymbol extends IContainerTypeSymbol<IIntersectionTypeSymbol>
+import java.util.Collection;
+
+public interface IIntersectionTypeSymbol extends IContainerTypeSymbol
 {
     /**
      * Adds the given type to this intersection type and indicates whether it has changed.
@@ -17,6 +19,9 @@ public interface IIntersectionTypeSymbol extends IContainerTypeSymbol<IIntersect
      * already exists in the intersection. In this case the method returns false because it represents the same type
      * as before.
      */
+    @Override
     boolean addTypeSymbol(ITypeSymbol symbol);
 
+    @Override
+    IIntersectionTypeSymbol copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);
 }
