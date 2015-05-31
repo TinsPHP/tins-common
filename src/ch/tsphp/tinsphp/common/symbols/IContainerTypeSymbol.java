@@ -27,6 +27,11 @@ public interface IContainerTypeSymbol extends IPolymorphicTypeSymbol, IObservabl
     boolean addTypeSymbol(ITypeSymbol symbol);
 
     /**
+     * Removes the given type from the container if it exists in the container.
+     */
+    void remove(String absoluteName);
+
+    /**
      * Provides a copy of the concrete ContainerTypeSymbol.
      * <p/>
      * This method should be used instead of creating a new instance and add the old one (is less efficient).
