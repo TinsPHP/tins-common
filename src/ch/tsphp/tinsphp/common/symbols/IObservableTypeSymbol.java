@@ -10,5 +10,7 @@ import ch.tsphp.common.symbols.ITypeSymbol;
 
 public interface IObservableTypeSymbol extends ITypeSymbol
 {
-    void register(IObservableTypeListener subscriberType);
+    void registerObservableListener(IObservableTypeListener observableTypeListener);
+
+    void removeObservableListener(IObservableTypeListener observableTypeListener);
 }

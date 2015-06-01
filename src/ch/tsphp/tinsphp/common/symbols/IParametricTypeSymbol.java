@@ -15,6 +15,12 @@ public interface IParametricTypeSymbol extends IPolymorphicTypeSymbol, IObservab
 {
     boolean wasBound();
 
+    /**
+     * This method can be used to indicate that the given type variable to which this parametric polymorphic type is
+     * bound to was fixed in its corresponding overload bindings.
+     */
+    void fix(String typeVariable);
+
     boolean isFixed();
 
     void renameTypeVariable(String typeVariable, String newTypeVariable);

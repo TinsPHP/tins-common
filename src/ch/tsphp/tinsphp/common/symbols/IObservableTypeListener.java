@@ -10,4 +10,6 @@ public interface IObservableTypeListener
 {
 
     void nameOfObservableHasChanged(IObservableTypeSymbol type, String oldAbsoluteName);
+
+    void observableWasFixed(IObservableTypeSymbol type);
 }
