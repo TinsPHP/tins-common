@@ -7,6 +7,7 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.BoundResultDto;
 
 import java.util.Collection;
 
@@ -15,9 +16,9 @@ public interface IConvertibleTypeSymbol extends ITypeSymbol, IParametricTypeSymb
 
     String getTypeVariable();
 
-    boolean addLowerTypeBound(ITypeSymbol typeSymbol);
+    BoundResultDto addLowerTypeBound(ITypeSymbol typeSymbol);
 
-    boolean addUpperTypeBound(ITypeSymbol typeSymbol);
+    BoundResultDto addUpperTypeBound(ITypeSymbol typeSymbol);
 
     boolean hasLowerTypeBounds();
 
