@@ -6,20 +6,28 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+import ch.tsphp.tinsphp.common.symbols.IParametricTypeSymbol;
+
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents an overload with parameters and bindings including suffixes for translators.
  */
-public interface IFunctionType
+public interface IFunctionType extends IParametricType
 {
     String getName();
 
     /**
-     * Marks that a function will not change anymore (its bindings respectively) and hence can calculate its
-     * signature and fix it as well.
+     * This method can be used to indicate that the underlying overload bindings where already simplified and the
+     * given typeParameters are to be used.
+     * <p/>
+     * This method should only be used by the core.
      */
-    void fix();
+    void simplified(Set<String> typeParameters);
+
+    void simplify();
 
     /**
      * The signature of this function if it can be determined already otherwise null.
@@ -42,5 +50,6 @@ public interface IFunctionType
 
     List<IVariable> getParameters();
 
-    IOverloadBindings getBindings();
+    @Override
+    IFunctionType copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);
 }

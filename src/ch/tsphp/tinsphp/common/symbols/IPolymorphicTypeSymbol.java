@@ -7,20 +7,12 @@
 package ch.tsphp.tinsphp.common.symbols;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IPolymorphicType;
 
 import java.util.Collection;
 
-public interface IPolymorphicTypeSymbol extends ITypeSymbol
+public interface IPolymorphicTypeSymbol extends IPolymorphicType, ITypeSymbol
 {
-    /**
-     * Makes a copy of this polymorphic type and adds all containing parametric type symbols to the given collection.
-     * <p/>
-     * As an example, copying a union type symbol will return a copy of
-     *
-     * @param parametricTypeSymbols
-     * @return
-     */
+    @Override
     IPolymorphicTypeSymbol copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);
-
-    boolean isFixed();
 }

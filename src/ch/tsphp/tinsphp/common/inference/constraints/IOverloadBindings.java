@@ -8,7 +8,6 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IIntersectionTypeSymbol;
-import ch.tsphp.tinsphp.common.symbols.IParametricTypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
 
 import java.util.List;
@@ -20,9 +19,7 @@ public interface IOverloadBindings
     /**
      * Creates a temporary variable and returns its corresponding type variable.
      */
-    ITypeVariableReference createTempVariable();
-
-    void removeTempVariables();
+    ITypeVariableReference createHelperVariable();
 
     ITypeVariableReference getNextTypeVariable();
 
@@ -87,15 +84,19 @@ public interface IOverloadBindings
 
     void fixType(String variableId);
 
+    void fixTypeParameter(String typeParameter);
+
     /**
-     * Is meant for function bindings and reduces the non-fixed (free) type variables to the ones which have a lower
-     * ref to a parameter which itself has not a fixed type.
+     * Is meant for function bindings and fixes all type variables which (i) have no lower ref relation to a parameter
+     * which is not fixed (ii) are not a type parameter of a parametric type -- the method returns all non-fixed type
+     * variables
      *
      * @param parameterTypeVariables The typeVariables of the parameters of the function
+     * @return All non-fixed (hence polymorphic) type variables
      */
-    void tryToFix(Set<String> parameterTypeVariables);
+    Set<String> tryToFix(Set<String> parameterTypeVariables);
 
     void renameTypeVariable(String typeVariable, String newTypeVariable);
 
-    void bind(IParametricTypeSymbol parametricType, List<String> typeVariables);
+    void bind(IParametricType parametricType, List<String> typeVariables);
 }
