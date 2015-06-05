@@ -6,7 +6,7 @@
 
 package ch.tsphp.tinsphp.common.utils;
 
-public enum ETypeHelperResult
+public enum ERelation
 {
     HAS_NO_RELATION,
     HAS_RELATION,

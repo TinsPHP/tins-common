@@ -21,25 +21,25 @@ public interface ITypeHelper
      * Indicates whether the given potentialSubType is a subtype of the given typeSymbol considering implicit
      * conversions (coercive subtyping).
      */
-    ETypeHelperResult isFirstSameOrSubTypeOfSecond(ITypeSymbol potentialSubType, ITypeSymbol typeSymbol);
+    TypeHelperDto isFirstSameOrSubTypeOfSecond(ITypeSymbol potentialSubType, ITypeSymbol typeSymbol);
 
     /**
      * Indicates whether the given potentialSubType is a subtype of the given typeSymbol and only considers implicit
      * conversions (coercive subtyping) if desired.
      */
-    ETypeHelperResult isFirstSameOrSubTypeOfSecond(
+    TypeHelperDto isFirstSameOrSubTypeOfSecond(
             ITypeSymbol potentialSubType, ITypeSymbol typeSymbol, boolean shallConsiderImplicitConversions);
 
     /**
      * Indicates whether the given potentialSubType is a parent type of the given typeSymbol considering implicit
      * conversions (coercive subtyping).
      */
-    ETypeHelperResult isFirstSameOrParentTypeOfSecond(ITypeSymbol potentialParentType, ITypeSymbol typeSymbol);
+    TypeHelperDto isFirstSameOrParentTypeOfSecond(ITypeSymbol potentialParentType, ITypeSymbol typeSymbol);
 
     /**
      * Indicates whether the given potentialSubType is a paren type of the given typeSymbol and only considers implicit
      * conversions (coercive subtyping) if desired.
      */
-    ETypeHelperResult isFirstSameOrParentTypeOfSecond(
+    TypeHelperDto isFirstSameOrParentTypeOfSecond(
             ITypeSymbol potentialParentType, ITypeSymbol typeSymbol, boolean shallConsiderImplicitConversions);
 }
