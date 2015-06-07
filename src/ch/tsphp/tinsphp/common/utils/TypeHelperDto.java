@@ -30,13 +30,4 @@ public class TypeHelperDto
         lowerConstraints = new HashMap<>();
         upperConstraints = new HashMap<>();
     }
-
-    public TypeHelperDto(TypeHelperDto dto) {
-        fromType = dto.fromType;
-        toType = dto.toType;
-        shallConsiderImplicitConversions = dto.shallConsiderImplicitConversions;
-        relation = dto.relation;
-        lowerConstraints = dto.lowerConstraints;
-        upperConstraints = dto.upperConstraints;
-    }
 }

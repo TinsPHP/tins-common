@@ -29,6 +29,8 @@ public interface IFunctionType extends IParametricType
 
     void simplify();
 
+    boolean wasSimplified();
+
     /**
      * The signature of this function if it can be determined already otherwise null.
      * <p/>

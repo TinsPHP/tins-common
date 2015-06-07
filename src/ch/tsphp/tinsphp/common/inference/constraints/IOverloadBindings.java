@@ -87,6 +87,11 @@ public interface IOverloadBindings
     void fixTypeParameter(String typeParameter);
 
     /**
+     * Fixes all type variables which are bound to a parameteric type
+     */
+    void fixTypeParameters();
+
+    /**
      * Is meant for function bindings and fixes all type variables which (i) have no lower ref relation to a parameter
      * which is not fixed (ii) are not a type parameter of a parametric type -- the method returns all non-fixed type
      * variables
