@@ -17,15 +17,23 @@ import java.util.Set;
  */
 public interface IFunctionType extends IParametricType
 {
+    int getNumberOfConvertibleApplications();
+
+    boolean hasConvertibleParameterTypes();
+
     String getName();
 
     /**
      * This method can be used to indicate that the underlying overload bindings where already simplified and the
-     * given typeParameters are to be used.
+     * given typeParameters are to be used in which the given numberOfConvertibleApplications where used within the
+     * function and hasConvertibleParameterTypes indicates whether one of the parameters has a convertible type.
      * <p/>
      * This method should only be used by the core.
      */
-    void simplified(Set<String> typeParameters);
+    void manuallySimplified(
+            Set<String> nonFixedTypeParameters,
+            int numberOfConvertibleApplications,
+            boolean hasConvertibleParameterTypes);
 
     void simplify();
 

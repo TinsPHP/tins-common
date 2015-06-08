@@ -9,11 +9,11 @@ package ch.tsphp.tinsphp.common.symbols;
 import ch.tsphp.common.symbols.ISymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IFunctionType;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface IMinimalMethodSymbol extends ISymbol
 {
     void addOverload(IFunctionType overload);
 
-    List<IFunctionType> getOverloads();
+    Collection<IFunctionType> getOverloads();
 }

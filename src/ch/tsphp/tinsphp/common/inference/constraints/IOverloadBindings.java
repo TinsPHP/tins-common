@@ -63,8 +63,6 @@ public interface IOverloadBindings
 
     /**
      * Returns the overload which was taken for this expression node.
-     *
-     * @return
      */
     IFunctionType getAppliedOverload(String variableId);
 
@@ -87,7 +85,7 @@ public interface IOverloadBindings
     void fixTypeParameter(String typeParameter);
 
     /**
-     * Fixes all type variables which are bound to a parameteric type.
+     * Fixes all type variables which are bound to a parametric type.
      */
     void fixTypeParameters();
 
@@ -104,4 +102,6 @@ public interface IOverloadBindings
     void renameTypeVariable(String typeVariable, String newTypeVariable);
 
     void bind(IParametricType parametricType, List<String> typeVariables);
+
+    int getNumberOfConvertibleApplications();
 }
