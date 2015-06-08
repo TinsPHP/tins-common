@@ -9,6 +9,9 @@ package ch.tsphp.tinsphp.common.utils;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.core.IConversionsProvider;
 
+/**
+ * Provides methods to analyse subtype or parent type relations between types.
+ */
 public interface ITypeHelper
 {
     void setConversionsProvider(IConversionsProvider conversionProvider);

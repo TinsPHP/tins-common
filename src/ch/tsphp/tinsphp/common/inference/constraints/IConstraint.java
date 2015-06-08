@@ -12,6 +12,9 @@ import ch.tsphp.tinsphp.common.symbols.IMinimalMethodSymbol;
 
 import java.util.List;
 
+/**
+ * Represents a constraint which is given due to a function/operator application.
+ */
 public interface IConstraint
 {
     ITSPHPAst getOperator();

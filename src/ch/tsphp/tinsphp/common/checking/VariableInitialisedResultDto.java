@@ -6,6 +6,9 @@
 
 package ch.tsphp.tinsphp.common.checking;
 
+/**
+ * The result of isVariableInitialised in ISymbolCheckController.
+ */
 public class VariableInitialisedResultDto
 {
     public boolean isFullyInitialised;

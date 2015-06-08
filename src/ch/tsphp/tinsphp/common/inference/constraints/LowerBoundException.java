@@ -9,6 +9,10 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
 
+/**
+ * Represents a lower bound violation which usually occurs if an upper type bound is added which is not a parent type
+ * of the current lower type bound.
+ */
 public class LowerBoundException extends BoundException
 {
     private final IUnionTypeSymbol lowerTypeBound;

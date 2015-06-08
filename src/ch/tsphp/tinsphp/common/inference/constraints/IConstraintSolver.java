@@ -12,6 +12,9 @@ import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 
 import java.util.List;
 
+/**
+ * Responsible to solve the constraints gathered during the reference phase.
+ */
 public interface IConstraintSolver
 {
     void solveConstraints(List<IMethodSymbol> methodSymbols, IGlobalNamespaceScope globalDefaultNamespaceScope);

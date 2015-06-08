@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.checking;
 
 import ch.tsphp.common.ITSPHPAst;
 
+/**
+ * The result of isNotForwardReference in ISymbolCheckController.
+ */
 public class ForwardReferenceCheckResultDto
 {
     public boolean isNotForwardReference;

@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 import java.util.List;
 
+/**
+ * The read-only version of the constraint collection.
+ */
 public interface IReadOnlyConstraintCollection
 {
     String getAbsoluteName();

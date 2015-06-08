@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.checking;
 
 import ch.tsphp.common.symbols.ISymbol;
 
+/**
+ * The result of isNotDoubleDefinition and isNotDoubleDefinitionCaseInsensitive in ISymbolCheckController.
+ */
 public class DoubleDefinitionCheckResultDto
 {
     public boolean isNotDoubleDefinition;

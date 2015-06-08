@@ -10,6 +10,9 @@ import ch.tsphp.tinsphp.common.symbols.IParametricTypeSymbol;
 
 import java.util.Collection;
 
+/**
+ * A type which can hold parametric types and is therefore not fixed, polymorphic respectively.
+ */
 public interface IPolymorphicType
 {
     /**

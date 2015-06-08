@@ -6,6 +6,10 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+/**
+ * A reference to a type variable -- allows to rename a type variable and indicates whether the type
+ * variable has a fixed type.
+ */
 public interface ITypeVariableReference
 {
     String getTypeVariable();

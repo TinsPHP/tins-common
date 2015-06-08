@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.checking;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
+/**
+ * The result of isNotAlreadyDefinedAsType in ISymbolCheckController.
+ */
 public class AlreadyDefinedAsTypeResultDto
 {
     public boolean isNotAlreadyDefinedAsType;

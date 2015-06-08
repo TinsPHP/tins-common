@@ -19,6 +19,9 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Used to generate the TokenTypes class out of an ANTLR tokens file.
+ */
 public final class TokenTypesGenerator
 {
     private TokenTypesGenerator() {

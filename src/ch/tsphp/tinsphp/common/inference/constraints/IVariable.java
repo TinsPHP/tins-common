@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
+/**
+ * The simplest form of a variable, perfectly suited for built-in parameters.
+ */
 public interface IVariable
 {
     String getName();

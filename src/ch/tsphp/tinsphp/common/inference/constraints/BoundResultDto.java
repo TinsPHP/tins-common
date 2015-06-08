@@ -6,6 +6,9 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+/**
+ * Represents the result of adding a bound (type or reference) to an IOverloadBindings.
+ */
 public final class BoundResultDto
 {
     public final boolean hasChanged;

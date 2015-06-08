@@ -12,6 +12,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * A type which can be configured via type parameters.
+ */
 public interface IParametricType extends IPolymorphicType
 {
     boolean wasBound();

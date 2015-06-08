@@ -4,14 +4,8 @@
  * root folder or visit the project's website http://tsphp.ch/wiki/display/TINS/License
  */
 
-package ch.tsphp.tinsphp.common.utils;
-
 /**
- * Represents a relation (subtype or parent type).
+ * Contains interfaces related to the core component.
  */
-public enum ERelation
-{
-    HAS_NO_RELATION,
-    HAS_RELATION,
-    HAS_COERCIVE_RELATION;
-}
+package ch.tsphp.tinsphp.common.core;
+

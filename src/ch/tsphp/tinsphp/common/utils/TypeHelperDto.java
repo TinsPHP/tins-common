@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents the result of the different methods of the ITypeHelper.
+ */
 public class TypeHelperDto
 {
     public ITypeSymbol fromType;

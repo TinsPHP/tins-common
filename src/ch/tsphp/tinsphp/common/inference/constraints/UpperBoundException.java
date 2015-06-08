@@ -9,6 +9,10 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.symbols.IIntersectionTypeSymbol;
 
+/**
+ * Represents an upper bound violation which usually occurs if a lower type bound is added which is not a subtype
+ * of the current upper type bound.
+ */
 public class UpperBoundException extends BoundException
 {
     private final IIntersectionTypeSymbol upperTypeBound;

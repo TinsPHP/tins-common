@@ -6,6 +6,9 @@
 
 package ch.tsphp.tinsphp.common.inference.constraints;
 
+/**
+ * Represents an exception which happens when bounds of a type variable are violated.
+ */
 public class BoundException extends RuntimeException
 {
     public BoundException(String message) {
