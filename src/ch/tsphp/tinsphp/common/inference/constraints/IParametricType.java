@@ -25,7 +25,7 @@ public interface IParametricType extends IPolymorphicType
      */
     void fix(String fixedTypeParameter);
 
-    void renameTypeVariable(String typeParameter, String newTypeParameter);
+    void renameTypeParameter(String typeParameter, String newTypeParameter);
 
     void bindTo(IOverloadBindings newOverloadBindings, List<String> bindingTypeParameters);
 

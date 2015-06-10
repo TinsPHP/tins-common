@@ -99,7 +99,12 @@ public interface IOverloadBindings
      */
     Set<String> tryToFix(Set<String> parameterTypeVariables);
 
-    void renameTypeVariable(String typeVariable, String newTypeVariable);
+    void mergeFirstIntoSecond(String firstTypeVariable, String secondTypeVariable);
+
+    /**
+     * Renames the given typeVariable to the given newName.
+     */
+    void renameTypeVariable(String typeVariable, String newName);
 
     void bind(IParametricType parametricType, List<String> typeVariables);
 
