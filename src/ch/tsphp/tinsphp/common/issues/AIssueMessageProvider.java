@@ -12,7 +12,7 @@
 
 package ch.tsphp.tinsphp.common.issues;
 
-import ch.tsphp.tinsphp.common.translation.dtos.MethodDto;
+import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
 import ch.tsphp.tinsphp.common.translation.dtos.ParameterDto;
 import ch.tsphp.tinsphp.common.translation.dtos.TypeParameterDto;
 
@@ -124,9 +124,9 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
         return sb.toString();
     }
 
-    protected String getOverloadSignatures(List<MethodDto> overloads) {
+    protected String getOverloadSignatures(List<OverloadDto> overloads) {
         StringBuilder sb = new StringBuilder();
-        Iterator<MethodDto> iterator = overloads.iterator();
+        Iterator<OverloadDto> iterator = overloads.iterator();
         appendOverload(sb, iterator.next());
         while (iterator.hasNext()) {
             sb.append("\n");
@@ -135,8 +135,8 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
         return sb.toString();
     }
 
-    private void appendOverload(StringBuilder sb, MethodDto methodDto) {
-        Iterator<ParameterDto> iterator = methodDto.parameters.iterator();
+    private void appendOverload(StringBuilder sb, OverloadDto overloadDto) {
+        Iterator<ParameterDto> iterator = overloadDto.parameters.iterator();
         if (iterator.hasNext()) {
             appendParameter(sb, iterator.next());
         }
@@ -144,12 +144,12 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
             sb.append(" x ");
             appendParameter(sb, iterator.next());
         }
-        if (methodDto.parameters.size() == 0) {
+        if (overloadDto.parameters.size() == 0) {
             sb.append("()");
         }
-        sb.append(" -> ").append(methodDto.returnType.type);
-        if (methodDto.typeParameters != null) {
-            Iterator<TypeParameterDto> typeParamIterator = methodDto.typeParameters.iterator();
+        sb.append(" -> ").append(overloadDto.returnType.type);
+        if (overloadDto.typeParameters != null) {
+            Iterator<TypeParameterDto> typeParamIterator = overloadDto.typeParameters.iterator();
             boolean isFirstWithBounds = true;
             TypeParameterDto typeParameter = typeParamIterator.next();
             if (typeParameter.lowerBounds != null || typeParameter.upperBounds != null) {

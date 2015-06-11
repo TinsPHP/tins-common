@@ -10,7 +10,7 @@ import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 
 import java.util.List;
 
-public final class MethodDto
+public final class OverloadDto
 {
     public final TypeDto returnType;
     public final String identifier;
@@ -19,7 +19,7 @@ public final class MethodDto
     public final IOverloadBindings bindings;
 
 
-    public MethodDto(
+    public OverloadDto(
             TypeDto theReturnType,
             String theIdentifier,
             List<TypeParameterDto> theTypeParameters,

@@ -112,5 +112,7 @@ public interface IReferencePhaseController
 
     void addMethodSymbol(IMethodSymbol scope);
 
+    List<IMethodSymbol> getMethodSymbols();
+
     void solveConstraints();
 }

@@ -8,20 +8,25 @@ package ch.tsphp.tinsphp.common.translation;
 
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
-import ch.tsphp.tinsphp.common.translation.dtos.MethodDto;
+import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
 import ch.tsphp.tinsphp.common.translation.dtos.VariableDto;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface ITranslatorController
 {
+
+    void setMethodSymbols(List<IMethodSymbol> methodSymbols);
+
     boolean needParentheses(ITSPHPAst expression);
 
     String getTempVariableName(ITSPHPAst expression);
 
     String getTempVariableNameIfNotVariable(ITSPHPAst expression);
 
-    List<MethodDto> createMethodDtos(ITSPHPAst identifier);
+    Collection<OverloadDto> getOverloadDtos(ITSPHPAst identifier);
 
     VariableDto createVariableDtoForConstant(IOverloadBindings bindings, ITSPHPAst constantId);
 

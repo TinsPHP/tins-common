@@ -8,6 +8,9 @@ package ch.tsphp.tinsphp.common.config;
 
 import ch.tsphp.tinsphp.common.IInferenceEngine;
 import ch.tsphp.tinsphp.common.scopes.IGlobalNamespaceScope;
+import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+
+import java.util.List;
 
 /**
  * Responsible to initialise the inference engine component.
@@ -18,4 +21,6 @@ public interface IInferenceEngineInitialiser extends IInitialiser
     IInferenceEngine getEngine();
 
     IGlobalNamespaceScope getGlobalDefaultNamespace();
+
+    List<IMethodSymbol> getMethodSymbols();
 }
