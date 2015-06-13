@@ -12,10 +12,6 @@
 
 package ch.tsphp.tinsphp.common.issues;
 
-import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
-import ch.tsphp.tinsphp.common.translation.dtos.ParameterDto;
-import ch.tsphp.tinsphp.common.translation.dtos.TypeParameterDto;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -42,8 +38,8 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
 
     protected abstract String getStandardReferenceIssueMessage(String identifier, ReferenceIssueDto dto);
 
-    protected abstract String getStandardWrongArgumentTypeIssueMessage(String identifier,
-            WrongArgumentTypeIssueDto dto);
+    protected abstract String getStandardWrongArgumentTypeIssueMessage(
+            String identifier, WrongArgumentTypeIssueDto dto);
 
 
     @Override
@@ -124,85 +120,13 @@ public abstract class AIssueMessageProvider implements IIssueMessageProvider
         return sb.toString();
     }
 
-    protected String getOverloadSignatures(List<OverloadDto> overloads) {
-        StringBuilder sb = new StringBuilder();
-        Iterator<OverloadDto> iterator = overloads.iterator();
-        appendOverload(sb, iterator.next());
+    protected String getOverloadSignatures(List<String> overloads) {
+        StringBuilder stringBuilder = new StringBuilder();
+        Iterator<String> iterator = overloads.iterator();
+        stringBuilder.append(iterator.next());
         while (iterator.hasNext()) {
-            sb.append("\n");
-            appendOverload(sb, iterator.next());
+            stringBuilder.append("\n").append(iterator.next());
         }
-        return sb.toString();
-    }
-
-    private void appendOverload(StringBuilder sb, OverloadDto overloadDto) {
-        Iterator<ParameterDto> iterator = overloadDto.parameters.iterator();
-        if (iterator.hasNext()) {
-            appendParameter(sb, iterator.next());
-        }
-        while (iterator.hasNext()) {
-            sb.append(" x ");
-            appendParameter(sb, iterator.next());
-        }
-        if (overloadDto.parameters.size() == 0) {
-            sb.append("()");
-        }
-        sb.append(" -> ").append(overloadDto.returnType.type);
-        if (overloadDto.typeParameters != null) {
-            Iterator<TypeParameterDto> typeParamIterator = overloadDto.typeParameters.iterator();
-            boolean isFirstWithBounds = true;
-            TypeParameterDto typeParameter = typeParamIterator.next();
-            if (typeParameter.lowerBounds != null || typeParameter.upperBounds != null) {
-                sb.append(" \\ ");
-                isFirstWithBounds = false;
-                appendTypeParameter(sb, typeParameter);
-            }
-            while (typeParamIterator.hasNext()) {
-                typeParameter = typeParamIterator.next();
-                if (typeParameter.lowerBounds != null || typeParameter.upperBounds != null) {
-                    if (!isFirstWithBounds) {
-                        sb.append(", ");
-                    } else {
-                        sb.append(" \\ ");
-                        isFirstWithBounds = false;
-                    }
-                    appendTypeParameter(sb, typeParameter);
-                }
-            }
-        }
-    }
-
-    private void appendTypeParameter(StringBuilder sb, TypeParameterDto typeParameter) {
-        if (typeParameter.lowerBounds != null) {
-            appendBound(sb, typeParameter.lowerBounds, " | ");
-            sb.append(" <: ");
-        }
-        sb.append(typeParameter.typeVariable);
-        if (typeParameter.upperBounds != null) {
-            sb.append(" <: ");
-            appendBound(sb, typeParameter.upperBounds, " & ");
-        }
-    }
-
-    protected void appendBound(StringBuilder sb, List<String> bounds, String separator) {
-        boolean hasMoreThanOne = bounds.size() > 1;
-        if (hasMoreThanOne) {
-            sb.append("(");
-        }
-        Iterator<String> iterator = bounds.iterator();
-        sb.append(iterator.next());
-        while (iterator.hasNext()) {
-            sb.append(separator).append(iterator.next());
-        }
-        if (hasMoreThanOne) {
-            sb.append(")");
-        }
-    }
-
-    private void appendParameter(StringBuilder sb, ParameterDto parameter) {
-        sb.append(parameter.type.type);
-        if (parameter.defaultValue != null) {
-            sb.append("=").append(parameter.defaultValue);
-        }
+        return stringBuilder.toString();
     }
 }

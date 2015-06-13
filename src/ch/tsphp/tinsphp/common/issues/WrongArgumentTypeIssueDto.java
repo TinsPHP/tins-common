@@ -12,8 +12,6 @@
 
 package ch.tsphp.tinsphp.common.issues;
 
-import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
-
 import java.util.List;
 
 /**
@@ -23,10 +21,10 @@ public class WrongArgumentTypeIssueDto extends ReferenceIssueDto
 {
 
     public String[] actualParameterTypes;
-    public List<OverloadDto> possibleOverloads;
+    public List<String> possibleOverloads;
 
     public WrongArgumentTypeIssueDto(String theIdentifier, int theLine, int thePosition,
-            String[] theActualParameterTypes, List<OverloadDto> thePossibleOverloads) {
+            String[] theActualParameterTypes, List<String> thePossibleOverloads) {
         super(theIdentifier, theLine, thePosition);
         actualParameterTypes = theActualParameterTypes;
         possibleOverloads = thePossibleOverloads;

@@ -10,10 +10,6 @@ import ch.tsphp.tinsphp.common.issues.AIssueMessageProvider;
 import ch.tsphp.tinsphp.common.issues.DefinitionIssueDto;
 import ch.tsphp.tinsphp.common.issues.ReferenceIssueDto;
 import ch.tsphp.tinsphp.common.issues.WrongArgumentTypeIssueDto;
-import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
-import ch.tsphp.tinsphp.common.translation.dtos.ParameterDto;
-import ch.tsphp.tinsphp.common.translation.dtos.TypeDto;
-import ch.tsphp.tinsphp.common.translation.dtos.TypeParameterDto;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -192,46 +188,13 @@ public class AIssueMessageProviderTest
         String id = "id";
         int line = 12;
         int pos = 23;
-        ArrayList<OverloadDto> overloads = new ArrayList<>();
-
-        List<TypeParameterDto> typeParameters = asList(
-                new TypeParameterDto(asList("T2", "int", "float"), "T1", null),
-                new TypeParameterDto(asList("int"), "T2", asList("IA", "IB")));
-        List<ParameterDto> parameters = asList(
-                new ParameterDto(new TypeDto(null, "T1", null), null, null),
-                new ParameterDto(new TypeDto(null, "int", null), null, null),
-                new ParameterDto(new TypeDto(null, "T2", null), null, null)
+        List<String> overloads = asList(
+                "T1 x int x T2 -> T1 \\ (T2 | int | float) <: T1, int <: T2 <: (IA & IB)",
+                "T1 x T2 x string -> int \\ T2 <: int",
+                "T1 x T2 x string -> int \\ T1 <: num, T2 <: int",
+                "string x string x string -> int",
+                "() -> int"
         );
-        overloads.add(new OverloadDto(new TypeDto(null, "T1", null), null, typeParameters, parameters, null));
-
-        typeParameters = asList(
-                new TypeParameterDto(null, "T1", null),
-                new TypeParameterDto(null, "T2", asList("int")));
-        parameters = asList(
-                new ParameterDto(new TypeDto(null, "T1", null), null, null),
-                new ParameterDto(new TypeDto(null, "T2", null), null, null),
-                new ParameterDto(new TypeDto(null, "string", null), null, null)
-        );
-        overloads.add(new OverloadDto(new TypeDto(null, "int", null), null, typeParameters, parameters, null));
-
-        typeParameters = asList(
-                new TypeParameterDto(null, "T1", asList("num")),
-                new TypeParameterDto(null, "T2", asList("int")));
-        parameters = asList(
-                new ParameterDto(new TypeDto(null, "T1", null), null, null),
-                new ParameterDto(new TypeDto(null, "T2", null), null, null),
-                new ParameterDto(new TypeDto(null, "string", null), null, null)
-        );
-        overloads.add(new OverloadDto(new TypeDto(null, "int", null), null, typeParameters, parameters, null));
-
-        parameters = asList(
-                new ParameterDto(new TypeDto(null, "string", null), null, null),
-                new ParameterDto(new TypeDto(null, "string", null), null, null),
-                new ParameterDto(new TypeDto(null, "string", null), null, null)
-        );
-        overloads.add(new OverloadDto(new TypeDto(null, "int", null), null, null, parameters, null));
-
-        overloads.add(new OverloadDto(new TypeDto(null, "int", null), null, null, new ArrayList<ParameterDto>(), null));
 
         WrongArgumentTypeIssueDto dto = new WrongArgumentTypeIssueDto(
                 id, line, pos, new String[]{"int", "string", "float"}, overloads);
@@ -256,7 +219,7 @@ public class AIssueMessageProviderTest
         int line = 12;
         int pos = 23;
         WrongArgumentTypeIssueDto dto = new WrongArgumentTypeIssueDto(
-                id, line, pos, new String[]{}, new ArrayList<OverloadDto>());
+                id, line, pos, new String[]{}, new ArrayList<String>());
 
         AIssueMessageProvider messageProvider = createMessageProviderWithWrongArgumentType(map);
         String result = messageProvider.getWrongArgumentTypeIssueMessage("test", dto);
