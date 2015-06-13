@@ -9,12 +9,24 @@ package ch.tsphp.tinsphp.common.translation.dtos;
 public final class ParameterDto
 {
     public final TypeDto type;
-    public final String variableId;
+    public final String parameterId;
     public final String defaultValue;
+    /**
+     * A parameter can have a defined type hint in which case a local variable needs to be created in addition.
+     */
+    public final TypeDto typeHint;
+    public final String localVariableId;
 
-    public ParameterDto(TypeDto theType, String theVariableId, String theDefaultValue) {
+    public ParameterDto(
+            TypeDto theType,
+            String theParameterId,
+            String theDefaultValue,
+            TypeDto theTypeHint,
+            String theLocalVariableId) {
         type = theType;
-        variableId = theVariableId;
+        parameterId = theParameterId;
         defaultValue = theDefaultValue;
+        typeHint = theTypeHint;
+        localVariableId = theLocalVariableId;
     }
 }
