@@ -12,7 +12,7 @@ import java.util.List;
 
 public final class OverloadDto
 {
-    public final TypeDto returnType;
+    public final VariableDto returnVariable;
     public final String identifier;
     public final List<TypeParameterDto> typeParameters;
     public final List<ParameterDto> parameters;
@@ -20,12 +20,12 @@ public final class OverloadDto
 
 
     public OverloadDto(
-            TypeDto theReturnType,
+            VariableDto theReturnVariable,
             String theIdentifier,
             List<TypeParameterDto> theTypeParameters,
             List<ParameterDto> theParameters,
             IOverloadBindings theBindings) {
-        returnType = theReturnType;
+        returnVariable = theReturnVariable;
         identifier = theIdentifier;
         typeParameters = theTypeParameters;
         parameters = theParameters;
