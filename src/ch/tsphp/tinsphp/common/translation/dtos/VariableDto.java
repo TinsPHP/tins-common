@@ -8,10 +8,12 @@ package ch.tsphp.tinsphp.common.translation.dtos;
 
 public final class VariableDto
 {
+    public final TypeParameterDto typeParameter;
     public final TypeDto type;
     public final String variableId;
 
-    public VariableDto(TypeDto theType, String theVariableId) {
+    public VariableDto(TypeParameterDto theTypeParameter, TypeDto theType, String theVariableId) {
+        typeParameter = theTypeParameter;
         type = theType;
         variableId = theVariableId;
     }
