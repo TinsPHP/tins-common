@@ -12,10 +12,12 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 public final class BoundResultDto
 {
     public final boolean hasChanged;
+    public final boolean hasChangedOtherBounds;
     public final boolean usedImplicitConversion;
 
-    public BoundResultDto(boolean hasItChanged, boolean wasAnImplicitConversionUsed) {
+    public BoundResultDto(boolean hasItChanged, boolean hasItChangedOtherBounds, boolean wasAnImplicitConversionUsed) {
         hasChanged = hasItChanged;
+        hasChangedOtherBounds = hasItChangedOtherBounds;
         usedImplicitConversion = wasAnImplicitConversionUsed;
     }
 }
