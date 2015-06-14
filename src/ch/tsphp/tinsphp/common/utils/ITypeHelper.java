@@ -34,6 +34,14 @@ public interface ITypeHelper
             ITypeSymbol potentialSubType, ITypeSymbol typeSymbol, boolean shallConsiderImplicitConversions);
 
     /**
+     * Indicates whether the given potentialSubType is a subtype of the given typeSymbol -- it considers implicit
+     * conversions (coercive subtyping) and adds upper bound constraints for the given type variable.
+     */
+    TypeHelperDto isFirstSameOrSubTypeOfSecond(
+            ITypeSymbol potentialSubType, ITypeSymbol typeSymbol, String typeVariable);
+
+
+    /**
      * Indicates whether the given potentialSubType is a parent type of the given typeSymbol considering implicit
      * conversions (coercive subtyping).
      */
@@ -45,4 +53,12 @@ public interface ITypeHelper
      */
     TypeHelperDto isFirstSameOrParentTypeOfSecond(
             ITypeSymbol potentialParentType, ITypeSymbol typeSymbol, boolean shallConsiderImplicitConversions);
+
+
+    /**
+     * Indicates whether the given potentialSubType is a paren type of the given typeSymbol -- it considers implicit
+     * conversion (coercive subtyping) and adds upper bound constraints for the given type variable
+     */
+    TypeHelperDto isFirstSameOrParentTypeOfSecond(
+            ITypeSymbol potentialParentType, ITypeSymbol typeSymbol, String typeVariable);
 }

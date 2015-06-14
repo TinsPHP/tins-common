@@ -23,6 +23,7 @@ public class TypeHelperDto
     public ERelation relation;
     public Map<String, List<ITypeSymbol>> lowerConstraints;
     public Map<String, List<ITypeSymbol>> upperConstraints;
+    public String typeVariable;
 
     public TypeHelperDto(
             ITypeSymbol theFromType, ITypeSymbol theToType, boolean considerImplicitConversions) {
