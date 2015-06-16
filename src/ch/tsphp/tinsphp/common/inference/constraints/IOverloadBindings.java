@@ -29,6 +29,8 @@ public interface IOverloadBindings
 
     ITypeVariableReference getTypeVariableReference(String variableId);
 
+    String getTypeVariable(String variableId);
+
     Set<String> getVariableIds();
 
     BoundResultDto addLowerRefBound(String typeVariable, ITypeVariableReference reference);
@@ -109,4 +111,20 @@ public interface IOverloadBindings
     void bind(IParametricType parametricType, List<String> typeVariables);
 
     int getNumberOfConvertibleApplications();
+
+    void changeToSoftTypingMode();
+
+    void changeToModificationMode();
+
+    void changeToNormalMode();
+
+    boolean isNotInSoftTypingMode();
+
+    void setLowerTypeBound(String typeVariable, IUnionTypeSymbol lowerTypeBound);
+
+    void setUpperTypeBound(String typeVariable, IIntersectionTypeSymbol upperTypeBound);
+
+    void removeLowerTypeBound(String typeVariable);
+
+    void removeUpperTypeBound(String typeVariable);
 }
