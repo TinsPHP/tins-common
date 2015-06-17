@@ -15,9 +15,11 @@ public class FunctionApplicationDto
      */
     public String name;
     public Map<Integer, String> runtimeChecks;
+    public String returnRuntimeCheck;
 
-    public FunctionApplicationDto(String theName, Map<Integer, String> theRuntimeChecks) {
+    public FunctionApplicationDto(String theName, Map<Integer, String> theRuntimeChecks, String theReturnRuntimeCheck) {
         name = theName;
         runtimeChecks = theRuntimeChecks;
+        returnRuntimeCheck = theReturnRuntimeCheck;
     }
 }
