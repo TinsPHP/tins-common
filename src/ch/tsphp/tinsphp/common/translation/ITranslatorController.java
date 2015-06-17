@@ -9,6 +9,7 @@ package ch.tsphp.tinsphp.common.translation;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
+import ch.tsphp.tinsphp.common.translation.dtos.FunctionApplicationDto;
 import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
 import ch.tsphp.tinsphp.common.translation.dtos.VariableDto;
 
@@ -32,7 +33,12 @@ public interface ITranslatorController
 
     VariableDto createVariableDto(IOverloadBindings bindings, ITSPHPAst variableId);
 
-    String getOverloadName(IOverloadBindings bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
+    FunctionApplicationDto getFunctionApplication(IOverloadBindings bindings, ITSPHPAst functionCall,
+            ITSPHPAst identifier);
 
-    String getMigrationFunction(IOverloadBindings bindings, ITSPHPAst operator);
+    FunctionApplicationDto getOperatorApplication(IOverloadBindings bindings, ITSPHPAst operator);
+
+    String getErrMessageFunctionApplication(IOverloadBindings bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
+
+    String getErrMessageOperatorApplication(IOverloadBindings bindings, ITSPHPAst operator);
 }

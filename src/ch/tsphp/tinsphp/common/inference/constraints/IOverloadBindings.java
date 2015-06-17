@@ -17,7 +17,7 @@ public interface IOverloadBindings
 {
 
     /**
-     * Creates a temporary variable and returns its corresponding type variable.
+     * Creates a temporary variable and returns its corresponding type variable reference.
      */
     ITypeVariableReference createHelperVariable();
 
@@ -64,23 +64,24 @@ public interface IOverloadBindings
     Set<String> getUpperBoundConstraintIds(String typeVariable);
 
     /**
-     * Returns the overload which was taken for this expression node.
+     * Returns the application information which was taken for the expression node with the given id
      */
-    IFunctionType getAppliedOverload(String variableId);
+    OverloadApplicationDto getAppliedOverload(String variableId);
 
     /**
-     * Sets the overload which was taken for the given expression node.
+     * Sets the applied overload (including conversions and runtime checks) for the expression node with the given
+     * variableId.
      * <p/>
      * For instance, if the expression node represents the + operator then multiple overloads can be taken. To name
      * just two of them:
      * <p/>
-     * -  T x T -> T \ T < num
-     * -  bool x bool -> int
+     * -  int x int -> int
+     * -  {as T} x {as T} -> T \ T <: num
      * <p/>
      * Let's say the first overload was taken, in this case we store this information via this method in the
-     * binding
+     * binding. Furthermore, we define whether the application included any implicit conversion or
      */
-    void setAppliedOverload(String variableId, IFunctionType overload);
+    void setAppliedOverload(String variableId, OverloadApplicationDto dto);
 
     void fixType(String variableId);
 
