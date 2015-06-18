@@ -33,6 +33,8 @@ public interface IOverloadBindings
 
     Set<String> getVariableIds();
 
+    Set<String> getVariableIds(String typeVariable);
+
     BoundResultDto addLowerRefBound(String typeVariable, ITypeVariableReference reference);
 
     BoundResultDto addLowerTypeBound(String typeVariable, ITypeSymbol typeSymbol);
@@ -121,11 +123,11 @@ public interface IOverloadBindings
 
     boolean isNotInSoftTypingMode();
 
-    void setLowerTypeBound(String typeVariable, IUnionTypeSymbol lowerTypeBound);
+    void setLowerTypeBounds(String typeVariable, IUnionTypeSymbol lowerTypeBound);
 
-    void setUpperTypeBound(String typeVariable, IIntersectionTypeSymbol upperTypeBound);
+    void setUpperTypeBounds(String typeVariable, IIntersectionTypeSymbol upperTypeBound);
 
-    void removeLowerTypeBound(String typeVariable);
+    IUnionTypeSymbol removeLowerTypeBounds(String typeVariable);
 
-    void removeUpperTypeBound(String typeVariable);
+    IIntersectionTypeSymbol removeUpperTypeBounds(String typeVariable);
 }
