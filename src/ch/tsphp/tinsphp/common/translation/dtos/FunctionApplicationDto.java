@@ -6,7 +6,10 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
+import ch.tsphp.tinsphp.common.utils.Pair;
+
 import java.util.Map;
+import java.util.SortedSet;
 
 public class FunctionApplicationDto
 {
@@ -14,10 +17,17 @@ public class FunctionApplicationDto
      * The name of the function application or null if it was an operator application.
      */
     public String name;
+    public Map<Integer, Pair<String, SortedSet<String>>> conversions;
     public Map<Integer, String> runtimeChecks;
     public String returnRuntimeCheck;
 
-    public FunctionApplicationDto(String theName, Map<Integer, String> theRuntimeChecks, String theReturnRuntimeCheck) {
+    public FunctionApplicationDto() {
+    }
+
+    public FunctionApplicationDto(
+            String theName,
+            Map<Integer, String> theRuntimeChecks,
+            String theReturnRuntimeCheck) {
         name = theName;
         runtimeChecks = theRuntimeChecks;
         returnRuntimeCheck = theReturnRuntimeCheck;
