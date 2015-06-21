@@ -115,13 +115,9 @@ public interface IOverloadBindings
 
     int getNumberOfConvertibleApplications();
 
-    void changeToSoftTypingMode();
+    void setMode(EOverloadBindingsMode mode);
 
-    void changeToModificationMode();
-
-    void changeToNormalMode();
-
-    boolean isNotInSoftTypingMode();
+    EOverloadBindingsMode getMode();
 
     void setLowerTypeBounds(String typeVariable, IUnionTypeSymbol lowerTypeBound);
 

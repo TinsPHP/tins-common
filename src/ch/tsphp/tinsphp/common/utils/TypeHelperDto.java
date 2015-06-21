@@ -9,8 +9,8 @@ package ch.tsphp.tinsphp.common.utils;
 import ch.tsphp.common.symbols.ITypeSymbol;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Represents the result of the different methods of the ITypeHelper.
@@ -21,8 +21,8 @@ public class TypeHelperDto
     public ITypeSymbol toType;
     public boolean shallConsiderImplicitConversions;
     public ERelation relation;
-    public Map<String, List<ITypeSymbol>> lowerConstraints;
-    public Map<String, List<ITypeSymbol>> upperConstraints;
+    public Map<String, Set<ITypeSymbol>> lowerConstraints;
+    public Map<String, Set<ITypeSymbol>> upperConstraints;
     public String typeVariable;
 
     public TypeHelperDto(

@@ -8,24 +8,21 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 
 import ch.tsphp.common.symbols.ITypeSymbol;
 
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Represents the result of adding a bound (type or reference) to an IOverloadBindings.
  */
 public final class BoundResultDto
 {
-    public final boolean hasChanged;
-    public final boolean hasChangedOtherBounds;
-    public final boolean usedImplicitConversion;
-    public final ITypeSymbol implicitConversionProvider;
+    public boolean hasChanged;
+    public boolean hasChangedOtherBounds;
+    public boolean usedImplicitConversion;
+    public ITypeSymbol implicitConversionProvider;
+    public Map<String, Set<ITypeSymbol>> lowerConstraints;
+    public Map<String, Set<ITypeSymbol>> upperConstraints;
 
-    public BoundResultDto(
-            boolean hasItChanged,
-            boolean hasItChangedOtherBounds,
-            boolean wasAnImplicitConversionUsed,
-            ITypeSymbol theConversionProvider) {
-        hasChanged = hasItChanged;
-        hasChangedOtherBounds = hasItChangedOtherBounds;
-        usedImplicitConversion = wasAnImplicitConversionUsed;
-        implicitConversionProvider = theConversionProvider;
+    public BoundResultDto() {
     }
 }
