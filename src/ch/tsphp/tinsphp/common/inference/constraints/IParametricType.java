@@ -27,21 +27,21 @@ public interface IParametricType extends IPolymorphicType
 
     void renameTypeParameter(String typeParameter, String newTypeParameter);
 
-    void bindTo(IOverloadBindings newOverloadBindings, List<String> bindingTypeParameters);
+    void bindTo(IBindingCollection newBindingCollection, List<String> bindingTypeParameters);
 
     /**
      * This method is used to bind this parametric polymorphic type to another parametric polymorphic type without
      * changing the current type variables - it is assumed they already exists in the given overloadBindings.
      *
-     * @param newOverloadBindings The bindings to which it shall be bound
+     * @param newBindingCollection The bindings to which it shall be bound
      */
-    void rebind(IOverloadBindings newOverloadBindings);
+    void rebind(IBindingCollection newBindingCollection);
 
     List<String> getTypeParameters();
 
     Set<String> getNonFixedTypeParameters();
 
-    IOverloadBindings getOverloadBindings();
+    IBindingCollection getBindingCollection();
 
     @Override
     IParametricType copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);

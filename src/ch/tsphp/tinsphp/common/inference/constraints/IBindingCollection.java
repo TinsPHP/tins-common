@@ -13,7 +13,7 @@ import ch.tsphp.tinsphp.common.symbols.IUnionTypeSymbol;
 import java.util.List;
 import java.util.Set;
 
-public interface IOverloadBindings
+public interface IBindingCollection
 {
 
     /**
@@ -115,9 +115,9 @@ public interface IOverloadBindings
 
     int getNumberOfConvertibleApplications();
 
-    void setMode(EOverloadBindingsMode mode);
+    void setMode(EBindingCollectionMode mode);
 
-    EOverloadBindingsMode getMode();
+    EBindingCollectionMode getMode();
 
     void setLowerTypeBounds(String typeVariable, IUnionTypeSymbol lowerTypeBound);
 

@@ -7,7 +7,7 @@
 package ch.tsphp.tinsphp.common.translation;
 
 import ch.tsphp.common.ITSPHPAst;
-import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
+import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.translation.dtos.FunctionApplicationDto;
 import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
@@ -29,16 +29,16 @@ public interface ITranslatorController
 
     Collection<OverloadDto> getOverloadDtos(ITSPHPAst identifier);
 
-    VariableDto createVariableDtoForConstant(IOverloadBindings bindings, ITSPHPAst constantId);
+    VariableDto createVariableDtoForConstant(IBindingCollection bindings, ITSPHPAst constantId);
 
-    VariableDto createVariableDto(IOverloadBindings bindings, ITSPHPAst variableId);
+    VariableDto createVariableDto(IBindingCollection bindings, ITSPHPAst variableId);
 
-    FunctionApplicationDto getFunctionApplication(IOverloadBindings bindings, ITSPHPAst functionCall,
+    FunctionApplicationDto getFunctionApplication(IBindingCollection bindings, ITSPHPAst functionCall,
             ITSPHPAst identifier);
 
-    FunctionApplicationDto getOperatorApplication(IOverloadBindings bindings, ITSPHPAst operator);
+    FunctionApplicationDto getOperatorApplication(IBindingCollection bindings, ITSPHPAst operator);
 
-    String getErrMessageFunctionApplication(IOverloadBindings bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
+    String getErrMessageFunctionApplication(IBindingCollection bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
 
-    String getErrMessageOperatorApplication(IOverloadBindings bindings, ITSPHPAst operator);
+    String getErrMessageOperatorApplication(IBindingCollection bindings, ITSPHPAst operator);
 }

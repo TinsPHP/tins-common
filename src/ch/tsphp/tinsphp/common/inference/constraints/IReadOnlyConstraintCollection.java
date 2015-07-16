@@ -17,5 +17,5 @@ public interface IReadOnlyConstraintCollection
 
     List<IConstraint> getConstraints();
 
-    List<IOverloadBindings> getBindings();
+    List<IBindingCollection> getBindings();
 }

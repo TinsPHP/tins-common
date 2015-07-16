@@ -15,5 +15,5 @@ public interface IConstraintCollection extends IReadOnlyConstraintCollection
 {
     void addConstraint(IConstraint constraint);
 
-    void setBindings(List<IOverloadBindings> bindings);
+    void setBindings(List<IBindingCollection> bindings);
 }

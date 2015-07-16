@@ -9,7 +9,7 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 /**
  * Represents a mode of an IOverloadBindings.
  */
-public enum EOverloadBindingsMode
+public enum EBindingCollectionMode
 {
     Normal,
     SoftTyping,

@@ -6,7 +6,7 @@
 
 package ch.tsphp.tinsphp.common.translation;
 
-import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
+import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
@@ -21,7 +21,7 @@ public interface IDtoCreator
 {
     Collection<OverloadDto> createOverloadDtos(IMethodSymbol methodSymbol);
 
-    VariableDto createVariableDtoForConstant(IOverloadBindings bindings, IVariable constant);
+    VariableDto createVariableDtoForConstant(IBindingCollection bindings, IVariable constant);
 
-    VariableDto createVariableDto(IOverloadBindings bindings, IVariable variable);
+    VariableDto createVariableDto(IBindingCollection bindings, IVariable variable);
 }

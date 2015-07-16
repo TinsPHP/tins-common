@@ -16,9 +16,9 @@ import ch.tsphp.common.IScope;
 import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.TSPHPException;
 import ch.tsphp.common.symbols.ITypeSymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
 import ch.tsphp.tinsphp.common.inference.constraints.IFunctionType;
-import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 import ch.tsphp.tinsphp.common.inference.constraints.IVariable;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousLazySymbol;
 import ch.tsphp.tinsphp.common.symbols.erroneous.IErroneousMethodSymbol;
@@ -74,7 +74,7 @@ public interface ISymbolFactory
 
     IFunctionType createFunctionType(
             String name,
-            IOverloadBindings overloadBinding,
+            IBindingCollection bindingCollection,
             List<IVariable> parameters);
 
 //    IVariableSymbol createThisSymbol(ITSPHPAst variableId, IPolymorphicTypeSymbol polymorphicTypeSymbol);
@@ -99,7 +99,7 @@ public interface ISymbolFactory
     IConstraint createConstraint(
             ITSPHPAst operator, IVariable leftHandSide, List<IVariable> arguments, IMinimalMethodSymbol methodSymbol);
 
-    IOverloadBindings createOverloadBindings();
+    IBindingCollection createBindingCollection();
 
-    IOverloadBindings createOverloadBindings(IOverloadBindings overloadBindingsToCopy);
+    IBindingCollection createBindingCollection(IBindingCollection bindingCollectionToCopy);
 }

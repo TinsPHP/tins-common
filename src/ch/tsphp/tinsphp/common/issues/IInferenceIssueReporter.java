@@ -16,8 +16,8 @@ import ch.tsphp.common.ITSPHPAst;
 import ch.tsphp.common.exceptions.DefinitionException;
 import ch.tsphp.common.exceptions.ReferenceException;
 import ch.tsphp.common.symbols.ISymbol;
+import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 import ch.tsphp.tinsphp.common.inference.constraints.IConstraint;
-import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
 
 /**
  * Represents the type inference engine's issue reporter.
@@ -47,5 +47,5 @@ public interface IInferenceIssueReporter extends IIssueReporter
 
     void noReturnFromFunction(ITSPHPAst identifier);
 
-    ReferenceException constraintViolation(IOverloadBindings bindings, IConstraint constraint);
+    ReferenceException constraintViolation(IBindingCollection bindings, IConstraint constraint);
 }

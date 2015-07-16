@@ -6,7 +6,7 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
-import ch.tsphp.tinsphp.common.inference.constraints.IOverloadBindings;
+import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public final class OverloadDto
     public final String identifier;
     public final List<TypeParameterDto> typeParameters;
     public final List<ParameterDto> parameters;
-    public final IOverloadBindings bindings;
+    public final IBindingCollection bindings;
 
 
     public OverloadDto(
@@ -24,7 +24,7 @@ public final class OverloadDto
             String theIdentifier,
             List<TypeParameterDto> theTypeParameters,
             List<ParameterDto> theParameters,
-            IOverloadBindings theBindings) {
+            IBindingCollection theBindings) {
         returnVariable = theReturnVariable;
         identifier = theIdentifier;
         typeParameters = theTypeParameters;
