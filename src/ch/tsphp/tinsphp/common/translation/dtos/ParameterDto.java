@@ -13,20 +13,22 @@ public final class ParameterDto
     public final String defaultValue;
     /**
      * A parameter can have a defined type hint in which case a local variable needs to be created in addition.
+     *
+     * In such a case, the type hint is stored in the field type and the inferred type is stored in this field.
      */
-    public final TypeDto typeHint;
+    public final TypeDto localVariableType;
     public final String localVariableId;
 
     public ParameterDto(
             TypeDto theType,
             String theParameterId,
             String theDefaultValue,
-            TypeDto theTypeHint,
+            TypeDto theLocalVariableType,
             String theLocalVariableId) {
         type = theType;
         parameterId = theParameterId;
         defaultValue = theDefaultValue;
-        typeHint = theTypeHint;
+        localVariableType = theLocalVariableType;
         localVariableId = theLocalVariableId;
     }
 }
