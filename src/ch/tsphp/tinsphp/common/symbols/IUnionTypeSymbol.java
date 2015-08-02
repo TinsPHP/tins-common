@@ -19,7 +19,7 @@ public interface IUnionTypeSymbol extends IContainerTypeSymbol
      * exists in the union. In this case the method returns false because it represents the same type as before.
      */
     @Override
-    boolean addTypeSymbol(ITypeSymbol symbol);
+    boolean addTypeSymbol(ITypeSymbol typeSymbol);
 
     @Override
     IUnionTypeSymbol copy(Collection<IParametricTypeSymbol> parametricTypeSymbols);

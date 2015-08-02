@@ -6,10 +6,8 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
-import ch.tsphp.tinsphp.common.utils.Pair;
-
-import java.util.Map;
-import java.util.SortedSet;
+import java.util.List;
+import java.util.Set;
 
 public class FunctionApplicationDto
 {
@@ -17,19 +15,20 @@ public class FunctionApplicationDto
      * The name of the function application or null if it was an operator application.
      */
     public String name;
-    public Map<Integer, Pair<String, SortedSet<String>>> conversions;
-    public Map<Integer, String> runtimeChecks;
+    public List<Object> arguments;
+    /**
+     * This arguments do not require further runtime checks because they are already checked in a way.
+     * <p/>
+     * For instance, the function to call does already incorporate corresponding tests,
+     * the argument is converted previous the function call etc.
+     */
+    public Set<Integer> checkedArguments;
     public String returnRuntimeCheck;
 
     public FunctionApplicationDto() {
     }
 
-    public FunctionApplicationDto(
-            String theName,
-            Map<Integer, String> theRuntimeChecks,
-            String theReturnRuntimeCheck) {
+    public FunctionApplicationDto(String theName) {
         name = theName;
-        runtimeChecks = theRuntimeChecks;
-        returnRuntimeCheck = theReturnRuntimeCheck;
     }
 }
