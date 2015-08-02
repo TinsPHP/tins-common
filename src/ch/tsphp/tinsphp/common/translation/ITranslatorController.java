@@ -33,10 +33,11 @@ public interface ITranslatorController
 
     VariableDto createVariableDto(IBindingCollection bindings, ITSPHPAst variableId);
 
-    FunctionApplicationDto getFunctionApplication(IBindingCollection bindings, ITSPHPAst functionCall,
-            ITSPHPAst identifier);
+    FunctionApplicationDto getFunctionApplication(
+            IBindingCollection bindings, ITSPHPAst functionCall, List<Object> arguments);
 
-    FunctionApplicationDto getOperatorApplication(IBindingCollection bindings, ITSPHPAst operator);
+    FunctionApplicationDto getOperatorApplication(
+            IBindingCollection bindings, ITSPHPAst operator, List<Object> arguments);
 
     String getErrMessageFunctionApplication(IBindingCollection bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
 

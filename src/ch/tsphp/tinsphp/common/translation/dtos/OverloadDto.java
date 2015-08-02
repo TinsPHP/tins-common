@@ -7,6 +7,7 @@
 package ch.tsphp.tinsphp.common.translation.dtos;
 
 import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
+import ch.tsphp.tinsphp.common.utils.Pair;
 
 import java.util.List;
 
@@ -17,19 +18,27 @@ public final class OverloadDto
     public final List<TypeParameterDto> typeParameters;
     public final List<ParameterDto> parameters;
     public final IBindingCollection bindings;
-
+    /**
+     * Additional runtime checks for the parameters which need to be performed before the first statement in the
+     * function body.
+     * <p/>
+     * The key denotes the position of the corresponding parameter and the value the corresponding checks.
+     */
+    public final List<Pair<String, String>> parameterRuntimeChecks;
 
     public OverloadDto(
             VariableDto theReturnVariable,
             String theIdentifier,
             List<TypeParameterDto> theTypeParameters,
             List<ParameterDto> theParameters,
-            IBindingCollection theBindings) {
+            IBindingCollection theBindings,
+            List<Pair<String, String>> theParameterRuntimeChecks) {
         returnVariable = theReturnVariable;
         identifier = theIdentifier;
         typeParameters = theTypeParameters;
         parameters = theParameters;
         bindings = theBindings;
+        parameterRuntimeChecks = theParameterRuntimeChecks;
     }
 
 }
