@@ -8,6 +8,7 @@ package ch.tsphp.tinsphp.common.translation.dtos;
 
 import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 
+import java.util.Deque;
 import java.util.List;
 
 public final class OverloadDto
@@ -21,7 +22,7 @@ public final class OverloadDto
     /**
      * Statements which need to be included additionally at the beginning of the function body.
      */
-    public final List<String> statements;
+    public final Deque<String> statements;
 
     public OverloadDto(
             VariableDto theReturnVariable,
@@ -29,7 +30,7 @@ public final class OverloadDto
             List<TypeParameterDto> theTypeParameters,
             List<ParameterDto> theParameters,
             IBindingCollection theBindings,
-            List<String> theStatements) {
+            Deque<String> theStatements) {
         returnVariable = theReturnVariable;
         identifier = theIdentifier;
         typeParameters = theTypeParameters;
