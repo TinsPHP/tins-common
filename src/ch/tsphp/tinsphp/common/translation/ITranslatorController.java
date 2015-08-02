@@ -11,6 +11,7 @@ import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.translation.dtos.FunctionApplicationDto;
 import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
+import ch.tsphp.tinsphp.common.translation.dtos.TranslationScopeDto;
 import ch.tsphp.tinsphp.common.translation.dtos.VariableDto;
 
 import java.util.Collection;
@@ -34,10 +35,10 @@ public interface ITranslatorController
     VariableDto createVariableDto(IBindingCollection bindings, ITSPHPAst variableId);
 
     FunctionApplicationDto getFunctionApplication(
-            IBindingCollection bindings, ITSPHPAst functionCall, List<Object> arguments);
+            TranslationScopeDto translationScopeDto, ITSPHPAst functionCall, List<Object> arguments);
 
     FunctionApplicationDto getOperatorApplication(
-            IBindingCollection bindings, ITSPHPAst operator, List<Object> arguments);
+            TranslationScopeDto translationScopeDto, ITSPHPAst operator, List<Object> arguments);
 
     String getErrMessageFunctionApplication(IBindingCollection bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
 

@@ -6,9 +6,6 @@
 
 package ch.tsphp.tinsphp.common.translation.dtos;
 
-import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
-
-import java.util.Deque;
 import java.util.List;
 
 public final class OverloadDto
@@ -17,26 +14,19 @@ public final class OverloadDto
     public final String identifier;
     public final List<TypeParameterDto> typeParameters;
     public final List<ParameterDto> parameters;
-    public final IBindingCollection bindings;
-
-    /**
-     * Statements which need to be included additionally at the beginning of the function body.
-     */
-    public final Deque<String> statements;
+    public final TranslationScopeDto translationScopeDto;
 
     public OverloadDto(
             VariableDto theReturnVariable,
             String theIdentifier,
             List<TypeParameterDto> theTypeParameters,
             List<ParameterDto> theParameters,
-            IBindingCollection theBindings,
-            Deque<String> theStatements) {
+            TranslationScopeDto theTranslationScopeDto) {
         returnVariable = theReturnVariable;
         identifier = theIdentifier;
         typeParameters = theTypeParameters;
         parameters = theParameters;
-        bindings = theBindings;
-        statements = theStatements;
+        translationScopeDto = theTranslationScopeDto;
     }
 
 }
