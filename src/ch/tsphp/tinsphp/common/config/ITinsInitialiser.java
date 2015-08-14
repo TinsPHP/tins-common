@@ -18,7 +18,7 @@ import ch.tsphp.tinsphp.common.ICompiler;
 /**
  * Responsible to initialise the compiler component.
  */
-public interface ICompilerInitialiser extends IInitialiser
+public interface ITinsInitialiser extends IInitialiser
 {
     ICompiler getCompiler();
 }

@@ -54,7 +54,7 @@ public interface IFunctionType extends IParametricType
      */
     String getSuffix(String translatorId);
 
-    void addSuffix(String translatorId, String newName);
+    void addSuffix(String translatorId, String suffix);
 
     int getNumberOfNonOptionalParameters();
 
