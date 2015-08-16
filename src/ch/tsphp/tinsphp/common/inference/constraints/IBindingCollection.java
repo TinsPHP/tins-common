@@ -27,6 +27,8 @@ public interface IBindingCollection
 
     boolean containsVariable(String variableId);
 
+    boolean containsTypeVariable(String typeVariable);
+
     ITypeVariableReference getTypeVariableReference(String variableId);
 
     String getTypeVariable(String variableId);
@@ -110,6 +112,8 @@ public interface IBindingCollection
      * Renames the given typeVariable to the given newName.
      */
     void renameTypeVariable(String typeVariable, String newName);
+
+    void renameTypeVariableToNextFreeName(String typeVariables);
 
     void bind(IParametricType parametricType, List<String> typeVariables);
 
