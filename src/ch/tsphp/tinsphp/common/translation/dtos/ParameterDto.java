@@ -8,7 +8,7 @@ package ch.tsphp.tinsphp.common.translation.dtos;
 
 public final class ParameterDto
 {
-    public final TypeDto type;
+    public final String type;
     public final String parameterId;
     public final String defaultValue;
     /**
@@ -16,14 +16,14 @@ public final class ParameterDto
      *
      * In such a case, the type hint is stored in the field type and the inferred type is stored in this field.
      */
-    public final TypeDto localVariableType;
+    public final String localVariableType;
     public final String localVariableId;
 
     public ParameterDto(
-            TypeDto theType,
+            String theType,
             String theParameterId,
             String theDefaultValue,
-            TypeDto theLocalVariableType,
+            String theLocalVariableType,
             String theLocalVariableId) {
         type = theType;
         parameterId = theParameterId;
