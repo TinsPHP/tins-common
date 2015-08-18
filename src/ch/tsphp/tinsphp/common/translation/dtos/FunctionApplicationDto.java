@@ -17,6 +17,10 @@ public class FunctionApplicationDto
     public String name;
     public List<Object> arguments;
     /**
+     * The types to use to instantiate the type parameters.
+     */
+    public List<String> typeParameters;
+    /**
      * This arguments do not require further runtime checks because they are already checked in a way.
      * <p/>
      * For instance, the function to call does already incorporate corresponding tests,
