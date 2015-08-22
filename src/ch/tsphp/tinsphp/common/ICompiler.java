@@ -60,4 +60,9 @@ public interface ICompiler extends IIssueReporter
     boolean needsAReset();
 
     Map<String, String> getTranslations();
+
+    /**
+     * Shuts down the compiler and with it the executor
+     */
+    void shutdown();
 }
