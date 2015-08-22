@@ -12,14 +12,14 @@ import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
 import ch.tsphp.tinsphp.common.translation.dtos.VariableDto;
 
-import java.util.Collection;
+import java.util.SortedMap;
 
 /**
  * Is responsible to create meta-data dtos.
  */
 public interface IDtoCreator
 {
-    Collection<OverloadDto> createOverloadDtos(IMethodSymbol methodSymbol);
+    SortedMap<String, OverloadDto> createOverloadDtos(IMethodSymbol methodSymbol);
 
     VariableDto createVariableDtoForConstant(IBindingCollection bindings, IVariable constant);
 

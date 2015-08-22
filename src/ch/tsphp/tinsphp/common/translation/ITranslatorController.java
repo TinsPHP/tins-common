@@ -14,8 +14,8 @@ import ch.tsphp.tinsphp.common.translation.dtos.OverloadDto;
 import ch.tsphp.tinsphp.common.translation.dtos.TranslationScopeDto;
 import ch.tsphp.tinsphp.common.translation.dtos.VariableDto;
 
-import java.util.Collection;
 import java.util.List;
+import java.util.SortedMap;
 
 public interface ITranslatorController
 {
@@ -28,7 +28,7 @@ public interface ITranslatorController
 
     String getTempVariableNameIfNotVariable(ITSPHPAst expression);
 
-    Collection<OverloadDto> getOverloadDtos(ITSPHPAst identifier);
+    SortedMap<String, OverloadDto> getOverloadDtos(ITSPHPAst identifier);
 
     VariableDto createVariableDtoForConstant(IBindingCollection bindings, ITSPHPAst constantId);
 
