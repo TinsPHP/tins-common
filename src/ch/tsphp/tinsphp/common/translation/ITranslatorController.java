@@ -7,6 +7,7 @@
 package ch.tsphp.tinsphp.common.translation;
 
 import ch.tsphp.common.ITSPHPAst;
+import ch.tsphp.common.symbols.ITypeSymbol;
 import ch.tsphp.tinsphp.common.inference.constraints.IBindingCollection;
 import ch.tsphp.tinsphp.common.symbols.IMethodSymbol;
 import ch.tsphp.tinsphp.common.translation.dtos.FunctionApplicationDto;
@@ -43,4 +44,6 @@ public interface ITranslatorController
     String getErrMessageFunctionApplication(IBindingCollection bindings, ITSPHPAst functionCall, ITSPHPAst identifier);
 
     String getErrMessageOperatorApplication(IBindingCollection bindings, ITSPHPAst operator);
+
+    String getTransformedTypeName(ITypeSymbol typeSymbol);
 }
