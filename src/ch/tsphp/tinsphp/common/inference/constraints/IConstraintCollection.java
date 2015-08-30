@@ -9,11 +9,13 @@ package ch.tsphp.tinsphp.common.inference.constraints;
 import java.util.List;
 
 /**
- * A writeable constraint collection, meaning it provides an addConstraint method.
+ * A writable constraint collection, meaning it provides an addConstraint method.
  */
 public interface IConstraintCollection extends IReadOnlyConstraintCollection
 {
     void addConstraint(IConstraint constraint);
+
+    void addBindingCollection(IBindingCollection bindingCollection);
 
     void setBindings(List<IBindingCollection> bindings);
 }
