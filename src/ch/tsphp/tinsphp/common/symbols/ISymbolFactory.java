@@ -47,11 +47,16 @@ public interface ISymbolFactory
     IArrayTypeSymbol createArrayTypeSymbol(String name, ITypeSymbol keyValue, ITypeSymbol valueType);
 
     /**
-     * Create and return a PseudoTypeSymbol with the given name and mixed as parent type symbol.
+     * Creates and return a PseudoTypeSymbol with the given name and mixed as parent type symbol and isFinal false.
      */
     IPseudoTypeSymbol createPseudoTypeSymbol(String name);
 
-    IPseudoTypeSymbol createPseudoTypeSymbol(String name, ITypeSymbol parentTypeSymbol);
+    /**
+     * Creates and return a PseudoTypeSymbol with the given name and mixed as parent type symbol.
+     */
+    IPseudoTypeSymbol createPseudoTypeSymbol(String name, boolean isFinal);
+
+    IPseudoTypeSymbol createPseudoTypeSymbol(String name, ITypeSymbol parentTypeSymbol, boolean isFinal);
 
     IAliasSymbol createAliasSymbol(ITSPHPAst useDefinition, String alias);
 
