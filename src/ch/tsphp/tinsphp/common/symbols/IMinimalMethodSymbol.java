@@ -13,7 +13,7 @@ import java.util.Collection;
 
 public interface IMinimalMethodSymbol extends ISymbol
 {
-    void addOverload(IFunctionType overload);
+    void setOverloads(Collection<IFunctionType> overloads);
 
     Collection<IFunctionType> getOverloads();
 }
